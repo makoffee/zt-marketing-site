@@ -80,7 +80,7 @@ export type Radii = "button" | "large" | "circle"
 
 const radii: Record<Radii, string> = {
   button: "10px",
-  large: "24px",
+  large: "64px",
   circle: "99999px",
 }
 
