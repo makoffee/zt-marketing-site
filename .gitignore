@@ -5,3 +5,9 @@ node_modules
 public
 dist
 .DS_Store
+<<<<<<< HEAD
+=======
+.*
+!/.gitignore
+
+>>>>>>> dev

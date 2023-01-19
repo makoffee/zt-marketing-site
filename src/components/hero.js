@@ -18,6 +18,7 @@ export default function Hero(props) {
     <Section>
       <Container>
         <Flex gap={4} variant="responsive">
+<<<<<<< HEAD
           <Box width="half">
             {props.image && (
               <GatsbyImage
@@ -27,6 +28,9 @@ export default function Hero(props) {
             )}
           </Box>
           <Box width="half">
+=======
+        <Box width="half">
+>>>>>>> dev
             <Heading as="h1">
               {props.kicker && <Kicker>{props.kicker}</Kicker>}
               {props.h1}
@@ -35,6 +39,17 @@ export default function Hero(props) {
             <Text as="p">{props.text}</Text>
             <ButtonList links={props.links} />
           </Box>
+<<<<<<< HEAD
+=======
+          <Box width="half">
+            {props.image && (
+              <GatsbyImage
+                alt={props.image.alt}
+                image={getImage(props.image.gatsbyImageData)}
+              />
+            )}
+          </Box>
+>>>>>>> dev
         </Flex>
       </Container>
     </Section>
