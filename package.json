@@ -5,8 +5,8 @@
     "node": ">=18.0.0"
   },
   "scripts": {
-    "start": "gatsby develop",
-    "develop": "gatsby develop",
+    "start": "ENABLE_GATSBY_REFRESH_ENDPOINT=true gatsby develop",
+    "develop": "ENABLE_GATSBY_REFRESH_ENDPOINT=true gatsby develop",
     "build": "gatsby build",
     "serve": "gatsby serve",
     "clean": "gatsby clean",
@@ -25,7 +25,9 @@
     "gatsby": "^5.0.0",
     "gatsby-plugin-image": "^3.0.0",
     "gatsby-plugin-manifest": "^5.0.0",
+    "gatsby-plugin-robots-txt": "^1.8.0",
     "gatsby-plugin-sharp": "^5.0.0",
+    "gatsby-plugin-sitemap": "^6.4.0",
     "gatsby-plugin-vanilla-extract": "^2.0.1",
     "gatsby-source-contentful": "^8.0.0",
     "gatsby-source-filesystem": "^5.0.0",
