@@ -21,6 +21,21 @@ module.exports = {
         host: process.env.CONTENTFUL_HOST,
       },
     },
+    {
+      resolve: 'gatsby-plugin-robots-txt',
+      options: {
+        host: 'https://www.example.com',
+        sitemap: 'https://www.example.com/sitemap.xml',
+        env: {
+          development: {
+            policy: [{userAgent: '*', disallow: ['/']}]
+          },
+          production: {
+            policy: [{userAgent: '*', allow: '/'}]
+          }
+        }
+      }
+    },
     "gatsby-plugin-sharp",
     "gatsby-plugin-image",
     "gatsby-transformer-sharp",
