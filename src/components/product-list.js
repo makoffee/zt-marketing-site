@@ -10,7 +10,7 @@ import {
   Subhead,
   Box,
   Icon,
-  LinkList,
+  ButtonList,
 } from "./ui"
 
 function Product(props) {
@@ -25,7 +25,7 @@ function Product(props) {
       )}
       <Subhead>{props.heading}</Subhead>
       <Text>{props.text}</Text>
-      <LinkList links={props.links} />
+      <ButtonList links={props.links} />
     </Box>
   )
 }
@@ -41,7 +41,7 @@ export default function ProductList(props) {
           </Heading>
           {props.text && <Text>{props.text}</Text>}
         </Box>
-        <FlexList gap={4} variant="responsive">
+        <FlexList gap={3} variant="spaceBetween">
           {props.content.map((product) => (
             <li key={product.id}>
               <Product {...product} />
