@@ -1,12 +1,13 @@
 {
   "name": "gatsby-starter-contentful-homepage",
   "version": "1.0.0",
+  "license": "0BSD",
   "engines": {
     "node": ">=18.0.0"
   },
   "scripts": {
-    "start": "ENABLE_GATSBY_REFRESH_ENDPOINT=true gatsby develop",
-    "develop": "ENABLE_GATSBY_REFRESH_ENDPOINT=true gatsby develop",
+    "start": "gatsby develop",
+    "develop": "gatsby develop",
     "build": "gatsby build",
     "serve": "gatsby serve",
     "clean": "gatsby clean",
@@ -31,6 +32,7 @@
     "gatsby-plugin-vanilla-extract": "^2.0.1",
     "gatsby-source-contentful": "^8.0.0",
     "gatsby-source-filesystem": "^5.0.0",
+    "gatsby-theme-contentful-blog": "^1.0.0-4",
     "gatsby-transformer-sharp": "^5.0.0",
     "is-absolute-url": "^4.0.1",
     "react": "^18.0.0",

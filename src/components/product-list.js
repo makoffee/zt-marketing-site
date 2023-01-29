@@ -10,12 +10,14 @@ import {
   Subhead,
   Box,
   Icon,
-  ButtonList,
+  LinkList,
+  ButtonList, 
 } from "./ui"
+import { backgrounds, ButtonVariants } from "./ui.css"
 
 function Product(props) {
   return (
-    <Box center>
+    <Box center paddingY={4} radius="large" responisve background="muted" border="white" width="third">
       {props.image && (
         <Icon
           alt={props.image.alt}
@@ -25,15 +27,15 @@ function Product(props) {
       )}
       <Subhead>{props.heading}</Subhead>
       <Text>{props.text}</Text>
-      <ButtonList links={props.links} />
+      <ButtonList links={props.links} varient={props.variant}/>
     </Box>
   )
 }
 
 export default function ProductList(props) {
   return (
-    <Section>
-      <Container>
+    <Section id="pricing">
+      <Container >
         <Box center paddingY={4}>
           <Heading>
             {props.kicker && <Kicker>{props.kicker}</Kicker>}
@@ -41,11 +43,9 @@ export default function ProductList(props) {
           </Heading>
           {props.text && <Text>{props.text}</Text>}
         </Box>
-        <FlexList gap={3} variant="spaceBetween">
+        <FlexList gap={4} variant="start" responsive>
           {props.content.map((product) => (
-            <li key={product.id}>
               <Product {...product} />
-            </li>
           ))}
         </FlexList>
       </Container>
@@ -63,6 +63,7 @@ export const query = graphql`
       id
       heading
       text
+      variant
       image {
         alt
         id

@@ -51,6 +51,7 @@ export function Flex({
 export function Box({
   width = "full",
   background,
+  border,
   padding,
   paddingY,
   radius,
@@ -64,6 +65,7 @@ export function Box({
       cx={[
         styles.widths[width],
         background && styles.backgrounds[background],
+        border && styles.borders[border],
         padding && styles.padding[padding],
         paddingY && styles.paddingY[paddingY],
         radius && styles.radii[radius],
@@ -163,13 +165,17 @@ export function Button({ variant = "primary", ...props }) {
   return <Base as={Link} cx={[styles.buttons[variant]]} {...props} />
 }
 
-export function ButtonList({ links = [], reversed = false, ...props }) {
+export function ButtonList({ links = [], varient = [], reversed = false, ...props }) {
   const getVariant = (i) => {
     if (reversed) {
       return i === 0 ? "reversed" : "linkReversed"
     }
+    if (varient !== null) { 
+      return i === 0 ? varient : "link"
+    }
     return i === 0 ? "primary" : "link"
   }
+  
   return (
     <FlexList marginY={4} {...props}>
       {links &&

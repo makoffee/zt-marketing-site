@@ -101,12 +101,25 @@ export default function Footer() {
     <Box as="footer" paddingY={4}>
       <Container>
         <Flex variant="start" responsive>
+          <Flex variant="columnStart">
           <NavLink to="/">
             <VisuallyHidden>Home</VisuallyHidden>
             <BrandLogo />
           </NavLink>
+          This is where the mission statement would go.
+          </Flex>
           <Space />
-          <FlexList>
+          <FlexList variant="start" responsive>
+            {links &&
+              links.map((link) => (
+                <li key={link.id}>
+                  <NavLink to={link.href}>{link.text}</NavLink>
+                </li>
+              ))}
+          </FlexList>
+        </Flex>
+        <Space size={4} />
+        <FlexList>
             {socialLinks &&
               socialLinks.map((link) => {
                 const url = getSocialURL(link)
@@ -122,17 +135,9 @@ export default function Footer() {
                 )
               })}
           </FlexList>
-        </Flex>
-        <Space size={5} />
+          <Space size={4} />
         <Flex variant="start" responsive>
-          <FlexList variant="start" responsive>
-            {links &&
-              links.map((link) => (
-                <li key={link.id}>
-                  <NavLink to={link.href}>{link.text}</NavLink>
-                </li>
-              ))}
-          </FlexList>
+        <Text variant="small">{copyright}</Text>
           <Space />
           <FlexList>
             {meta &&
@@ -144,7 +149,6 @@ export default function Footer() {
                 </li>
               ))}
           </FlexList>
-          <Text variant="small">{copyright}</Text>
         </Flex>
       </Container>
       <Space size={3} />

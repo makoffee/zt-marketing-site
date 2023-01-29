@@ -222,6 +222,7 @@ exports.createSchemaCustomization = async ({ actions }) => {
       id: ID!
       heading: String
       text: String
+      variant: String
       image: HomepageImage
       links: [HomepageLink]
     }
@@ -489,6 +490,7 @@ exports.createSchemaCustomization = async ({ actions }) => {
       @dontInfer {
       heading: String
       text: String
+      variant: String
       image: HomepageImage @link(from: "image___NODE")
       links: [HomepageLink] @link(from: "links___NODE")
     }

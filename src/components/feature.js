@@ -7,7 +7,6 @@ import {
   Flex,
   Box,
   Subhead,
-  Kicker,
   Text,
   ButtonList,
 } from "./ui"
@@ -27,11 +26,15 @@ export default function Feature(props) {
           </Box>
           <Box width="half">
             <Subhead>
-              {props.kicker && <Kicker>{props.kicker}</Kicker>}
               {props.heading}
             </Subhead>
             <Text variant="lead">{props.text}</Text>
-            <ButtonList links={props.links} />
+            <div
+            dangerouslySetInnerHTML={{
+              __html: props.text,
+            }}
+          />
+            <ButtonList links={props.links} varient="white"/>
           </Box>
         </Flex>
       </Container>
@@ -42,7 +45,6 @@ export default function Feature(props) {
 export const query = graphql`
   fragment HomepageFeatureContent on HomepageFeature {
     id
-    kicker
     heading
     text
     links {
