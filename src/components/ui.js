@@ -217,6 +217,12 @@ export function Avatar({ alt, image }) {
   )
 }
 
+export function BackgroundImage({ alt, image }) {
+  return (
+    <GatsbyImage alt={alt} image={getImage(image)} className={styles.backgroundImage} />
+  )
+}
+
 export function Logo({ alt, image, size = "small" }) {
   return (
     <GatsbyImage
@@ -233,6 +239,16 @@ export function Icon({ alt, image, size = "medium" }) {
       alt={alt}
       image={getImage(image)}
       className={styles.icons[size]}
+    />
+  )
+}
+
+export function Background({ alt, image, size = "medium" }) {
+  return (
+    <GatsbyImage
+      alt={alt}
+      image={getImage(image)}
+      //className={styles.background[size]}
     />
   )
 }

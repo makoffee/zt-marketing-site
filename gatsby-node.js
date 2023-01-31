@@ -123,6 +123,7 @@ exports.createSchemaCustomization = async ({ actions }) => {
       kicker: String
       subhead: String
       image: HomepageImage
+      backgroundImage: HomepageImage
       text: String
       links: [HomepageLink]
     }
@@ -295,6 +296,7 @@ exports.createSchemaCustomization = async ({ actions }) => {
       heading: String
       text: String
       image: HomepageImage
+      backgroundImage: HomepageImage
     }
 
     interface AboutStat implements Node {
@@ -386,6 +388,7 @@ exports.createSchemaCustomization = async ({ actions }) => {
       kicker: String
       subhead: String
       image: HomepageImage @link(from: "image___NODE")
+      backgroundImage: HomepageImage @link(from: "image__NODE")
       text: String
       links: [HomepageLink] @link(from: "links___NODE")
     }
@@ -522,6 +525,8 @@ exports.createSchemaCustomization = async ({ actions }) => {
       heading: String
       text: String
       image: HomepageImage @link(from: "image___NODE")
+      backgroundImage: HomepageImage @link(from: "image__NODE")
+
     }
 
     type ContentfulAboutStat implements Node & AboutStat @dontInfer {
