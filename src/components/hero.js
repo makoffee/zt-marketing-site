@@ -12,7 +12,7 @@ import {
   Section,
   Subhead,
   Text,
-  BackgroundImage,
+  HeroImage,
 } from "./ui"
 
 const heroBackground = "https://images.ctfassets.net/upz5g6ntpb42/2QVWGJXNiMv0bqKDWAUj64/bec3f1eab0539d71ea9d7688e42f1f32/global-network-blue.jpg"
@@ -22,11 +22,9 @@ export default function Hero(props) {
     
    // <Section style={{ backgroundImage: `url(${heroBackground})`, backgroundSize: 'cover', paddingTop:"0px"}}>
    <Section>
-      <StaticImage style={{ position: "absolute", height: "100%", width: "100%", zIndex:-1, top:"0px"}} src={heroBackground} className="styles.backgroundImage"/>
-      {props.backgroundImage && (
-        <BackgroundImage alt={props.backgroundImage.alt} image={props.backgroundImage.gatsbyImageData} />
-      )}
-      
+      {props.heroimage && (
+            <HeroImage alt={props.heroimage.alt} image={props.heroimage.gatsbyImageData}/>
+          )}
       <Container>
         <Flex gap={4} variant="responsive">
         <Box width="half" style={{ zIndex:2}}>
@@ -62,12 +60,12 @@ export const query = graphql`
       href
       text
     }
-    image {
+    heroimage {
       id
       gatsbyImageData
       alt
     }
-    backgroundImage {
+    image {
       id
       gatsbyImageData
       alt

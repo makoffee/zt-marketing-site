@@ -217,9 +217,9 @@ export function Avatar({ alt, image }) {
   )
 }
 
-export function BackgroundImage({ alt, image }) {
+export function HeroImage({ alt, image }) {
   return (
-    <GatsbyImage alt={alt} image={getImage(image)} className={styles.backgroundImage} />
+    <GatsbyImage alt={alt} image={getImage(image)} style={{ position: "absolute", height: "100vh", width: "100vw", zIndex:-1, top:"0px"}} />
   )
 }
 
@@ -239,16 +239,6 @@ export function Icon({ alt, image, size = "medium" }) {
       alt={alt}
       image={getImage(image)}
       className={styles.icons[size]}
-    />
-  )
-}
-
-export function Background({ alt, image, size = "medium" }) {
-  return (
-    <GatsbyImage
-      alt={alt}
-      image={getImage(image)}
-      //className={styles.background[size]}
     />
   )
 }
