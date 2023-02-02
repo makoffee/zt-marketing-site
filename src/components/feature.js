@@ -1,6 +1,7 @@
 import * as React from "react"
 import { graphql } from "gatsby"
 import { GatsbyImage, getImage } from "gatsby-plugin-image"
+
 import {
   Container,
   Section,
@@ -28,12 +29,7 @@ export default function Feature(props) {
             <Subhead>
               {props.heading}
             </Subhead>
-            <Text variant="lead">{props.text}</Text>
-            <div
-            dangerouslySetInnerHTML={{
-              __html: props.text,
-            }}
-          />
+            {props.text && <Text>{props.text}</Text>}
             <ButtonList links={props.links} varient="white"/>
           </Box>
         </Flex>

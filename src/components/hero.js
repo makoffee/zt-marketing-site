@@ -1,6 +1,5 @@
 import { graphql } from "gatsby"
 import { GatsbyImage, getImage } from "gatsby-plugin-image"
-import { StaticImage } from "gatsby-plugin-image"
 
 import * as React from "react"
 import {
@@ -15,16 +14,14 @@ import {
   HeroImage,
 } from "./ui"
 
-const heroBackground = "https://images.ctfassets.net/upz5g6ntpb42/2QVWGJXNiMv0bqKDWAUj64/bec3f1eab0539d71ea9d7688e42f1f32/global-network-blue.jpg"
-
 export default function Hero(props) {
   return (
     
    // <Section style={{ backgroundImage: `url(${heroBackground})`, backgroundSize: 'cover', paddingTop:"0px"}}>
    <Section>
       {props.heroimage && (
-            <HeroImage alt={props.heroimage.alt} image={props.heroimage.gatsbyImageData}/>
-          )}
+          <HeroImage alt={props.heroimage.alt} image={props.heroimage.gatsbyImageData}/>
+      )}
       <Container>
         <Flex gap={4} variant="responsive">
         <Box width="half" style={{ zIndex:2}}>
