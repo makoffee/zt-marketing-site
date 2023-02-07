@@ -1,6 +1,8 @@
 import * as React from "react"
 import { graphql } from "gatsby"
 import { GatsbyImage, getImage } from "gatsby-plugin-image"
+//  import ReactMarkdown from "react-markdown";
+// <ReactMarkdown>{props.content}</ReactMarkdown> 
 
 import {
   Container,
@@ -12,7 +14,7 @@ import {
   ButtonList,
 } from "./ui"
 
-export default function Feature(props) {
+export default function Feature(props) {  
   return (
     <Section padding={4} background="muted">
       <Container>
@@ -30,7 +32,9 @@ export default function Feature(props) {
               {props.heading}
             </Subhead>
             {props.text && <Text>{props.text}</Text>}
+
             <ButtonList links={props.links} varient="white"/>
+            
           </Box>
         </Flex>
       </Container>

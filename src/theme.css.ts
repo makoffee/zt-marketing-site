@@ -27,10 +27,10 @@ Object.assign(
 )
 
 const fontSizes = {
-  0: "12px",
-  1: "14px",
-  2: "16px",
-  3: "18px",
+  0: "16px",
+  1: "18px",
+  2: "20px",
+  3: "22px",
   4: "24px",
   5: "32px",
   6: "48px",
@@ -41,13 +41,13 @@ const fontWeights = {
   normal: "400",
   medium: "500",
   semibold: "600",
-  bold: "700",
-  extrabold: "800",
+  bold: "500",
+  extrabold: "600",
 }
 
 const fonts = {
-  text: '"DM Sans", sans-serif',
-  heading: '"DM Sans", sans-serif',
+  text: '"Karla", sans-serif',
+  heading: '"Rubik", sans-serif',
   mono: "DM Mono, Menlo, monospace",
 }
 

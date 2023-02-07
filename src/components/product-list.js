@@ -17,7 +17,7 @@ import { backgrounds, ButtonVariants } from "./ui.css"
 
 function Product(props) {
   return (
-    <Box center paddingY={4} radius="large" responisve background="muted" border="white" width="third">
+    <Box center paddingY={4} radius="large" responisve background="muted" border={props.variant} width="third">
       {props.image && (
         <Icon
           alt={props.image.alt}
@@ -27,6 +27,11 @@ function Product(props) {
       )}
       <Subhead>{props.heading}</Subhead>
       <Text>{props.text}</Text>
+      <Text>{props.productFeature1}</Text>
+      <Text>{props.productFeature2}</Text>
+      <Text>{props.productFeature3}</Text>
+      <Text>{props.productFeature4}</Text>
+      <Text>{props.productFeature5}</Text>
       <ButtonList links={props.links} varient={props.variant}/>
     </Box>
   )
@@ -63,6 +68,11 @@ export const query = graphql`
       id
       heading
       text
+      productFeature1
+      productFeature2
+      productFeature3
+      productFeature4
+      productFeature5
       variant
       image {
         alt
