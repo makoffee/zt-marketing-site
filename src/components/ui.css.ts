@@ -647,7 +647,10 @@ export const logos: Record<LogoSizes, string> = styleVariants({
     height: "20px",
   },
   medium: {
-    maxWidth: "128px",
+    maxHeight: "40px",
+    maxWidth: "136px",
+    width: "auto",
+    height: "auto",
   },
 })
 

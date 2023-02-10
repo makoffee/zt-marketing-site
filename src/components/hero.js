@@ -12,19 +12,21 @@ import {
   Subhead,
   Text,
   HeroImage,
+  Space,
 } from "./ui"
 
 export default function Hero(props) {
   return (
     
    // <Section style={{ backgroundImage: `url(${heroBackground})`, backgroundSize: 'cover', paddingTop:"0px"}}>
-   <Section>
+   <Section style={{ minHeight: '70vh'}}>
       {props.heroimage && (
           <HeroImage alt={props.heroimage.alt} image={props.heroimage.gatsbyImageData}/>
       )}
       <Container>
-        <Flex gap={4} variant="responsive">
+        <Flex gap={4} variant="responsive" style={{ paddingTop: '10vh'}}>
         <Box width="half" style={{ zIndex:2}}>
+
             <Heading as="h1">
               {props.h1}
             </Heading>

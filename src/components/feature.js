@@ -1,8 +1,7 @@
 import * as React from "react"
 import { graphql } from "gatsby"
 import { GatsbyImage, getImage } from "gatsby-plugin-image"
-//  import ReactMarkdown from "react-markdown";
-// <ReactMarkdown>{props.content}</ReactMarkdown> 
+import ReactMarkdown from "react-markdown";
 
 import {
   Container,
@@ -13,6 +12,7 @@ import {
   Text,
   ButtonList,
 } from "./ui"
+
 
 export default function Feature(props) {  
   return (
@@ -31,10 +31,12 @@ export default function Feature(props) {
             <Subhead>
               {props.heading}
             </Subhead>
-            {props.text && <Text>{props.text}</Text>}
-
+            <div style={{fontSize: "22px"}}
+            dangerouslySetInnerHTML={{
+              __html: props.html,
+            }}
+            />
             <ButtonList links={props.links} varient="white"/>
-            
           </Box>
         </Flex>
       </Container>
@@ -42,11 +44,14 @@ export default function Feature(props) {
   )
 }
 
+
 export const query = graphql`
   fragment HomepageFeatureContent on HomepageFeature {
     id
     heading
     text
+    html 
+    
     links {
       id
       href
@@ -58,4 +63,5 @@ export const query = graphql`
       alt
     }
   }
+  
 `

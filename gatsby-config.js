@@ -53,9 +53,5 @@ module.exports = {
       },
     },
     "gatsby-theme-contentful-blog",
-    {
-      resolve: `gatsby-transformer-remark`,
-      options: {},
-    },
   ],
 }

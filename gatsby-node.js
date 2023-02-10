@@ -128,14 +128,20 @@ exports.createSchemaCustomization = async ({ actions }) => {
       links: [HomepageLink]
     }
 
+    interface HomepageFeatureMarkdownTextNode implements Node {
+      id: ID!
+      markdown: MarkdownRemark
+    }
+
     interface HomepageFeature implements Node & HomepageBlock {
       id: ID!
       blocktype: String
       heading: String
       kicker: String
       text: String
-      markdown: String
-      richText: String
+      markdown: MarkdownRemark
+      content: [HomepageFeatureMarkdownTextNode]
+      html: String
       image: HomepageImage
       links: [HomepageLink]
     }
@@ -191,6 +197,7 @@ exports.createSchemaCustomization = async ({ actions }) => {
       id: ID!
       heading: String
       text: String
+      html: String
       image: HomepageImage
     }
 
@@ -274,6 +281,8 @@ exports.createSchemaCustomization = async ({ actions }) => {
       username: String!
       service: SocialService!
     }
+
+
 
     interface LayoutFooter implements Node {
       id: ID!
@@ -386,8 +395,7 @@ exports.createSchemaCustomization = async ({ actions }) => {
       title: String
     }
 
-    type ContentfulHomepageHero implements Node & HomepageHero & HomepageBlock
-      @dontInfer {
+    type ContentfulHomepageHero implements Node & HomepageHero & HomepageBlock {
       id: ID!
       blocktype: String @blocktype
       heading: String!
@@ -399,6 +407,12 @@ exports.createSchemaCustomization = async ({ actions }) => {
       links: [HomepageLink] @link(from: "links___NODE")
     }
 
+    type ContentfulHomepageFeatureMarkdownTextNode implements Node & HomepageFeatureMarkdownTextNode 
+      @dontInfer {
+      id: ID!
+      markdown: MarkdownRemark
+    }
+
     type ContentfulHomepageFeature implements Node & HomepageBlock & HomepageFeature
       @dontInfer {
       id: ID!
@@ -406,8 +420,9 @@ exports.createSchemaCustomization = async ({ actions }) => {
       heading: String
       kicker: String
       text: String
-      richText: String
-      markdown: String
+      markdown: MarkdownRemark
+      content: [HomepageFeatureMarkdownTextNode] @link(from: "content___NODE")
+      html: String @richText
       image: HomepageImage @link(from: "image___NODE")
       links: [HomepageLink] @link(from: "links___NODE")
     }
@@ -466,6 +481,7 @@ exports.createSchemaCustomization = async ({ actions }) => {
       id: ID!
       heading: String
       text: String
+      html: String @richText
       image: HomepageImage @link(from: "image___NODE")
     }
 
