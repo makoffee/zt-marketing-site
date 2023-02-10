@@ -13,17 +13,21 @@ import {
 
 function Benefit(props) {
   return (
-    <Box as="li" width="third" padding={4} paddingY={3}>
+    <Box as="li" width="quarter" padding={4} paddingY={3}>
       {props.image && (
         <Icon
           alt={props.image.alt}
           image={props.image.gatsbyImageData}
-          size="small"
+          size="large"
         />
       )}
       <Space size={2} />
       <Heading variant="subheadSmall">{props.heading}</Heading>
-      <Text>{props.text}</Text>
+      <div style={{}}
+            dangerouslySetInnerHTML={{
+              __html: props.html,
+            }}
+            />
     </Box>
   )
 }
@@ -56,6 +60,7 @@ export const query = graphql`
       id
       heading
       text
+      html
       image {
         id
         gatsbyImageData

@@ -14,7 +14,7 @@ import {
 
 function AboutProfile(props) {
   return (
-    <Box width="third" padding={4} center>
+    <Box width="quarter" padding={4} center>
       {props.image && (
         <GatsbyImage
           alt={props.image.alt}
@@ -41,7 +41,7 @@ function AboutProfile(props) {
 export default function AboutLeadership(props) {
   return (
     <Section>
-      <Container width="tight">
+      <Container width="normal">
         <Box center paddingY={4}>
           {props.kicker && <Kicker>{props.kicker}</Kicker>}
           {props.heading && <Heading as="h1">{props.heading}</Heading>}

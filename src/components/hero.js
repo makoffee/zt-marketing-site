@@ -1,5 +1,6 @@
 import { graphql } from "gatsby"
 import { GatsbyImage, getImage } from "gatsby-plugin-image"
+
 import * as React from "react"
 import {
   Box,
@@ -7,25 +8,31 @@ import {
   Container,
   Flex,
   Heading,
-  Kicker,
   Section,
   Subhead,
   Text,
+  HeroImage,
+  Space,
 } from "./ui"
 
 export default function Hero(props) {
   return (
-    <Section>
+    
+   // <Section style={{ backgroundImage: `url(${heroBackground})`, backgroundSize: 'cover', paddingTop:"0px"}}>
+   <Section style={{ minHeight: '70vh'}}>
+      {props.heroimage && (
+          <HeroImage alt={props.heroimage.alt} image={props.heroimage.gatsbyImageData}/>
+      )}
       <Container>
-        <Flex gap={4} variant="responsive">
-        <Box width="half">
+        <Flex gap={4} variant="responsive" style={{ paddingTop: '10vh'}}>
+        <Box width="half" style={{ zIndex:2}}>
+
             <Heading as="h1">
-              {props.kicker && <Kicker>{props.kicker}</Kicker>}
               {props.h1}
             </Heading>
             <Subhead as="h2">{props.subhead}</Subhead>
             <Text as="p">{props.text}</Text>
-            <ButtonList links={props.links} />
+            <ButtonList links={props.links} varient="primary"/>
           </Box>
           <Box width="half">
             {props.image && (
@@ -44,7 +51,6 @@ export default function Hero(props) {
 export const query = graphql`
   fragment HomepageHeroContent on HomepageHero {
     id
-    kicker
     h1: heading
     subhead
     text
@@ -52,6 +58,11 @@ export const query = graphql`
       id
       href
       text
+    }
+    heroimage {
+      id
+      gatsbyImageData
+      alt
     }
     image {
       id

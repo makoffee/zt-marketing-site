@@ -77,6 +77,8 @@ export type FlexVariants =
   | "spaceBetween"
   | "center"
   | "responsive"
+  | "spaceEvenly"
+
 
 export const flexVariants: Record<FlexVariants, string> = styleVariants({
   wrap: {
@@ -105,6 +107,12 @@ export const flexVariants: Record<FlexVariants, string> = styleVariants({
     width: "100%",
     flexWrap: "wrap",
     justifyContent: "space-between",
+    flexBasis: "auto",
+  },
+  spaceEvenly: {
+    width: "100%",
+    flexWrap: "wrap",
+    justifyContent: "space-evenly",
   },
   center: {
     width: "100%",
@@ -474,7 +482,7 @@ const button = style({
   borderRadius: theme.radii.button,
 })
 
-export type ButtonVariants = "primary" | "reversed" | "link" | "linkReversed"
+export type ButtonVariants = "primary" | "reversed" | "link" | "linkReversed" | "white"
 
 export const buttons: Record<ButtonVariants, string> = styleVariants({
   primary: [
@@ -482,11 +490,16 @@ export const buttons: Record<ButtonVariants, string> = styleVariants({
     {
       color: theme.colors.background,
       backgroundColor: theme.colors.primary,
+      border: '2px solid ' +  theme.colors.primary,
       ":hover": {
-        backgroundColor: theme.colors.active,
+        color: theme.colors.primary,
+        backgroundColor: "transparent",
+        border: '2px solid ' +  theme.colors.primary,
       },
       ":focus": {
-        backgroundColor: theme.colors.active,
+        color: theme.colors.primary,
+        backgroundColor: "transparent",
+        border: '2px solid ' +  theme.colors.primary,
       },
     },
   ],
@@ -494,14 +507,17 @@ export const buttons: Record<ButtonVariants, string> = styleVariants({
     button,
     {
       color: theme.colors.primary,
-      backgroundColor: theme.colors.background,
+      backgroundColor: "transparent",
+      border: '2px solid ' +  theme.colors.primary,
       ":hover": {
         color: theme.colors.background,
-        backgroundColor: theme.colors.active,
+        backgroundColor: theme.colors.primary,
+        border: '2px solid ' +  theme.colors.primary,
       },
       ":focus": {
         color: theme.colors.background,
-        backgroundColor: theme.colors.active,
+        backgroundColor: theme.colors.primary,
+        border: '2px solid ' +  theme.colors.primary,
       },
     },
   ],
@@ -533,9 +549,60 @@ export const buttons: Record<ButtonVariants, string> = styleVariants({
       },
     },
   ],
+  white: [
+    button,
+    {
+      color: theme.colors.muted,
+      backgroundColor: theme.colors.text,
+      border: '2px solid ' +  theme.colors.text,
+      ":hover": {
+        color: theme.colors.text,
+        backgroundColor: "transparent",
+        border: '2px solid ' +  theme.colors.text,
+      },
+      ":focus": {
+        color: theme.colors.text,
+        backgroundColor: "transparent",
+        border: '2px solid ' +  theme.colors.text,
+      },
+    },
+  ],
+  active: [
+    button,
+    {
+      color: theme.colors.text,
+      backgroundColor: theme.colors.active,
+      border: '2px solid ' +  theme.colors.active,
+      ":hover": {
+        color: theme.colors.text,
+        backgroundColor: "transparent",
+        border: '2px solid ' +  theme.colors.active,
+      },
+      ":focus": {
+        color: theme.colors.text,
+        backgroundColor: "transparent",
+        border: '2px solid ' +  theme.colors.active,
+      },
+    },
+  ],
 })
 
-export type Backgrounds = "primary" | "muted"
+export type Borders = "primary" | "active" | "white"
+
+export const borders: Record<Borders, string> = styleVariants({
+  primary: {
+    border: '2px solid ' +  theme.colors.primary,
+  },
+  active: {
+    border: '2px solid ' +  theme.colors.active,
+  },
+  white: {
+    color: theme.colors.text,
+    border: '2px solid ' +  theme.colors.text,
+  },
+})
+
+export type Backgrounds = "primary" | "muted" | "active" | "white"
 
 export const backgrounds: Record<Backgrounds, string> = styleVariants({
   primary: {
@@ -543,8 +610,16 @@ export const backgrounds: Record<Backgrounds, string> = styleVariants({
     backgroundColor: theme.colors.primary,
   },
   muted: {
-    color: theme.colors.primary,
+    color: theme.colors.text,
     backgroundColor: theme.colors.muted,
+  },
+  active: {
+    color: theme.colors.text,
+    backgroundColor: theme.colors.active,
+  },
+  white: {
+    color: theme.colors.muted,
+    backgroundColor: theme.colors.text,
   },
 })
 
@@ -572,7 +647,10 @@ export const logos: Record<LogoSizes, string> = styleVariants({
     height: "20px",
   },
   medium: {
-    maxWidth: "128px",
+    maxHeight: "40px",
+    maxWidth: "136px",
+    width: "auto",
+    height: "auto",
   },
 })
 

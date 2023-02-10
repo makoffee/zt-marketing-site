@@ -123,8 +123,14 @@ exports.createSchemaCustomization = async ({ actions }) => {
       kicker: String
       subhead: String
       image: HomepageImage
+      heroimage: HomepageImage
       text: String
       links: [HomepageLink]
+    }
+
+    interface HomepageFeatureMarkdownTextNode implements Node {
+      id: ID!
+      markdown: MarkdownRemark
     }
 
     interface HomepageFeature implements Node & HomepageBlock {
@@ -133,6 +139,9 @@ exports.createSchemaCustomization = async ({ actions }) => {
       heading: String
       kicker: String
       text: String
+      markdown: MarkdownRemark
+      content: [HomepageFeatureMarkdownTextNode]
+      html: String
       image: HomepageImage
       links: [HomepageLink]
     }
@@ -188,6 +197,7 @@ exports.createSchemaCustomization = async ({ actions }) => {
       id: ID!
       heading: String
       text: String
+      html: String
       image: HomepageImage
     }
 
@@ -222,6 +232,12 @@ exports.createSchemaCustomization = async ({ actions }) => {
       id: ID!
       heading: String
       text: String
+      productFeature1: String
+      productFeature2: String
+      productFeature3: String
+      productFeature4: String
+      productFeature5: String
+      variant: String
       image: HomepageImage
       links: [HomepageLink]
     }
@@ -265,6 +281,8 @@ exports.createSchemaCustomization = async ({ actions }) => {
       username: String!
       service: SocialService!
     }
+
+
 
     interface LayoutFooter implements Node {
       id: ID!
@@ -377,24 +395,34 @@ exports.createSchemaCustomization = async ({ actions }) => {
       title: String
     }
 
-    type ContentfulHomepageHero implements Node & HomepageHero & HomepageBlock
-      @dontInfer {
+    type ContentfulHomepageHero implements Node & HomepageHero & HomepageBlock {
       id: ID!
       blocktype: String @blocktype
       heading: String!
       kicker: String
       subhead: String
       image: HomepageImage @link(from: "image___NODE")
+      heroimage: HomepageImage @link(from: "heroimage___NODE")
       text: String
       links: [HomepageLink] @link(from: "links___NODE")
     }
 
+    type ContentfulHomepageFeatureMarkdownTextNode implements Node & HomepageFeatureMarkdownTextNode 
+      @dontInfer {
+      id: ID!
+      markdown: MarkdownRemark
+    }
+
     type ContentfulHomepageFeature implements Node & HomepageBlock & HomepageFeature
       @dontInfer {
+      id: ID!
       blocktype: String @blocktype
       heading: String
       kicker: String
       text: String
+      markdown: MarkdownRemark
+      content: [HomepageFeatureMarkdownTextNode] @link(from: "content___NODE")
+      html: String @richText
       image: HomepageImage @link(from: "image___NODE")
       links: [HomepageLink] @link(from: "links___NODE")
     }
@@ -453,6 +481,7 @@ exports.createSchemaCustomization = async ({ actions }) => {
       id: ID!
       heading: String
       text: String
+      html: String @richText
       image: HomepageImage @link(from: "image___NODE")
     }
 
@@ -489,6 +518,12 @@ exports.createSchemaCustomization = async ({ actions }) => {
       @dontInfer {
       heading: String
       text: String
+      productFeature1: String
+      productFeature2: String
+      productFeature3: String
+      productFeature4: String
+      productFeature5: String
+      variant: String
       image: HomepageImage @link(from: "image___NODE")
       links: [HomepageLink] @link(from: "links___NODE")
     }
@@ -520,6 +555,7 @@ exports.createSchemaCustomization = async ({ actions }) => {
       heading: String
       text: String
       image: HomepageImage @link(from: "image___NODE")
+
     }
 
     type ContentfulAboutStat implements Node & AboutStat @dontInfer {
