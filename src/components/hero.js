@@ -12,7 +12,6 @@ import {
   Subhead,
   Text,
   HeroImage,
-  Space,
 } from "./ui"
 
 export default function Hero(props) {

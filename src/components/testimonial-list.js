@@ -11,6 +11,7 @@ import {
   Blockquote,
   Text,
   Avatar,
+  Space,
 } from "./ui"
 
 function Testimonial(props) {
@@ -45,7 +46,7 @@ export default function TestimonialList(props) {
         </Box>
         <FlexList gutter={3} variant="start" responsive wrap>
           {props.content.map((testimonial, index) => (
-            <Box as="li" key={testimonial.id + index} width="half" padding={3}>
+            <Box as="li" key={testimonial.id + index} width="full" padding={4} radius="large" style={{backgroundImage: "linear-gradient(45deg, #fdb25d, #4436ca)", marginBottom: "40px"}}>
               <Testimonial {...testimonial} />
             </Box>
           ))}
