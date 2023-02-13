@@ -45,6 +45,7 @@ export const query = graphql`
         ...HomepageStatListContent
         ...HomepageProductListContent
         ...RichTextBlockContent
+        ...CtaImageBlockContent
       }
     }
   }

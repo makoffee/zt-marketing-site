@@ -377,6 +377,17 @@ exports.createSchemaCustomization = async ({ actions }) => {
       html: String!
     }
 
+    interface CtaImageBlock implements Node & HomepageBlock {
+      id: ID!
+      blocktype: String
+      kicker: String
+      heading: String
+      text: String
+      image: HomepageImage
+      icon: HomepageImage
+      links: [HomepageLink]
+    }
+
   `)
 
   // CMS-specific types for Homepage
@@ -564,6 +575,21 @@ exports.createSchemaCustomization = async ({ actions }) => {
       content: [HomepageBlock] @link(from: "content___NODE")
     }
   `)
+
+  // Custom CTA with image block type
+  actions.createTypes(/* GraphQL */ `
+      type ContentfulCtaImageBlock implements Node & HomepageBlock & CtaImageBlock
+      @dontInfer {
+      id: ID!
+      blocktype: String @blocktype
+      kicker: String
+      heading: String
+      text: String
+      image: HomepageImage @link(from: "image___NODE")
+      icon: HomepageImage @link(from: "icon___NODE")
+      links: [HomepageLink] @link(from: "links___NODE")
+    }
+`)
 
   // Custom rich text block type
   actions.createTypes(/* GraphQL */ `

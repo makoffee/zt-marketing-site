@@ -76,6 +76,7 @@ export type FlexVariants =
   | "stretch"
   | "spaceBetween"
   | "center"
+  | "verticalCenter"
   | "responsive"
   | "spaceEvenly"
 
@@ -118,6 +119,9 @@ export const flexVariants: Record<FlexVariants, string> = styleVariants({
     width: "100%",
     flexWrap: "wrap",
     justifyContent: "center",
+  },
+  verticalCenter: {
+    alignItems: "center",
   },
   responsive: {
     flexDirection: "column",
