@@ -61,6 +61,8 @@ exports.createSchemaCustomization = async ({ actions }) => {
     },
   })
 
+// converts Rich Text content types with an ID of body into parsed raw html from JSON
+
   actions.createFieldExtension({
     name: "richText",
     extend(options) {
@@ -358,6 +360,34 @@ exports.createSchemaCustomization = async ({ actions }) => {
       image: HomepageImage
       html: String!
     }
+
+    interface LandingPage implements Node {
+      id: ID!
+      slug: String!
+      title: String
+      description: String
+      image: HomepageImage
+      content: [HomepageBlock]
+    }
+
+    interface RichTextBlock implements Node & HomepageBlock {
+      id: ID!
+      blocktype: String
+      title: String
+      html: String!
+    }
+
+    interface CtaImageBlock implements Node & HomepageBlock {
+      id: ID!
+      blocktype: String
+      kicker: String
+      heading: String
+      text: String
+      image: HomepageImage
+      icon: HomepageImage
+      links: [HomepageLink]
+    }
+
   `)
 
   // CMS-specific types for Homepage
@@ -546,6 +576,34 @@ exports.createSchemaCustomization = async ({ actions }) => {
     }
   `)
 
+  // Custom CTA with image block type
+  actions.createTypes(/* GraphQL */ `
+      type ContentfulCtaImageBlock implements Node & HomepageBlock & CtaImageBlock
+      @dontInfer {
+      id: ID!
+      blocktype: String @blocktype
+      kicker: String
+      heading: String
+      text: String
+      image: HomepageImage @link(from: "image___NODE")
+      icon: HomepageImage @link(from: "icon___NODE")
+      links: [HomepageLink] @link(from: "links___NODE")
+    }
+`)
+
+  // Custom rich text block type
+  actions.createTypes(/* GraphQL */ `
+  type ContentfulRichTextBlock implements Node & RichTextBlock & HomepageBlock
+    @dontInfer {
+    id: ID!
+    blocktype: String @blocktype
+    title: String
+    html: String! @richText
+    image: HomepageImage @link(from: "image___NODE")
+
+  }
+  `)
+
   // CMS specific types for About page
   actions.createTypes(/* GraphQL */ `
     type ContentfulAboutHero implements Node & AboutHero & HomepageBlock
@@ -645,6 +703,19 @@ exports.createSchemaCustomization = async ({ actions }) => {
       image: HomepageImage @link(from: "image___NODE")
       html: String! @richText
     }
+  `)
+    // LandingPage types
+    actions.createTypes(/* GraphQL */ `
+
+    type ContentfulLandingPage implements Node & LandingPage @dontInfer {
+      id: ID!
+      slug: String!
+      title: String
+      description: String
+      image: HomepageImage @link(from: "image___NODE")
+      content: [HomepageBlock] @link(from: "content___NODE")
+    }
+
   `)
 }
 

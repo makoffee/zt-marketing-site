@@ -2,7 +2,7 @@ import { style, styleVariants } from "@vanilla-extract/css"
 import { calc } from "@vanilla-extract/css-utils"
 import { theme } from "../theme.css"
 
-const breakpoints = ["40em", "52em", "64em"]
+const breakpoints = ["40em", "52em", "128em"]
 
 export const media = {
   small: `screen and (min-width: ${breakpoints[0]})`,
@@ -76,6 +76,7 @@ export type FlexVariants =
   | "stretch"
   | "spaceBetween"
   | "center"
+  | "verticalCenter"
   | "responsive"
   | "spaceEvenly"
 
@@ -119,6 +120,9 @@ export const flexVariants: Record<FlexVariants, string> = styleVariants({
     flexWrap: "wrap",
     justifyContent: "center",
   },
+  verticalCenter: {
+    alignItems: "center",
+  },
   responsive: {
     flexDirection: "column",
     "@media": {
@@ -156,6 +160,7 @@ export const widths: Record<Widths, string> = styleVariants(
           width,
         },
       },
+      
     },
   ]
 )
@@ -202,12 +207,12 @@ export const box = styleVariants({
 })
 
 export const section = style({
-  paddingTop: theme.space[4],
-  paddingBottom: theme.space[4],
+  paddingTop: theme.space[3],
+  paddingBottom: theme.space[3],
   "@media": {
     [media.small]: {
-      paddingTop: theme.space[5],
-      paddingBottom: theme.space[5],
+      paddingTop: theme.space[4],
+      paddingBottom: theme.space[4],
     },
   },
 })

@@ -12,7 +12,6 @@ import {
   Subhead,
   Text,
   HeroImage,
-  Space,
 } from "./ui"
 
 export default function Hero(props) {
@@ -24,8 +23,8 @@ export default function Hero(props) {
           <HeroImage alt={props.heroimage.alt} image={props.heroimage.gatsbyImageData}/>
       )}
       <Container>
-        <Flex gap={4} variant="responsive" style={{ paddingTop: '10vh'}}>
-        <Box width="half" style={{ zIndex:2}}>
+        <Flex gap={4} variant="responsive" style={{ paddingTop: '10vh'}} >
+        <Box width="half" style={{ zIndex:2}} >
 
             <Heading as="h1">
               {props.h1}
