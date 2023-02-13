@@ -50,8 +50,7 @@ export const query = graphql`
     id
     heading
     text
-    html 
-    
+    html
     links {
       id
       href

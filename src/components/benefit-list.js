@@ -1,11 +1,11 @@
 import * as React from "react"
 import { graphql } from "gatsby"
+import { GatsbyImage, getImage } from "gatsby-plugin-image"
 import {
   Container,
   Section,
   FlexList,
   Box,
-  Icon,
   Heading,
   Text,
   Space,
@@ -15,12 +15,13 @@ function Benefit(props) {
   return (
     <Box as="li" width="quarter" padding={4} paddingY={3}>
       {props.image && (
-        <Icon
-          alt={props.image.alt}
-          image={props.image.gatsbyImageData}
-          size="large"
-        />
-      )}
+          <GatsbyImage
+            alt={props.image.alt}
+            image={getImage(props.image.gatsbyImageData)}
+            responsive
+            //className={styles.aboutHeroImage}
+          />
+        )}
       <Space size={2} />
       <Heading variant="subheadSmall">{props.heading}</Heading>
       <div style={{}}
@@ -35,7 +36,7 @@ function Benefit(props) {
 export default function BenefitList(props) {
   return (
     <Section>
-      <Container>
+      <Container width="wide">
         <Box center>
           {props.heading && <Heading>{props.heading}</Heading>}
           {props.text && <Text variant="lead">{props.text}</Text>}

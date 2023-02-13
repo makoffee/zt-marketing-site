@@ -219,7 +219,7 @@ export function Avatar({ alt, image }) {
 
 export function HeroImage({ alt, image }) {
   return (
-    <GatsbyImage alt={alt} image={getImage(image)} style={{ position: "absolute", height: "100vh", width: "100vw", zIndex:-1, top:"0px"}} />
+    <GatsbyImage alt={alt} image={getImage(image)} style={{ position: "absolute", minHeight: "100vh", width: "auto", zIndex:-1, top:"0px"}} />
   )
 }
 
