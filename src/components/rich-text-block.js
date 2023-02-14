@@ -6,6 +6,7 @@ import {
     Box, 
     Subhead,
 } from "../components/ui"
+import { theme } from "../theme.css"
 
 export default function RichTextBlock(props) {  
 
@@ -16,7 +17,7 @@ export default function RichTextBlock(props) {
               <Subhead>
                 {props.title}
               </Subhead>
-              <div style={{fontSize: "18px"}}
+              <div style={{fontSize: theme.fontSizes[2]}}
               dangerouslySetInnerHTML={{
                 __html: props.html,
               }}

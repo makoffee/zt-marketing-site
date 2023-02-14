@@ -49,6 +49,11 @@ export default function Header() {
               }
             }
           }
+          login {
+            id
+            href
+            text
+          }
           cta {
             id
             href
@@ -59,7 +64,7 @@ export default function Header() {
     }
   `)
 
-  const { navItems, cta } = data.layout.header
+  const { navItems, cta, login } = data.layout.header
   const [isOpen, setOpen] = React.useState(false)
 
   React.useEffect(() => {
@@ -96,7 +101,7 @@ export default function Header() {
                 ))}
             </FlexList>
           </nav>
-          <div>{cta && <Button to={cta.href}>{cta.text}</Button>}</div>
+          <div>{cta && <Button to={login.href} variant="linkReversed">{login.text}</Button>} {cta && <Button to={cta.href} variant="primary">{cta.text}</Button>}</div>
         </Flex>
       </Container>
       <Container className={mobileHeaderNavWrapper[isOpen ? "open" : "closed"]}>

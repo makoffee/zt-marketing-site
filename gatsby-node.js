@@ -265,6 +265,7 @@ exports.createSchemaCustomization = async ({ actions }) => {
       id: ID!
       navItems: [HeaderNavItem]
       cta: HomepageLink
+      login: HomepageLink
     }
 
     enum SocialService {
@@ -670,6 +671,7 @@ exports.createSchemaCustomization = async ({ actions }) => {
       id: ID!
       navItems: [HeaderNavItem] @link(from: "navItems___NODE")
       cta: HomepageLink @link(from: "cta___NODE")
+      login: HomepageLink @link(from: "login___NODE")
     }
 
     type ContentfulSocialLink implements Node & SocialLink @dontInfer {
