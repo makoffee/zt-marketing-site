@@ -53,5 +53,26 @@ module.exports = {
       },
     },
     "gatsby-theme-contentful-blog",
+    {
+      resolve: "gatsby-plugin-google-tagmanager",
+      options: {
+        id: "GTM-KMKV8SF",
+        includeInDevelopment: true,
+        defaultDataLayer: { platform: "gatsby" },
+        gtmAuth: "RLqZPgQQ-Q9NRzt2acBP7w",
+        gtmPreview: "env-1",
+        //dataLayerName: "YOUR_DATA_LAYER_NAME",
+  
+        // Name of the event that is triggered
+        // on every Gatsby route change.
+        //
+        // Defaults to gatsby-route-change
+        // routeChangeEventName: "YOUR_ROUTE_CHANGE_EVENT_NAME",
+        // Defaults to false
+        enableWebVitalsTracking: true,
+        // Defaults to https://www.googletagmanager.com
+        //selfHostedOrigin: "YOUR_SELF_HOSTED_ORIGIN",
+      },
+    },
   ],
 }
