@@ -23,8 +23,8 @@ export const Head = (props) => {
   return <SEOHead {...landingPage} />
 }
 export const query = graphql`
-  {
-    landingPage {
+  query LandingPageContent($id: String!) {
+    landingPage(id: { eq: $id }) {
       id
       title
       slug

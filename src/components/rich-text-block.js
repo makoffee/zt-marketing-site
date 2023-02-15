@@ -5,6 +5,7 @@ import {
     Container, 
     Box, 
     Subhead,
+    ButtonList
 } from "../components/ui"
 import { theme } from "../theme.css"
 
@@ -22,6 +23,7 @@ export default function RichTextBlock(props) {
                 __html: props.html,
               }}
               />
+              <ButtonList links={props.links} varient="whiteReversed"/>
             </Box>
         </Container>
         </Section>
@@ -33,5 +35,10 @@ export const query = graphql`
     id
     title
     html
+    links {
+        id
+        href
+        text
+      }
   }
 `

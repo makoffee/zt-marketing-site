@@ -376,6 +376,7 @@ exports.createSchemaCustomization = async ({ actions }) => {
       blocktype: String
       title: String
       html: String!
+      links: [HomepageLink]
     }
 
     interface CtaImageBlock implements Node & HomepageBlock {
@@ -601,7 +602,7 @@ exports.createSchemaCustomization = async ({ actions }) => {
     title: String
     html: String! @richText
     image: HomepageImage @link(from: "image___NODE")
-
+    links: [HomepageLink] @link(from: "links___NODE")
   }
   `)
 
