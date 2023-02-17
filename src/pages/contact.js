@@ -1,19 +1,30 @@
 import React, { useState } from 'react';
 import Layout from "../components/layout"
-import { Container, Box, Heading, Text, Link, Flex } from "../components/ui"
+import { Container, Box, Heading, Text, Space, Link, Flex } from "../components/ui"
 import SEOHead from "../components/head"   
+import { theme } from '../theme.css';
 
 export default function Contact() {
   return (
     <Layout>
-      <Box paddingY={4}>
-        <Container>
-<Box class="_form-content">
+        <Container width="normal">
+        <Box paddingY={5}>
+          <Heading as="h1" center>Contact the ZeroTier Sales Team
+          </Heading>
+          <Text center>
+          For product support, please visit the ZeroTier community board.
+          </Text>
+          <Space size={4} />
+        </Box>
+        <Flex responsive varient="responsiveMedium" gap={4} Flex variant="columnStart">
+        <Box paddingY={4} width="half">
+          <Text>Something cool goes here.</Text>
+        </Box>
+        <Box paddingY={4} width="half">
         <form
   method="POST"
   action="https://zerotier.activehosted.com/proc.php"
   id="_form_1_"
-  class="_form _form_1_ _inline-form  _dark"
   novalidate
 >
   <input type="hidden" name="u" value="1" />
@@ -24,11 +35,7 @@ export default function Contact() {
   <input type="hidden" name="act" value="sub" />
   <input type="hidden" name="v" value="2" />
   <input type="hidden" name="or" value="0468b51512225f2c86741f9bbee18714" />
-  <Box class="_form-content">
-        <Box class="_form_element _x06281366 _full_width _clear">
-          <Box class="_form-title">
-          </Box>
-        </Box>
+        
         <Box class="_form_element _x40012284 _full_width ">
             <Text>First Name*</Text>
           <Box class="_field-wrapper">
@@ -118,11 +125,10 @@ export default function Contact() {
         </Box>
         <Box class="_clear-element">
         </Box>
-      </Box>
 </form>
 </Box>
+</Flex>
         </Container>
-      </Box>
     </Layout>
   )
 }

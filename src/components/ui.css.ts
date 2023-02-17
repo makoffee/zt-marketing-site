@@ -80,75 +80,101 @@ export type FlexVariants =
   | "responsive"
   | "responsiveMedium"
   | "stretchMedium"
+  | "stretchMediumResponsive"
   | "spaceEvenly"
 
 
-export const flexVariants: Record<FlexVariants, string> = styleVariants({
-  wrap: {
-    flexWrap: "wrap",
-  },
-  start: {
-    alignItems: "flex-start",
-  },
-  baseline: {
-    alignItems: "baseline",
-  },
-  columnStart: {
-    flexDirection: "column",
-    alignItems: "flex-start",
-  },
-  column: {
-    flexDirection: "column",
-  },
-  end: {
-    alignItems: "flex-end",
-  },
-  stretch: {
-    alignItems: "stretch",
-  },
-  spaceBetween: {
-    width: "100%",
-    flexWrap: "wrap",
-    justifyContent: "space-between",
-    flexBasis: "auto",
-  },
-  spaceEvenly: {
-    width: "100%",
-    flexWrap: "wrap",
-    justifyContent: "space-evenly",
-  },
-  center: {
-    width: "100%",
-    flexWrap: "wrap",
-    justifyContent: "center",
-  },
-  verticalCenter: {
-    alignItems: "center",
-  },
-  responsive: {
-    flexDirection: "column",
-    "@media": {
-      [media.small]: {
-        flexDirection: "row",
+  export const flexVariants: Record<FlexVariants, string> = styleVariants({
+    wrap: {
+      flexWrap: "wrap",
+    },
+    start: {
+      alignItems: "flex-start",
+    },
+    baseline: {
+      alignItems: "baseline",
+    },
+    columnStart: {
+      flexDirection: "column",
+      alignItems: "flex-start",
+    },
+    column: {
+      flexDirection: "column",
+    },
+    end: {
+      alignItems: "flex-end",
+    },
+    stretch: {
+      alignItems: "stretch",
+    },
+    spaceBetween: {
+      width: "100%",
+      flexWrap: "wrap",
+      justifyContent: "space-between",
+      flexBasis: "auto",
+    },
+    spaceEvenly: {
+      width: "100%",
+      flexWrap: "wrap",
+      justifyContent: "space-evenly",
+    },
+    center: {
+      width: "100%",
+      flexWrap: "wrap",
+      justifyContent: "center",
+    },
+    verticalCenter: {
+      alignItems: "center",
+    },
+    responsive: {
+      flexDirection: "column",
+      "@media": {
+        [media.small]: {
+          flexDirection: "row",
+        },
       },
     },
-  },
-  responsiveMedium: {
-    flexDirection: "column",
-    "@media": {
-      [media.small]: {
-        flexDirection: "row",
-      },
-      [media.medium]: {
-        flexDirection: "row",
+    responsiveMedium: {
+      flexDirection: "column",
+      "@media": {
+        [media.small]: {
+          flexDirection: "row",
+        },
+        [media.medium]: {
+          flexDirection: "row",
+        },
       },
     },
-  },
-  stretchMedium: {
-    alignItems: "stretch",
-    flexDirection: "column",
-  },
-})
+    stretchMedium: {
+      alignItems: "stretch",
+      flexDirection: "column",
+    },
+    stretchMediumResponsive: {
+      alignItems: "stretch",
+      flexDirection: "column",
+      flexWrap: "nowrap",
+      "@media": {
+        [media.small]: {
+          flexDirection: "row",
+          flexWrap: "wrap",
+          marginLeft:"10vw",
+          marginRight:"10vw",
+        },
+        [media.medium]: {
+          flexDirection: "row",
+          flexWrap: "nowrap",
+          marginLeft:"0px",
+          marginRight:"0px",
+        },
+        [media.large]: {
+          flexDirection: "row",
+          flexWrap: "nowrap",
+          marginLeft:"0px",
+          marginRight:"0px",
+        },
+      },
+    },
+  })
 
 export const flexGap = styleVariants(theme.space, (gap) => ({ gap }))
 
@@ -162,24 +188,74 @@ export type Widths =
 
 export const widths: Record<Widths, string> = styleVariants(
   {
-    full: "100%",
-    half: "50%",
-    quarter: "25%",
-    third: "33.3333%",
-    twothirds: "33.3333%",
-    fitContent: "fit-content",
-  },
-  (width) => [
-    {
+    full: {
       width: "100%",
       "@media": {
         [media.small]: {
-          width,
+          width: "100%",
+        },
+        [media.medium]: {
+          width: "100%",
         },
       },
-      
     },
-  ]
+    half: {
+      width: "100%",
+      "@media": {
+        [media.small]: {
+          width: "100%",
+        },
+        [media.medium]: {
+          width: "50%",
+        },
+      },
+    },
+    quarter: {
+      width: "100%",
+      "@media": {
+        [media.small]: {
+          width: "50%",
+        },
+        [media.medium]: {
+          width: "25%",
+        },
+      },
+    },
+    third: {
+      width: "100%",
+      "@media": {
+        [media.small]: {
+          width: "100%",
+        },
+        [media.medium]: {
+          width: "100%",
+        },
+      },
+    },
+    twothirds: {
+      width: "100%",
+      "@media": {
+        [media.small]: {
+          width: "100%",
+        },
+        [media.medium]: {
+          width: "66.666%",
+        },
+      },
+    },
+    fitContent: {
+      width: "fitContent%",
+      "@media": {
+        [media.small]: {
+          width: "fitContent%",
+        },
+        [media.medium]: {
+          width: "fitContent%",
+        },
+      },
+    },
+
+  }
 )
 
 export const list = style({

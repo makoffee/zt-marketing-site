@@ -27,7 +27,7 @@ Object.assign(
 )
 
 const fontSizes = {
-  0: "16px",
+  0: "14px",
   1: "18px",
   2: "20px",
   3: "22px",

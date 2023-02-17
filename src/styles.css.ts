@@ -1,10 +1,6 @@
 import { globalStyle, globalKeyframes } from "@vanilla-extract/css"
 import { theme } from "./theme.css"
 
-globalStyle("*"  , {
-  transition: "all .25s ease-out",
-})
-
 globalStyle("body", {
   margin: 0,
   fontFamily: theme.fonts.text,
@@ -28,6 +24,37 @@ globalStyle("p", {
   position: 'relative',
 })
 
+globalStyle("input", {
+  width: "100%",
+  display: "block",
+  padding: theme.space[3],
+  marginBottom: theme.space[3],
+  borderRadius: "8px",
+  fontSize: theme.fontSizes[0],
+
+})
+
+globalStyle("select", {
+  width: "100%",
+  display: "block",
+  padding: theme.space[3],
+  marginBottom: theme.space[3],
+  borderRadius: "8px",
+  fontSize: theme.fontSizes[0]
+
+})
+
+globalStyle("textarea", {
+  width: "100%",
+  display: "block",
+  padding: theme.space[3],
+  marginBottom: theme.space[3],
+  borderRadius: "8px",
+  height: theme.space[6],
+  fontSize: theme.fontSizes[0],
+
+})
+
 globalStyle("code", {  
   background: theme.colors.black,
   color: "#cccccc",
@@ -40,6 +67,7 @@ globalStyle("code", {
 
 globalStyle("*", {
   boxSizing: "border-box",
+  transition: "all .25s ease-out",
 })
 
 globalKeyframes("zoomInUp", {
@@ -87,3 +115,4 @@ globalKeyframes("fadeOut", {
     visibility: "hidden",
   },
 })
+

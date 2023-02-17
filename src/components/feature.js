@@ -1,15 +1,11 @@
 import * as React from "react"
 import { graphql } from "gatsby"
 import { GatsbyImage, getImage } from "gatsby-plugin-image"
-import ReactMarkdown from "react-markdown";
 
 import {
-  Container,
-  Section,
   Flex,
   Box,
   Subhead,
-  Text,
   ButtonList,
 } from "./ui"
 
