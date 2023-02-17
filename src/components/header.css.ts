@@ -45,7 +45,7 @@ export const mobileNavOverlay = style({
   width: "100vw",
   height: "100vh",
   paddingTop: theme.space[4],
-  background: theme.colors.primary,
+  backgroundImage: theme.colors.verticalGradient,
   zIndex: 3,
   "@media": {
     [media.medium]: {
@@ -63,3 +63,4 @@ export const mobileNavLink = style({
   paddingLeft: theme.space[4],
   paddingRight: theme.space[4],
 })
+

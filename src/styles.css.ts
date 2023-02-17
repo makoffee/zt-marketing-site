@@ -1,14 +1,42 @@
 import { globalStyle, globalKeyframes } from "@vanilla-extract/css"
 import { theme } from "./theme.css"
 
+globalStyle("*"  , {
+  transition: "all .25s ease-out",
+})
+
 globalStyle("body", {
   margin: 0,
   fontFamily: theme.fonts.text,
   color: theme.colors.text,
-  backgroundColor: theme.colors.background,
+  background: theme.colors.background,
   WebkitFontSmoothing: "antialiased",
   MozOsxFontSmoothing: "grayscale",
+  lineHeight: "1.65em",
 })
+
+globalStyle("a", {  
+  color: theme.colors.text,
+  textDecoration: "underline"
+})
+
+globalStyle("a:hover", {  
+  color: theme.colors.primary,
+})
+
+globalStyle("p", {  
+  position: 'relative',
+})
+
+globalStyle("code", {  
+  background: theme.colors.black,
+  color: "#cccccc",
+  marginTop: "1rem ",
+  display: "block",
+  padding: theme.space[4],
+  borderRadius: "12px",
+})
+
 
 globalStyle("*", {
   boxSizing: "border-box",

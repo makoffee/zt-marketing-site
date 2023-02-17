@@ -2,7 +2,7 @@ import { style, styleVariants } from "@vanilla-extract/css"
 import { calc } from "@vanilla-extract/css-utils"
 import { theme } from "../theme.css"
 
-const breakpoints = ["40em", "52em", "128em"]
+const breakpoints = ["40em", "63em", "200em"]
 
 export const media = {
   small: `screen and (min-width: ${breakpoints[0]})`,
@@ -78,6 +78,8 @@ export type FlexVariants =
   | "center"
   | "verticalCenter"
   | "responsive"
+  | "responsiveMedium"
+  | "stretchMedium"
   | "spaceEvenly"
 
 
@@ -130,6 +132,21 @@ export const flexVariants: Record<FlexVariants, string> = styleVariants({
         flexDirection: "row",
       },
     },
+  },
+  responsiveMedium: {
+    flexDirection: "column",
+    "@media": {
+      [media.small]: {
+        flexDirection: "row",
+      },
+      [media.medium]: {
+        flexDirection: "row",
+      },
+    },
+  },
+  stretchMedium: {
+    alignItems: "stretch",
+    flexDirection: "column",
   },
 })
 
@@ -442,6 +459,27 @@ export const navlink = style({
   ":hover": {
     color: theme.colors.active,
   },
+  "@media": {
+    [media.small]: {
+      ":hover": {
+        color: theme.colors.active,
+        
+      },
+    },
+    [media.medium]: {
+      ":hover": {
+        color: theme.colors.primary,
+        
+      },
+    },
+    [media.large]: {
+      ":hover": {
+        color: theme.colors.primary,
+        
+      },
+    },
+  },
+  
 })
 
 export const navButtonlink = style({
@@ -456,7 +494,7 @@ export const navButtonlink = style({
   transitionDuration: "0.2s",
   transitionTimingFunction: "ease-in-out",
   ":hover": {
-    color: theme.colors.active,
+    color: theme.colors.primary,
     cursor: "pointer",
   },
 })
@@ -481,14 +519,14 @@ const button = style({
   fontWeight: theme.fontWeights.bold,
   fontSize: theme.fontSizes[2],
   lineHeight: theme.lineHeights.solid,
-  paddingTop: theme.space[3],
-  paddingBottom: theme.space[3],
+  paddingTop: theme.space[2],
+  paddingBottom: theme.space[2],
   paddingLeft: theme.space[3],
   paddingRight: theme.space[3],
   borderRadius: theme.radii.button,
 })
 
-export type ButtonVariants = "primary" | "reversed" | "link" | "linkReversed" | "white" | "whiteReversed"
+export type ButtonVariants = "primary" | "reversed" | "link" | "linkReversed" | "white" | "whiteReversed" | "dark"
 
 export const buttons: Record<ButtonVariants, string> = styleVariants({
   primary: [
@@ -588,6 +626,24 @@ export const buttons: Record<ButtonVariants, string> = styleVariants({
         color: theme.colors.muted,
         backgroundColor: theme.colors.text,
         border: '2px solid ' +  theme.colors.text,
+      },
+    },
+  ],
+  dark: [
+    button,
+    {
+      color: theme.colors.primary,
+      backgroundColor: theme.colors.muted,
+      border: '2px solid ' +  theme.colors.muted,
+      ":hover": {
+        color: theme.colors.primary,
+        backgroundColor: theme.colors.muted,
+        border: '2px solid ' +  theme.colors.muted,
+      },
+      ":focus": {
+        color: theme.colors.primary,
+        backgroundColor: theme.colors.muted,
+        border: '2px solid ' +  theme.colors.muted,
       },
     },
   ],

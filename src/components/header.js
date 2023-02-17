@@ -21,6 +21,7 @@ import {
 } from "./header.css"
 import NavItemGroup from "./nav-item-group"
 import BrandLogo from "./brand-logo"
+import BackdropFilter from "react-backdrop-filter";
 
 export default function Header() {
   const data = useStaticQuery(graphql`
@@ -101,7 +102,7 @@ export default function Header() {
                 ))}
             </FlexList>
           </nav>
-          <div>{cta && <Button to={login.href} variant="linkReversed">{login.text}</Button>} {cta && <Button to={cta.href} variant="primary">{cta.text}</Button>}</div>
+          <FlexList gap={2}>{cta && <Button to={login.href} variant="linkReversed">{login.text}</Button>} {cta && <Button to={cta.href} variant="primary">{cta.text}</Button>}</FlexList>
         </Flex>
       </Container>
       <Container className={mobileHeaderNavWrapper[isOpen ? "open" : "closed"]}>
@@ -121,7 +122,7 @@ export default function Header() {
             <Space />
             <div>
               {cta && (
-                <Button to={cta.href} variant={isOpen ? "reversed" : "primary"}>
+                <Button to={cta.href} variant={isOpen ? "dark" : "primary"}>
                   {cta.text}
                 </Button>
               )}
@@ -141,9 +142,11 @@ export default function Header() {
         </Flex>
       </Container>
       {isOpen && (
+        
         <div className={mobileNavOverlay}>
+          
           <nav>
-            <FlexList responsive variant="stretch">
+            <FlexList variant="stretchMedium">
               {navItems?.map((navItem) => (
                 <li key={navItem.id}>
                   {navItem.navItemType === "Group" ? (
@@ -155,13 +158,19 @@ export default function Header() {
                     <NavLink to={navItem.href} className={mobileNavLink}>
                       {navItem.text}
                     </NavLink>
+                    
                   )}
                 </li>
               ))}
+              <NavLink to={login.href} className={mobileNavLink}>
+                      {login.text}
+                    </NavLink>
             </FlexList>
           </nav>
         </div>
       )}
     </header>
+    
   )
+  
 }

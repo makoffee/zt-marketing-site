@@ -16,7 +16,8 @@ import {
 
 export default function CtaImageBlock(props) {
   return (
-    <Container width="fullbleed">
+
+    <Container width="normal">
       <Section padding={5} radius="large" background="active">
         <Flex responsive variant="verticalCenter">
           <Box width="half">

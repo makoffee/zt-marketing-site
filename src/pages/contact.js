@@ -1,15 +1,126 @@
 import React, { useState } from 'react';
 import Layout from "../components/layout"
 import { Container, Box, Heading, Text, Link, Flex } from "../components/ui"
-import SEOHead from "../components/head"
-import { useForm } from "react-hook-form";
+import SEOHead from "../components/head"   
 
 export default function Contact() {
   return (
     <Layout>
       <Box paddingY={4}>
         <Container>
-
+<Box class="_form-content">
+        <form
+  method="POST"
+  action="https://zerotier.activehosted.com/proc.php"
+  id="_form_1_"
+  class="_form _form_1_ _inline-form  _dark"
+  novalidate
+>
+  <input type="hidden" name="u" value="1" />
+  <input type="hidden" name="f" value="1" />
+  <input type="hidden" name="s" />
+  <input type="hidden" name="c" value="0" />
+  <input type="hidden" name="m" value="0" />
+  <input type="hidden" name="act" value="sub" />
+  <input type="hidden" name="v" value="2" />
+  <input type="hidden" name="or" value="0468b51512225f2c86741f9bbee18714" />
+  <Box class="_form-content">
+        <Box class="_form_element _x06281366 _full_width _clear">
+          <Box class="_form-title">
+          </Box>
+        </Box>
+        <Box class="_form_element _x40012284 _full_width ">
+            <Text>First Name*</Text>
+          <Box class="_field-wrapper">
+            <input type="text" id="firstname" name="firstname" placeholder="First Name" required dataName="firstname"/>
+          </Box>
+        </Box>
+        <Box class="_form_element _x47520620 _full_width ">
+          <Text>Last Name*</Text>
+          <Box class="_field-wrapper">
+            <input type="text" id="lastname" name="lastname" placeholder="Last Name" required data-name="lastname"/>
+          </Box>
+        </Box>
+        <Box class="_form_element _x88103655 _full_width ">
+          <Text>Email Address*</Text>
+          <Box class="_field-wrapper">
+            <input type="email" id="email" name="email" placeholder="Email Address" required data-name="email"/>
+          </Box>
+        </Box>
+        <Box class="_form_element _x02919901 _full_width ">
+            <Text>Intended Use*</Text>
+          <Box class="_field-wrapper">
+            <select name="field[20]" id="field[20]" required="" required data-name="intended_use">
+              <option selected="">
+              </option>
+              <option value="Individual">
+                Individual
+              </option>
+              <option value="Business / Team" selected="">
+                Business / Team
+              </option>
+              <option value="Resell / Integrate">
+                Resell / Integrate
+              </option>
+            </select>
+          </Box>
+        </Box>
+        <Box class="_form_element _field15 _full_width ">
+            <Text>Networking Use Case*</Text>
+          <input type="hidden" name="field[15][]" value="~|" required data-name="use_cases"/>
+          <Box class="_field-wrapper">
+            <select id="field[15][]"  name="field[15][]" multiple required="" data-name="use_cases">
+              <option value="Internet of Things (IoT)">
+                Internet of Things (IoT)
+              </option>
+              <option value="Platform Embedding (Hardware / Software)">
+                Platform Embedding (Hardware / Software)
+              </option>
+              <option value="Remote Monitoring / Management">
+                Remote Monitoring / Management
+              </option>
+              <option value="SD-WAN">
+                SD-WAN
+              </option>
+              <option value="VPN / Remote Access">
+                VPN / Remote Access
+              </option>
+              <option value="Other">
+                Other
+              </option>
+            </select>
+          </Box>
+        </Box>
+        <Box class="_form_element _field2 _full_width ">
+        <Text>Company</Text>
+          <Box class="_field-wrapper">
+            <input type="text" id="field[2]" name="field[2]" value="" placeholder="Company" data-name="company"/>
+          </Box>
+        </Box>
+        <Box class="_form_element _x34812439 _full_width ">
+            <Text>Phone Number</Text>
+          <Box class="_field-wrapper">
+            <input type="text" id="phone" name="phone" placeholder="Phone Number" data-name="phone"/>
+          </Box>
+        </Box>
+        <Box class="_form_element _field3 _full_width ">
+          <Text>What Is Your Sales Question?</Text>
+          <Box class="_field-wrapper">
+            <textarea id="field[3]" name="field[3]" placeholder="" data-name="message"></textarea>
+          </Box>
+        </Box>
+        <Box class="_form_element _field1 _full_width ">
+        </Box>
+        <Box class="_button-wrapper _full_width">
+          <button id="_form_1_submit" class="_submit" type="submit">
+            Submit
+          </button>
+        </Box>
+        <Box class="_clear-element">
+        </Box>
+      </Box>
+</form>
+</Box>
         </Container>
       </Box>
     </Layout>
@@ -18,93 +129,3 @@ export default function Contact() {
 export const Head = () => {
   return <SEOHead title="404: Page not found" />
 }
-
-export function App(props) {
-    const { register, handleSubmit, formState: { errors } } = useForm();
-      const [state, setState] = useState({
-          isSubmitted: false,
-          isError: false
-        });    
-  
-      const onSubmit = (data) => {
-          const formData = new FormData();
-  
-          // Hidden field key/values.
-          formData.append("u", "4");
-          formData.append("f", "4");
-          formData.append("s", "s");
-          formData.append("c", "0");
-          formData.append("m", "0");
-          formData.append("act", "sub");
-          formData.append("v", "2");
-          formData.append("or", "c0c3bf12af7fa3ad55cceb047972db9");
-  
-          // Form field key/values.
-          formData.append("fullname", data.fullname);
-          formData.append("email", data.email);
-          formData.append("ca[1][v]", data.contactmessage);
-          
-          // Pass FormData values into a POST request to ActiveCampaign.
-          // Mark form submission successful, otherwise return error state. 
-          fetch('https://myaccount.activehosted.com/proc.php', {
-              method: 'POST',
-              body: formData,
-              mode: 'no-cors',
-          })
-          .then(response => {
-              setState({
-                  isSubmitted: true,
-              });
-          })
-          .catch(err => {
-              setState({
-                  isError: true,
-              });
-          });
-      }
-  
-    return (
-        <Layout>
-      <Box paddingY={4}>
-        <Container>
-      <div>
-          {!state.isSubmitted ? 
-              <form onSubmit={handleSubmit(onSubmit)}>
-                  <fieldset>
-                      <legend>Contact</legend>
-                      <div>
-                          <div>
-                              <div>
-                                  <label htmlFor="fullname">Name</label>
-                                  <input id="fullname" name="fullname" placeholder="Type your name" className={errors.fullname ? "c-form__textbox error" : "c-form__textbox"} {...register("fullname", { required: true })} />
-                                  {errors.fullname && <div className="validation--error"><p>Please enter your name</p></div>}
-                              </div>
-                          </div>
-                          <div>
-                              <div>
-                                  <label htmlFor="email">Email</label>
-                                  <input id="email" name="email" placeholder="Email" className={errors.contactemail ? "c-form__textbox error" : "c-form__textbox"} {...register("email", { required: true, pattern: /^[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,4}$/ })} />
-                                  {errors.email && <div className="validation--error"><p>Please enter a valid email</p></div>}
-                              </div>
-                          </div>
-                          <div>
-                              <div>
-                                  <label htmlFor="contactmessage">Message</label>
-                                  <textarea id="contactmessage" name="contactmessage" placeholder="Message" className={errors.contactmessage ? "c-form__textarea error" : "c-form__textarea"} {...register("contactmessage", { required: true })}></textarea>
-                                  {errors.contactmessage && <div className="validation--error"><p>Please enter your message</p></div>}
-                              </div>
-                          </div>
-                          <div>
-                              <input type="submit" value="Submit" />
-                          </div>
-                      </div>
-                  </fieldset>
-                  {state.isError ? <p>Unfortunately, your submission could not be sent. Please try again later.</p> : null}    
-              </form>
-              : <p>Thank you for your message. I will be in touch shortly.</p>}
-      </div>
-              </Container>
-      </Box>
-    </Layout>
-    );
-  }
