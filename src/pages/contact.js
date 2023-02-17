@@ -50,7 +50,7 @@ export default function Contact() {
         <Box class="_form_element _x02919901 _full_width ">
             <Text>Intended Use*</Text>
           <Box class="_field-wrapper">
-            <select name="field[20]" id="field[20]" required="" required data-name="intended_use">
+            <select name="field[20]" id="field[20]" required="" data-name="intended_use">
               <option selected="">
               </option>
               <option value="Individual">

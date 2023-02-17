@@ -21,7 +21,6 @@ import {
 } from "./header.css"
 import NavItemGroup from "./nav-item-group"
 import BrandLogo from "./brand-logo"
-import BackdropFilter from "react-backdrop-filter";
 
 export default function Header() {
   const data = useStaticQuery(graphql`
