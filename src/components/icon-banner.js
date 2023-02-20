@@ -2,33 +2,28 @@ import * as React from "react"
 import { graphql } from "gatsby"
 import {
   Container,
-  Section,
   Text,
   Flex,
   Box,
   Icon,
-  ButtonList,
 } from "./ui"
+import { theme } from "../theme.css"
 
 export default function HomepageBanner(props) {
   return (
-    <Container width="tight">
-        <Flex style={{justifyContent: "center", padding: "0px 10px", alignItems: "center", lineHeight:"-3em", borderRadius: "64px"}} >
+    <Container width="normal">
+        <Flex style={{justifyContent: "center", padding: "0px 10px", alignItems: "center",borderRadius: "64px"}}>
           <Box style={{flex:"0 1 0"}}>
             {props.icon && (
-              <Icon alt={props.icon.alt} image={props.icon.gatsbyImageData} style={{marin:"0", padding:"0"}}/>
+              <Icon alt={props.icon.alt} image={props.icon.gatsbyImageData} style={{margin:"0", padding:"0"}}/>
             )}
           </Box>
-          <Box style={{flex:"0 1 0"}}>
-            <Text bold variant="small">
-              {props.heading}
-            </Text>
-          </Box>
-          <Box right style={{flex:"1 0"}}>
-            {props.text && <Text  variant="small">{props.text}</Text>}
-          </Box>
-          <Box style={{flex:"0 1 150px"}}>
-            <ButtonList links={props.links} varient="linkReversed"/>
+          <Box right style={{flex:"1 0 500px"}}>
+          <p style={{fontSize: theme.fontSizes[1], justifyContent: "center", alignItems: "center", paddingBottom:"1px"}}
+              dangerouslySetInnerHTML={{
+                __html: props.html,
+              }}
+              />
           </Box>
         </Flex>
     </Container>
@@ -39,16 +34,11 @@ export const query = graphql`
   fragment HomepageBannerContent on HomepageBanner {
     id
     heading
-    text
+    html
     icon {
       id
       alt
       gatsbyImageData
-    }
-    links {
-      id
-      href
-      text
     }
   }
 `

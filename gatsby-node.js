@@ -141,7 +141,7 @@ exports.createSchemaCustomization = async ({ actions }) => {
       text: String
       markdown: MarkdownRemark
       content: [HomepageFeatureMarkdownTextNode]
-      html: String
+      html: String!
       image: HomepageImage
       links: [HomepageLink]
     }
@@ -169,9 +169,8 @@ exports.createSchemaCustomization = async ({ actions }) => {
       id: ID!
       blocktype: String
       heading: String
-      text: String
+      html: String!
       icon: HomepageImage
-      links: [HomepageLink]
     }
 
     interface HomepageLogo implements Node {
@@ -206,7 +205,7 @@ exports.createSchemaCustomization = async ({ actions }) => {
       id: ID!
       heading: String
       text: String
-      html: String
+      html: String!
       image: HomepageImage
     }
 
@@ -479,7 +478,7 @@ exports.createSchemaCustomization = async ({ actions }) => {
       text: String
       markdown: MarkdownRemark
       content: [HomepageFeatureMarkdownTextNode] @link(from: "content___NODE")
-      html: String @richText
+      html: String! @richText
       image: HomepageImage @link(from: "image___NODE")
       links: [HomepageLink] @link(from: "links___NODE")
     }
@@ -507,9 +506,8 @@ exports.createSchemaCustomization = async ({ actions }) => {
     @dontInfer {
     blocktype: String @blocktype
     heading: String
-    text: String
+    html: String! @richText
     icon: HomepageImage @link(from: "icon___NODE")
-    links: [HomepageLink] @link(from: "links___NODE")
   }
 
     type ContentfulHomepageLogo implements Node & HomepageLogo @dontInfer {
@@ -547,7 +545,7 @@ exports.createSchemaCustomization = async ({ actions }) => {
       id: ID!
       heading: String
       text: String
-      html: String @richText
+      html: String! @richText
       image: HomepageImage @link(from: "image___NODE")
     }
 
