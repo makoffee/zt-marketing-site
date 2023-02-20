@@ -40,7 +40,6 @@ export default function TestimonialList(props) {
       <Container width="narrow">
         <Box center>
           <Heading>
-            {props.kicker && <Kicker>{props.kicker}</Kicker>}
             {props.heading}
           </Heading>
         </Box>
@@ -60,7 +59,6 @@ export default function TestimonialList(props) {
 export const query = graphql`
   fragment HomepageTestimonialListContent on HomepageTestimonialList {
     id
-    kicker
     heading
     content {
       id

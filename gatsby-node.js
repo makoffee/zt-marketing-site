@@ -295,7 +295,9 @@ exports.createSchemaCustomization = async ({ actions }) => {
 
     interface LayoutFooter implements Node {
       id: ID!
+      tagline: String
       links: [HomepageLink]
+      navItems: [HeaderNavItem]
       meta: [HomepageLink]
       socialLinks: [SocialLink]
       copyright: String
@@ -715,8 +717,10 @@ exports.createSchemaCustomization = async ({ actions }) => {
 
     type ContentfulLayoutFooter implements Node & LayoutFooter @dontInfer {
       id: ID!
+      tagline: String
       links: [HomepageLink] @link(from: "links___NODE")
       meta: [HomepageLink] @link(from: "meta___NODE")
+      navItems: [HeaderNavItem] @link(from: "navItems___NODE")
       socialLinks: [SocialLink] @link(from: "socialLinks___NODE")
       copyright: String
     }

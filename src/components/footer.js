@@ -20,6 +20,7 @@ import {
   VisuallyHidden,
 } from "./ui"
 import BrandLogo from "./brand-logo"
+import FooterItemGroup from "./footer-item-group"
 
 const socialMedia = {
   TWITTER: {
@@ -79,6 +80,28 @@ export default function Footer() {
             href
             text
           }
+          tagline
+          navItems {
+            id
+            navItemType
+            ... on NavItem {
+              href
+              text
+            }
+            ... on NavItemGroup {
+              name
+              navItems {
+                id
+                href
+                text
+                description
+                icon {
+                  alt
+                  gatsbyImageData
+                }
+              }
+            }
+          }
           meta {
             id
             href
@@ -95,7 +118,7 @@ export default function Footer() {
     }
   `)
 
-  const { links, meta, socialLinks, copyright } = data.layout.footer
+  const { links, meta, socialLinks, copyright, navItems, tagline } = data.layout.footer
 
   return (
     <Box as="footer" paddingY={4}>
@@ -106,17 +129,24 @@ export default function Footer() {
             <VisuallyHidden>Home</VisuallyHidden>
             <BrandLogo />
           </NavLink>
-          This is where the mission statement would go.
+          <Text variant="small">{tagline}</Text>
           </Flex>
           <Space />
           <FlexList variant="start" responsive>
-            {links &&
-              links.map((link) => (
-                <li key={link.id}>
-                  <NavLink to={link.href}>{link.text}</NavLink>
-                </li>
+              {navItems?.map((navItem) => (
+                 <li key={navItem.id}>
+                 {navItem.navItemType === "Group" ? (
+                   <FooterItemGroup
+                     name={navItem.name}
+                     navItems={navItem.navItems}
+                   />
+                 ) : (
+                   <NavLink to={navItem.href}>{navItem.text}</NavLink>
+                 )}
+               </li>
+               
               ))}
-          </FlexList>
+            </FlexList>
         </Flex>
         <Space size={4} />
         <FlexList>

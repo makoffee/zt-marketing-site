@@ -530,7 +530,7 @@ export const navlink = style({
   fontSize: theme.fontSizes[2],
   textDecoration: "none",
   transitionProperty: "color",
-  transitionDuration: "0.2s",
+  transitionDuration: "0s",
   transitionTimingFunction: "ease-in-out",
   ":hover": {
     color: theme.colors.active,
@@ -567,8 +567,8 @@ export const navButtonlink = style({
   border: "none",
   textDecoration: "none",
   transitionProperty: "color",
-  transitionDuration: "0.2s",
-  transitionTimingFunction: "ease-in-out",
+  transitionDuration: "0s",
+  transitionTimingFunction: "ease-out",
   ":hover": {
     color: theme.colors.primary,
     cursor: "pointer",

@@ -10,11 +10,8 @@ import {
   Subhead,
   Box,
   Icon,
-  LinkList,
   ButtonList, 
 } from "./ui"
-import { backgrounds, ButtonVariants } from "./ui.css"
-import { theme } from "../theme.css"
 
 function Product(props) {
   return (

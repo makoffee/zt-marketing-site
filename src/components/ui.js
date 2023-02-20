@@ -1,3 +1,4 @@
+import { style } from "@vanilla-extract/css"
 import { Link as GatsbyLink } from "gatsby"
 import { GatsbyImage, getImage } from "gatsby-plugin-image"
 import isAbsoluteURL from "is-absolute-url"
