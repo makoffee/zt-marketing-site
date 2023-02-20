@@ -1,6 +1,15 @@
 import { style, styleVariants } from "@vanilla-extract/css"
+import { fixedImageSizes } from "gatsby-plugin-image/dist/src/image-utils"
 import { theme } from "../theme.css"
 import { media } from "./ui.css"
+
+export const desktopHeaderNav = style({
+  backgroundImage: theme.colors.darkGradient,
+  //position: "fixed",
+  width: "100%",
+  zIndex: 3,
+  //paddingBottom: "20px",
+})
 
 export const desktopHeaderNavWrapper = style({
   position: "relative",
@@ -29,7 +38,7 @@ export const mobileHeaderNavWrapper = styleVariants({
   open: [
     mobileHeaderNavWrapperBase,
     {
-      background: theme.colors.primary,
+      background: theme.colors.black,
     },
   ],
   closed: [mobileHeaderNavWrapperBase],
@@ -37,7 +46,7 @@ export const mobileHeaderNavWrapper = styleVariants({
 
 export const mobileNavSVGColorWrapper = styleVariants({
   primary: [{ color: theme.colors.primary }],
-  reversed: [{ color: theme.colors.background }],
+  reversed: [{ color: theme.colors.primary }],
 })
 
 export const mobileNavOverlay = style({
@@ -45,7 +54,7 @@ export const mobileNavOverlay = style({
   width: "100vw",
   height: "100vh",
   paddingTop: theme.space[4],
-  backgroundImage: theme.colors.verticalGradient,
+  backgroundColor: theme.colors.black,
   zIndex: 3,
   "@media": {
     [media.medium]: {
@@ -56,7 +65,7 @@ export const mobileNavOverlay = style({
 
 export const mobileNavLink = style({
   display: "block",
-  color: theme.colors.background,
+  color: theme.colors.text,
   fontSize: theme.fontSizes[4],
   paddingTop: theme.space[2],
   paddingBottom: theme.space[2],

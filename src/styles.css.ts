@@ -61,7 +61,9 @@ globalStyle("code", {
   marginTop: "1rem ",
   display: "block",
   padding: theme.space[4],
+  fontSize: theme.fontSizes[0],
   borderRadius: "12px",
+  overflowWrap: "anywhere",
 })
 
 

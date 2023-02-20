@@ -122,7 +122,6 @@ exports.createSchemaCustomization = async ({ actions }) => {
       id: ID!
       blocktype: String
       heading: String!
-      kicker: String
       subhead: String
       image: HomepageImage
       heroimage: HomepageImage
@@ -139,7 +138,6 @@ exports.createSchemaCustomization = async ({ actions }) => {
       id: ID!
       blocktype: String
       heading: String
-      kicker: String
       text: String
       markdown: MarkdownRemark
       content: [HomepageFeatureMarkdownTextNode]
@@ -164,6 +162,15 @@ exports.createSchemaCustomization = async ({ actions }) => {
       heading: String
       text: String
       image: HomepageImage
+      links: [HomepageLink]
+    }
+
+    interface HomepageBanner implements Node & HomepageBlock {
+      id: ID!
+      blocktype: String
+      heading: String
+      text: String
+      icon: HomepageImage
       links: [HomepageLink]
     }
 
@@ -390,6 +397,15 @@ exports.createSchemaCustomization = async ({ actions }) => {
       links: [HomepageLink]
     }
 
+    interface HeaderBanner implements Node & HomepageBlock {
+      id: ID!
+      blocktype: String
+      heading: String!
+      heroimage: HomepageImage
+      text: String
+      links: [HomepageLink]
+    }
+
   `)
 
   // CMS-specific types for Homepage
@@ -431,8 +447,17 @@ exports.createSchemaCustomization = async ({ actions }) => {
       id: ID!
       blocktype: String @blocktype
       heading: String!
-      kicker: String
       subhead: String
+      image: HomepageImage @link(from: "image___NODE")
+      heroimage: HomepageImage @link(from: "heroimage___NODE")
+      text: String
+      links: [HomepageLink] @link(from: "links___NODE")
+    }
+
+    type ContentfulHeaderBanner implements Node & HeaderBanner & HomepageBlock {
+      id: ID!
+      blocktype: String @blocktype
+      heading: String!
       image: HomepageImage @link(from: "image___NODE")
       heroimage: HomepageImage @link(from: "heroimage___NODE")
       text: String
@@ -477,6 +502,15 @@ exports.createSchemaCustomization = async ({ actions }) => {
       image: HomepageImage @link(from: "image___NODE")
       links: [HomepageLink] @link(from: "links___NODE")
     }
+
+    type ContentfulHomepageBanner implements Node & HomepageBlock & HomepageBanner
+    @dontInfer {
+    blocktype: String @blocktype
+    heading: String
+    text: String
+    icon: HomepageImage @link(from: "icon___NODE")
+    links: [HomepageLink] @link(from: "links___NODE")
+  }
 
     type ContentfulHomepageLogo implements Node & HomepageLogo @dontInfer {
       id: ID!

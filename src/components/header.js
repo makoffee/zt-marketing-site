@@ -15,6 +15,7 @@ import {
 import {
   mobileNavOverlay,
   mobileNavLink,
+  desktopHeaderNav,
   desktopHeaderNavWrapper,
   mobileHeaderNavWrapper,
   mobileNavSVGColorWrapper,
@@ -76,7 +77,7 @@ export default function Header() {
   }, [isOpen])
 
   return (
-    <header>
+    <header className={desktopHeaderNav}>
       <Container className={desktopHeaderNavWrapper}>
         <Space size={2} />
         <Flex variant="spaceBetween">
@@ -121,7 +122,7 @@ export default function Header() {
             <Space />
             <div>
               {cta && (
-                <Button to={cta.href} variant={isOpen ? "dark" : "primary"}>
+                <Button to={cta.href} variant={isOpen ? "reversed" : "primary"}>
                   {cta.text}
                 </Button>
               )}
