@@ -758,7 +758,7 @@ export const borders: Record<Borders, string> = styleVariants({
   },
 })
 
-export type Backgrounds = "primary" | "muted" | "active" | "white"
+export type Backgrounds = "primary" | "muted" | "active" | "white" | "black"
 
 export const backgrounds: Record<Backgrounds, string> = styleVariants({
   primary: {
@@ -776,6 +776,10 @@ export const backgrounds: Record<Backgrounds, string> = styleVariants({
   white: {
     color: theme.colors.muted,
     backgroundColor: theme.colors.text,
+  },
+  black: {
+    color: theme.colors.text,
+    backgroundColor: theme.colors.black,
   },
 })
 

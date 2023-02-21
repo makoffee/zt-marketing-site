@@ -353,14 +353,6 @@ exports.createSchemaCustomization = async ({ actions }) => {
       content: [AboutProfile]
     }
 
-    interface AboutLogoList implements Node & HomepageBlock {
-      id: ID!
-      blocktype: String
-      heading: String
-      links: [HomepageLink]
-      logos: [HomepageLogo]
-    }
-
     interface Page implements Node {
       id: ID!
       slug: String!
@@ -405,6 +397,13 @@ exports.createSchemaCustomization = async ({ actions }) => {
       heroimage: HomepageImage
       text: String
       links: [HomepageLink]
+    }
+
+    interface EmailSignupBlock implements Node & HomepageBlock {
+      id: ID!
+      blocktype: String
+      heading: String
+      text: String
     }
 
   `)
@@ -463,6 +462,13 @@ exports.createSchemaCustomization = async ({ actions }) => {
       heroimage: HomepageImage @link(from: "heroimage___NODE")
       text: String
       links: [HomepageLink] @link(from: "links___NODE")
+    }
+
+    type ContentfulEmailSignupBlock implements Node & EmailSignupBlock & HomepageBlock {
+      id: ID!
+      blocktype: String @blocktype
+      heading: String
+      text: String
     }
 
     type ContentfulHomepageFeatureMarkdownTextNode implements Node & HomepageFeatureMarkdownTextNode 
@@ -680,15 +686,6 @@ exports.createSchemaCustomization = async ({ actions }) => {
       heading: String
       subhead: String
       content: [AboutProfile] @link(from: "content___NODE")
-    }
-
-    type ContentfulAboutLogoList implements Node & AboutLogoList & HomepageBlock
-      @dontInfer {
-      id: ID!
-      blocktype: String @blocktype
-      heading: String
-      links: [HomepageLink] @link(from: "links___NODE")
-      logos: [HomepageLogo] @link(from: "logos___NODE")
     }
 
     type ContentfulAboutPage implements Node & AboutPage @dontInfer {
