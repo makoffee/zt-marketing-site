@@ -1,5 +1,6 @@
 import { graphql } from "gatsby"
 import * as React from "react"
+import { getImage } from "gatsby-plugin-image"
 import {
   Box,
   ButtonList,
@@ -15,7 +16,7 @@ export default function Hero(props) {
    <Section>
      <div style={{ display: "grid"}}>
           {props.heroimage && (
-          <BannerImage alt={props.heroimage.alt} image={props.heroimage.gatsbyImageData}/>
+          <BannerImage alt={props.heroimage.alt} image={getImage(props.heroimage.gatsbyImageData)}/>
       )}
       <div
         style={{

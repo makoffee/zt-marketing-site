@@ -799,6 +799,31 @@ export const avatar = style({
   borderRadius: theme.radii.circle,
 })
 
+export const hero = style({
+  gridArea: "1/1",
+  // You can set a maximum height for the image, if you wish.
+  // maxHeight: "50vh",
+  minHeight: "90vh",
+  maxHeight: "90vh",
+  position: "relative",
+  top: -126,
+  marginBottom: -126,
+  zIndex:-1,
+})
+
+export const banner = style({
+  gridArea: "1/1",
+  // You can set a maximum height for the image, if you wish.
+  maxHeight: "50vh",
+  minHeight: "450px",
+  position: "relative",
+  top: -126,
+  marginBottom: -126,
+  zIndex:-1,
+})
+
+
+
 export type LogoSizes = "small" | "medium"
 
 export const logos: Record<LogoSizes, string> = styleVariants({

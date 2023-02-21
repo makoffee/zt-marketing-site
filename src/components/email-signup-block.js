@@ -5,10 +5,8 @@ import {
   Box,
   Flex,
   Text,
-  Heading,
   Section,
 } from "./ui"
-import { theme } from "../theme.css"
 
 export default function EmailSignupBlock(props) {
   return (  
@@ -25,7 +23,7 @@ export default function EmailSignupBlock(props) {
                         method="POST"
                         action="https://zerotier.activehosted.com/proc.php"
                         id="_form_3_"
-                        novalidate
+                        noValidate
                     >
                         <input type="hidden" name="u" value="3" />
                         <input type="hidden" name="f" value="3" />
@@ -40,9 +38,7 @@ export default function EmailSignupBlock(props) {
                                 <input type="email" id="email" name="email" placeholder="Email Address" required style={{marginBottom:"0"}}/>
                              </Flex>
                             <Flex>
-                                <button id="_form_3_submit" class="ui_buttons_primary__ur0mb5f ui_button__ur0mb5e" type="submit">
-                                    Subscribe
-                                </button>
+                            <button id="_form_3_submit" className="ui_buttons_primary__ur0mb5f ui_button__ur0mb5e" type="submit">Subscribe</button>
                             </Flex>
                         </Flex>
                     </form>

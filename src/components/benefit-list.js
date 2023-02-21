@@ -14,21 +14,21 @@ import {
 function Benefit(props) {
   return (
     <Box as="li" width="quarter" padding={4} paddingY={3}>
-      {props.image && (
+      <Box style={{padding:"0 20% 0 20%"}}>
+        {props.image && (
           <GatsbyImage
             alt={props.image.alt}
             image={getImage(props.image.gatsbyImageData)}
-            responsive
-            //className={styles.aboutHeroImage}
           />
-        )}
-      <Space size={2} />
+        )}  
+      </Box>
+      <Space size={2}/>
       <Heading variant="subheadSmall">{props.heading}</Heading>
-      <div style={{}}
+        <div style={{}}
             dangerouslySetInnerHTML={{
               __html: props.html,
             }}
-            />
+          />
     </Box>
   )
 }
@@ -41,7 +41,7 @@ export default function BenefitList(props) {
           {props.heading && <Heading>{props.heading}</Heading>}
           {props.text && <Text variant="lead">{props.text}</Text>}
         </Box>
-        <Space size={3} />
+
         <FlexList gutter={3} variant="start" responsive wrap>
           {props.content.map((benefit) => (
             <Benefit key={benefit.id} {...benefit} />

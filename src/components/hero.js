@@ -51,14 +51,14 @@ export default function Hero(props) {
             <Text as="h3">{props.text}</Text>
             <ButtonList links={props.links} varient="primary"/>
           </Box>
-          <Box width="half">
             {props.image && (
+              <Box width="half">
               <GatsbyImage
                 alt={props.image.alt}
                 image={getImage(props.image.gatsbyImageData)}
               />
+                        </Box>
             )}
-          </Box>
         </Flex>
       </Container>
       </div>

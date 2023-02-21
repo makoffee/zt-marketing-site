@@ -75,11 +75,6 @@ export default function Footer() {
       layout {
         footer {
           id
-          links {
-            id
-            href
-            text
-          }
           tagline
           navItems {
             id
@@ -118,7 +113,7 @@ export default function Footer() {
     }
   `)
 
-  const { links, meta, socialLinks, copyright, navItems, tagline } = data.layout.footer
+  const { meta, socialLinks, copyright, navItems, tagline } = data.layout.footer
 
   return (
     

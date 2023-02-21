@@ -4,7 +4,6 @@ import {
   Container,
   Section,
   Heading,
-  Kicker,
   Flex,
   Box,
   FlexList,

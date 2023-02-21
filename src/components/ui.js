@@ -1,4 +1,3 @@
-import { style } from "@vanilla-extract/css"
 import { Link as GatsbyLink } from "gatsby"
 import { GatsbyImage, getImage } from "gatsby-plugin-image"
 import isAbsoluteURL from "is-absolute-url"
@@ -214,33 +213,17 @@ export function Blockquote(props) {
 
 export function Avatar({ alt, image }) {
   return (
-    <GatsbyImage alt={alt} image={getImage(image)} className={styles.avatar} />
+    <GatsbyImage alt={alt} image={image} className={styles.avatar} />
   )
 }
-
-//export function HeroImage({ alt, image }) {
-//  return (
-//    <GatsbyImage alt={alt} image={getImage(image)} style={{ position: "absolute", minHeight: "100vh", width: "auto", zIndex:-1, top:"0px"}} />
-//  )
-//}
 
 export function HeroImage({ alt, image }) {
   return (
     <GatsbyImage alt={alt} image={getImage(image)} 
-    style={{
-      gridArea: "1/1",
-      // You can set a maximum height for the image, if you wish.
-      // maxHeight: "50vh",
-      minHeight: "90vh",
-      maxHeight: "90vh",
-      position: "relative",
-      top: -126,
-      marginBottom: -126,
-      zIndex:-1,
-    }}
+    className={styles.hero} 
     layout="fullWidth"
     // You can optionally force an aspect ratio for the generated image
-    aspectRatio={3 / 1}
+    //aspectratio={3 / 1}
     // This is a presentational image, so the alt should be an empty string
     formats={["auto", "webp", "avif"]}
     />
@@ -250,16 +233,7 @@ export function HeroImage({ alt, image }) {
 export function BannerImage({ alt, image }) {
   return (
     <GatsbyImage alt={alt} image={getImage(image)} 
-    style={{
-      gridArea: "1/1",
-      // You can set a maximum height for the image, if you wish.
-      maxHeight: "50vh",
-      minHeight: "450px",
-      position: "relative",
-      top: -126,
-      marginBottom: -126,
-      zIndex:-1,
-    }}
+    className={styles.banner} 
     layout="fullWidth"
     // You can optionally force an aspect ratio for the generated image
     //aspectRatio={16 / 9}

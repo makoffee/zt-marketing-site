@@ -1,6 +1,6 @@
-import React, { useState } from 'react';
+import React from 'react';
 import Layout from "../components/layout"
-import { Container, Box, Heading, Button, Text, Space, Link, Flex, theme } from "../components/ui"
+import { Container, Box, Heading, Text, Space, Flex, } from "../components/ui"
 import SEOHead from "../components/head"   
 
 export default function Contact() {

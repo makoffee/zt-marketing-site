@@ -15,6 +15,7 @@ import {
 
 function Product(props) {
   return (
+    
     <Box center paddingY={4} radius="large" background="muted" border={props.variant}>
       {props.image && (
         <Icon
@@ -49,7 +50,7 @@ export default function ProductList(props) {
         </Box>
         <FlexList gap={4} variant="stretchMediumResponsive">
           {props.content.map((product) => (
-              <Product {...product}/>
+            <Product key={product.id} {...product} />
           ))}
         </FlexList>
       </Container>
