@@ -34,34 +34,6 @@ globalStyle("input", {
 
 })
 
-globalStyle("button", {
-  display: "inline-flex",
-  textDecoration: "none",
-  fontWeight: theme.fontWeights.bold,
-  fontSize: theme.fontSizes[2],
-  lineHeight: theme.lineHeights.solid,
-  paddingTop: theme.space[2],
-  paddingBottom: theme.space[2],
-  paddingLeft: theme.space[3],
-  paddingRight: theme.space[3],
-  borderRadius: theme.radii.button,
-  color: theme.colors.background,
-  backgroundColor: theme.colors.primary,
-  border: '2px solid ' +  theme.colors.primary,
-})
-
-globalStyle("button:hover", {
-  color: theme.colors.primary,
-  backgroundColor: "transparent",
-  border: '2px solid ' +  theme.colors.primary,
-})
-
-globalStyle("button:focus", {
-  color: theme.colors.primary,
-  backgroundColor: "transparent",
-  border: '2px solid ' +  theme.colors.primary,
-})
-
 globalStyle("select", {
   width: "100%",
   display: "block",

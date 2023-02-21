@@ -35,7 +35,7 @@ export default function EmailSignupBlock(props) {
                         <input type="hidden" name="act" value="sub" />
                         <input type="hidden" name="v" value="2" />
                         <input type="hidden" name="or" value="27b3a913d054ff5c3b2f3fd64d5fc5d5" data-name="or"/>
-                        <Flex variant="verticalCenter">
+                        <Flex variant="verticalCenter" style={{justifyContent:"flex-end"}}>
                             <Flex style={{flex:"1 0 auto", justifyContent:"flex-end"}}>
                                 <input type="email" id="email" name="email" placeholder="Email Address" required style={{marginBottom:"0"}}/>
                              </Flex>
