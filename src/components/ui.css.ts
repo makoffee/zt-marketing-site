@@ -225,10 +225,10 @@ export const widths: Record<Widths, string> = styleVariants(
       width: "100%",
       "@media": {
         [media.small]: {
-          width: "100%",
+          width: "50%",
         },
         [media.medium]: {
-          width: "100%",
+          width: "33%",
         },
       },
     },

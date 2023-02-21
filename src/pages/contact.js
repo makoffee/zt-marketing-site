@@ -15,7 +15,7 @@ export default function Contact() {
           </Text>
           <Space size={4} />
         </Box>
-        <Flex responsive varient="responsiveMedium" gap={4} Flex variant="columnStart">
+        <Flex responsive varient="responsiveMedium" gap={4} variant="columnStart">
         <Box paddingY={4} width="half">
           <Text>Something cool goes here.</Text>
         </Box>
@@ -34,7 +34,7 @@ export default function Contact() {
             <input type="hidden" name="act" value="sub" />
             <input type="hidden" name="v" value="2" />
             <input type="hidden" name="or" value="0468b51512225f2c86741f9bbee18714" />
-            <Box class="_form_element _x40012284 _full_width ">
+            <Box>
               <Text>First Name*</Text>
               <input type="text" id="firstname" name="firstname" placeholder="First Name" required dataName="firstname"/>
             </Box>
@@ -49,7 +49,7 @@ export default function Contact() {
             <Box>
               <Text>Intended Use*</Text>
               <select name="field[20]" id="field[20]" required="" data-name="intended_use">
-                <option selected="">
+                <option selected=""> --- select ---
                 </option>
                 <option value="Individual">
                   Individual
@@ -65,7 +65,9 @@ export default function Contact() {
             <Box>
               <Text>Networking Use Case*</Text>
               <input type="hidden" name="field[15][]" value="~|" required data-name="use_cases"/>
-                <select id="field[15][]"  name="field[15][]" multiple required="" data-name="use_cases">
+                <select id="field[15][]"  name="field[15][]" required="" data-name="use_cases">
+                  <option selected=""> --- select ---
+                  </option>
                   <option value="Internet of Things (IoT)">
                     Internet of Things (IoT)
                   </option>
@@ -111,5 +113,5 @@ export default function Contact() {
   )
 }
 export const Head = () => {
-  return <SEOHead title="404: Page not found" />
+  return <SEOHead title="Contact" />
 }
