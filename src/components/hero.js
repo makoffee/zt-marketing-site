@@ -79,8 +79,14 @@ export const query = graphql`
     }
     heroimage {
       id
-      gatsbyImageData
       alt
+      gatsbyImageData
+      localFile {
+        id
+        childImageSharp {
+          gatsbyImageData
+        }
+      }
     }
     image {
       id

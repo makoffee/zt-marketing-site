@@ -601,8 +601,8 @@ const button = style({
   paddingRight: theme.space[3],
   borderRadius: theme.radii.button,
 })
-
-export type ButtonVariants = "primary" | "reversed" | "link" | "linkReversed" | "white" | "whiteReversed" | "dark"
+ 
+export type ButtonVariants = "primary" | "reversed" | "link" | "linkReversed" | "white" | "whiteReversed" | "dark" | "gradient"
 
 export const buttons: Record<ButtonVariants, string> = styleVariants({
   primary: [
@@ -738,6 +738,24 @@ export const buttons: Record<ButtonVariants, string> = styleVariants({
         color: theme.colors.text,
         backgroundColor: "transparent",
         border: '2px solid ' +  theme.colors.active,
+      },
+    },
+  ],
+  gradient: [
+    button,
+    {
+      color: theme.colors.background,
+      backgroundColor: theme.colors.gradient,
+      border: '2px solid ' +  theme.colors.gradient,
+      ":hover": {
+        color: theme.colors.gradient,
+        backgroundColor: "transparent",
+        border: '2px solid ' +  theme.colors.gradient,
+      },
+      ":focus": {
+        color: theme.colors.gradient,
+        backgroundColor: "transparent",
+        border: '2px solid ' +  theme.colors.gradient,
       },
     },
   ],

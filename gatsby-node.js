@@ -111,10 +111,20 @@ exports.createSchemaCustomization = async ({ actions }) => {
       navItems: [NavItem]
     }
 
+  interface LocalFile implements Node {
+    id: ID!
+    alt: String @proxy(from: "title")
+    childImageSharp: GatsbyImageData @imagePassthroughArgs
+    url: String
+    file: JSON
+    title: String
+  }
+
     interface HomepageImage implements Node {
       id: ID!
       alt: String
       gatsbyImageData: GatsbyImageData @imagePassthroughArgs
+      localFile: File
       url: String
     }
 
@@ -129,18 +139,11 @@ exports.createSchemaCustomization = async ({ actions }) => {
       links: [HomepageLink]
     }
 
-    interface HomepageFeatureMarkdownTextNode implements Node {
-      id: ID!
-      markdown: MarkdownRemark
-    }
-
     interface HomepageFeature implements Node & HomepageBlock {
       id: ID!
       blocktype: String
       heading: String
       text: String
-      markdown: MarkdownRemark
-      content: [HomepageFeatureMarkdownTextNode]
       html: String!
       image: HomepageImage
       links: [HomepageLink]
@@ -291,8 +294,6 @@ exports.createSchemaCustomization = async ({ actions }) => {
       service: SocialService!
     }
 
-
-
     interface LayoutFooter implements Node {
       id: ID!
       tagline: String
@@ -405,7 +406,6 @@ exports.createSchemaCustomization = async ({ actions }) => {
       heading: String
       text: String
     }
-
   `)
 
   // CMS-specific types for Homepage
@@ -471,12 +471,6 @@ exports.createSchemaCustomization = async ({ actions }) => {
       text: String
     }
 
-    type ContentfulHomepageFeatureMarkdownTextNode implements Node & HomepageFeatureMarkdownTextNode 
-      @dontInfer {
-      id: ID!
-      markdown: MarkdownRemark
-    }
-
     type ContentfulHomepageFeature implements Node & HomepageBlock & HomepageFeature
       @dontInfer {
       id: ID!
@@ -484,8 +478,6 @@ exports.createSchemaCustomization = async ({ actions }) => {
       heading: String
       kicker: String
       text: String
-      markdown: MarkdownRemark
-      content: [HomepageFeatureMarkdownTextNode] @link(from: "content___NODE")
       html: String! @richText
       image: HomepageImage @link(from: "image___NODE")
       links: [HomepageLink] @link(from: "links___NODE")
