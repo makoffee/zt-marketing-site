@@ -10,7 +10,7 @@ export default function HomepageBanner(props) {
   return (
     <Container width="normal">
         <Box center>
-          <p style={{fontSize: theme.fontSizes[1], justifyContent: "center", alignItems: "center", paddingBottom:"1px"}}
+          <div style={{fontSize: theme.fontSizes[1], justifyContent: "center", alignItems: "center", paddingBottom:"1px"}}
               dangerouslySetInnerHTML={{
                 __html: props.html,
               }}
