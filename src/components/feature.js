@@ -8,6 +8,7 @@ import {
   Subhead,
   ButtonList,
 } from "./ui"
+import { theme } from "../theme.css"
 
 
 export default function Feature(props) {  
@@ -25,7 +26,7 @@ export default function Feature(props) {
             <Subhead>
               {props.heading}
             </Subhead>
-            <div style={{fontSize: "22px"}}
+            <div style={{fontSize: theme.fontSizes[3], lineHeight:"1.5em"}}
             dangerouslySetInnerHTML={{
               __html: props.html,
             }}

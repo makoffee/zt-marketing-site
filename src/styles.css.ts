@@ -8,7 +8,7 @@ globalStyle("body", {
   background: theme.colors.background,
   WebkitFontSmoothing: "antialiased",
   MozOsxFontSmoothing: "grayscale",
-  lineHeight: "1.65em",
+  lineHeight: "1.5em",
 })
 
 globalStyle("a", {  

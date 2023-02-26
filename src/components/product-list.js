@@ -5,7 +5,6 @@ import {
   Section,
   FlexList,
   Text,
-  Kicker,
   Heading,
   Subhead,
   Box,
@@ -43,7 +42,6 @@ export default function ProductList(props) {
       <Container >
         <Box center paddingY={4}>
           <Heading>
-            {props.kicker && <Kicker>{props.kicker}</Kicker>}
             {props.heading}
           </Heading>
           {props.text && <Text>{props.text}</Text>}
@@ -61,7 +59,6 @@ export default function ProductList(props) {
 export const query = graphql`
   fragment HomepageProductListContent on HomepageProductList {
     id
-    kicker
     heading
     text
     content {

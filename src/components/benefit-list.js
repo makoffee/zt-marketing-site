@@ -2,7 +2,6 @@ import * as React from "react"
 import { graphql } from "gatsby"
 import { GatsbyImage, getImage } from "gatsby-plugin-image"
 import {
-  Container,
   Section,
   FlexList,
   Box,
@@ -10,6 +9,7 @@ import {
   Text,
   Space,
 } from "./ui"
+import { theme } from "../theme.css"
 
 function Benefit(props) {
   return (
@@ -23,8 +23,8 @@ function Benefit(props) {
         )}  
       </Box>
       <Space size={2}/>
-      <Heading variant="subheadSmall">{props.heading}</Heading>
-        <div style={{}}
+      <Heading center variant="subheadSmall">{props.heading}</Heading>
+        <div style={{textAlign:"center", fontSize: theme.fontSizes[2], lineHeight: theme.lineHeights.text}}
             dangerouslySetInnerHTML={{
               __html: props.html,
             }}
@@ -35,19 +35,17 @@ function Benefit(props) {
 
 export default function BenefitList(props) {
   return (
-    <Section>
-      <Container width="wide">
+    <Section padding={4}>
         <Box center>
           {props.heading && <Heading>{props.heading}</Heading>}
           {props.text && <Text variant="lead">{props.text}</Text>}
         </Box>
 
-        <FlexList gutter={3} variant="start" responsive wrap>
+        <FlexList gutter={4} variant="start" responsive wrap>
           {props.content.map((benefit) => (
             <Benefit key={benefit.id} {...benefit} />
           ))}
         </FlexList>
-      </Container>
     </Section>
   )
 }

@@ -5,7 +5,6 @@ import {
   Container,
   Section,
   Text,
-  Kicker,
   Heading,
   Flex,
   Box,
@@ -25,7 +24,6 @@ export default function CtaImageBlock(props) {
               <Icon alt={props.icon.alt} image={props.icon.gatsbyImageData} />
             )}
             <Heading>
-              {props.kicker && <Kicker>{props.kicker}</Kicker>}
               {props.heading}
             </Heading>
             {props.text && <Text variant="lead">{props.text}</Text>}
@@ -50,7 +48,6 @@ export default function CtaImageBlock(props) {
 export const query = graphql`
   fragment CtaImageBlockContent on CtaImageBlock {
     id
-    kicker
     heading
     text
     image {

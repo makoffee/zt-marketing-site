@@ -18,7 +18,7 @@ export default function RichTextBlock(props) {
               <Subhead>
                 {props.title}
               </Subhead>
-              <div style={{fontSize: theme.fontSizes[2]}}
+              <div style={{fontSize: theme.fontSizes[2], lineHeight: theme.lineHeights.text}}
               dangerouslySetInnerHTML={{
                 __html: props.html,
               }}

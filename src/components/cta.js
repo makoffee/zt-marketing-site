@@ -8,7 +8,6 @@ import {
   Heading,
   Text,
   ButtonList,
-  Kicker,
 } from "./ui"
 
 export default function HomepageCta(props) {
@@ -16,7 +15,6 @@ export default function HomepageCta(props) {
     <Container width="fullbleed">
       <Section padding={5} radius="large" background="primary">
         <Heading center>
-          {props.kicker && <Kicker center>{props.kicker}</Kicker>}
           {props.heading}
         </Heading>
         <Text as="p" center variant="lead">
@@ -39,7 +37,6 @@ export default function HomepageCta(props) {
 export const query = graphql`
   fragment HomepageCtaContent on HomepageCta {
     id
-    kicker
     heading
     text
     image {

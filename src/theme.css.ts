@@ -52,7 +52,7 @@ const fonts = {
 }
 
 const lineHeights = {
-  text: "1.65",
+  text: "1.5",
   heading: "1.25",
   tight: "1.1",
   solid: "1",
