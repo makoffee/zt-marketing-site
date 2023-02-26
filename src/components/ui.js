@@ -213,7 +213,7 @@ export function Blockquote(props) {
 
 export function Avatar({ alt, image }) {
   return (
-    <GatsbyImage alt={alt} image={image} className={styles.avatar} />
+    <GatsbyImage alt={alt} image={image} className={styles.avatar}/>
   )
 }
 

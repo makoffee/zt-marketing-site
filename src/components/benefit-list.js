@@ -3,6 +3,7 @@ import { graphql } from "gatsby"
 import { GatsbyImage, getImage } from "gatsby-plugin-image"
 import {
   Section,
+  Container,
   FlexList,
   Box,
   Heading,
@@ -36,6 +37,7 @@ function Benefit(props) {
 export default function BenefitList(props) {
   return (
     <Section padding={4}>
+      <Container width="wide">
         <Box center>
           {props.heading && <Heading>{props.heading}</Heading>}
           {props.text && <Text variant="lead">{props.text}</Text>}
@@ -46,6 +48,7 @@ export default function BenefitList(props) {
             <Benefit key={benefit.id} {...benefit} />
           ))}
         </FlexList>
+        </Container>
     </Section>
   )
 }

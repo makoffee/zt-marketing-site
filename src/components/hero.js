@@ -81,12 +81,6 @@ export const query = graphql`
       id
       alt
       gatsbyImageData
-      localFile {
-        id
-        childImageSharp {
-          gatsbyImageData
-        }
-      }
     }
     image {
       id

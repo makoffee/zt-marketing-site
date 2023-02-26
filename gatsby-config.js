@@ -20,7 +20,12 @@ module.exports = {
         host: process.env.CONTENTFUL_HOST,
         // uncomment for uncomment for local image storage
         // downloadLocal: true,
+        quality: 100,
+        images: {
+          quality: 100,
+        }
       },
+
     },
     {
       resolve: 'gatsby-plugin-robots-txt',
@@ -37,9 +42,9 @@ module.exports = {
         }
       }
     },
-    "gatsby-plugin-sharp",
-    "gatsby-plugin-image",
-    "gatsby-transformer-sharp",
+    `gatsby-plugin-sharp`,
+    `gatsby-transformer-sharp`,
+    `gatsby-plugin-image`,
     "gatsby-plugin-vanilla-extract",
     {
       resolve: "gatsby-plugin-manifest",
