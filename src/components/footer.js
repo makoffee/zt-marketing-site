@@ -130,7 +130,7 @@ export default function Footer() {
           <Space />
           <FlexList variant="start" responsive>
               {navItems?.map((navItem) => (
-                 <li key={navItem.id}>
+                 <li key={navItem.id} style={{paddingBottom:"20px"}}>
                  {navItem.navItemType === "Group" ? (
                    <FooterItemGroup
                      name={navItem.name}
