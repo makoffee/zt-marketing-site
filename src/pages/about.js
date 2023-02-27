@@ -37,12 +37,20 @@ export const query = graphql`
         blocktype
         ...AboutHeroContent
         ...AboutStatListContent
-        ...HomepageProductListContent
         ...AboutLeadershipContent
-        ...HomepageBenefitListContent
+        ...HomepageFeatureListContent
         ...HomepageCtaContent
+        ...HomepageLogoListContent
+        ...HomepageTestimonialListContent
+        ...HomepageBenefitListContent
+        ...HomepageStatListContent
+        ...HomepageProductListContent
+        ...HeaderBannerContent
         ...RichTextBlockContent
         ...CtaImageBlockContent
+        ...TextBannerContent
+        ...EmailSignupBlockContent
+        ...VideoEmbedContent
       }
     }
   }

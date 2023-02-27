@@ -10,7 +10,7 @@ export default function LandingPage(props) {
 
   return (
     <Layout>
-      {landingPage.blocks.map((block) => {
+      {landingPage.blocks && landingPage.blocks.map((block) => {
         const { id, blocktype, ...componentProps } = block
         const Component = sections[blocktype] || Fallback
         return <Component key={id} {...componentProps} />
@@ -44,9 +44,12 @@ export const query = graphql`
         ...HomepageBenefitListContent
         ...HomepageStatListContent
         ...HomepageProductListContent
+        ...HeaderBannerContent
         ...RichTextBlockContent
         ...CtaImageBlockContent
-        ...HeaderBannerContent
+        ...TextBannerContent
+        ...EmailSignupBlockContent
+        ...VideoEmbedContent    
       }
     }
   }

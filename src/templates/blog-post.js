@@ -13,6 +13,8 @@ import {
 import { avatar as avatarStyle } from "../components/ui.css"
 import * as styles from "./blog-post.css"
 import SEOHead from "../components/head"
+import * as sections from "../components/sections"
+import Fallback from "../components/fallback"
 
 export default function BlogPost(props) {
   return (
@@ -59,6 +61,13 @@ export default function BlogPost(props) {
               __html: props.html,
             }}
           />
+        </Box>
+        <Box className={styles.blogPost}>
+        {props.blocks && props.blocks.map((block) => {
+            const { id, blocktype, ...componentProps } = block
+            const Component = sections[blocktype] || Fallback
+            return <Component key={id} {...componentProps} />
+          })}
         </Box>
       </Container>
     </Layout>

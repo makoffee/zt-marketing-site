@@ -6,7 +6,7 @@ import {
 } from "./ui"
 import { theme } from "../theme.css"
 
-export default function HomepageBanner(props) {
+export default function TextBanner(props) {
   return (
     <Container width="normal">
         <Box center>
@@ -21,7 +21,7 @@ export default function HomepageBanner(props) {
 }
 
 export const query = graphql`
-  fragment HomepageBannerContent on HomepageBanner {
+  fragment TextBannerContent on TextBanner {
     id
     heading
     html

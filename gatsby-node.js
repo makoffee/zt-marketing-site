@@ -159,12 +159,18 @@ exports.createSchemaCustomization = async ({ actions }) => {
       image: HomepageImage
       links: [HomepageLink]
     }
-    interface HomepageBanner implements Node & HomepageBlock {
+    interface TextBanner implements Node & HomepageBlock {
       id: ID!
       blocktype: String
       heading: String
       html: String!
       icon: HomepageImage
+    }
+    interface VideoEmbed implements Node & HomepageBlock {
+      id: ID!
+      blocktype: String
+      title: String
+      src: String
     }
     interface HomepageLogo implements Node {
       id: ID!
@@ -281,6 +287,7 @@ exports.createSchemaCustomization = async ({ actions }) => {
       header: LayoutHeader
       footer: LayoutFooter
     }
+
     interface AboutPage implements Node {
       id: ID!
       title: String
@@ -364,6 +371,12 @@ exports.createSchemaCustomization = async ({ actions }) => {
       heading: String
       text: String
     }
+
+    interface Markdown implements Node {
+      id: ID!
+      markdownRemark: JSON
+    }
+
   `)
 
   // CMS-specific types for Homepage
@@ -389,7 +402,7 @@ exports.createSchemaCustomization = async ({ actions }) => {
       name: String
       navItems: [NavItem] @link(from: "navItems___NODE")
     }
-    type ContentfulAsset implements Node & HomepageImage {
+    type ContentfulAsset implements Node & HomepageImage & Image {
       id: ID!
       alt: String @proxy(from: "title")
       gatsbyImageData: GatsbyImageData
@@ -447,13 +460,19 @@ exports.createSchemaCustomization = async ({ actions }) => {
       image: HomepageImage @link(from: "image___NODE")
       links: [HomepageLink] @link(from: "links___NODE")
     }
-    type ContentfulHomepageBanner implements Node & HomepageBlock & HomepageBanner
-    @dontInfer {
-    blocktype: String @blocktype
-    heading: String
-    html: String! @richText
-    icon: HomepageImage @link(from: "icon___NODE")
-  }
+    type ContentfulTextBanner implements Node & HomepageBlock & TextBanner
+      @dontInfer {
+      blocktype: String @blocktype
+      heading: String
+      html: String! @richText
+      icon: HomepageImage @link(from: "icon___NODE")
+    }
+    type ContentfulVideoEmbed implements Node & HomepageBlock & VideoEmbed
+      @dontInfer {
+      blocktype: String @blocktype
+      title: String
+      src: String
+    }
     type ContentfulHomepageLogo implements Node & HomepageLogo @dontInfer {
       id: ID!
       image: HomepageImage @link(from: "image___NODE")
@@ -652,8 +671,8 @@ exports.createSchemaCustomization = async ({ actions }) => {
       html: String! @richText
     }
   `)
-    // LandingPage types
-    actions.createTypes(/* GraphQL */ `
+  // LandingPage types
+  actions.createTypes(/* GraphQL */ `
     type ContentfulLandingPage implements Node & LandingPage @dontInfer {
       id: ID!
       slug: String!
