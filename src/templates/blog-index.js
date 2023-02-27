@@ -37,7 +37,7 @@ function PostCard({ slug, image, title, excerpt, author, category, ...props }) {
   )
 }
 
-function PostCardSmall({ slug, image, title, category, ...props }) {
+function PostCardSmall({ slug, image, title, excerpt, category, ...props }) {
   return (
     <BlockLink {...props} to={`/blog/${slug}`}>
       {image && (
@@ -49,6 +49,8 @@ function PostCardSmall({ slug, image, title, category, ...props }) {
       <Subhead>
         <Kicker>{category}</Kicker>
         {title}
+        <Space size={3} />
+        <Text as="p">{excerpt}</Text>
       </Subhead>
     </BlockLink>
   )

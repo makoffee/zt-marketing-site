@@ -1,14 +1,14 @@
 import React from 'react';
 import Layout from "../components/layout"
 import { Container, Box, Heading, Text, Space, Flex, } from "../components/ui"
-import SEOHead from "../components/head"
+import SEOHead from "../components/head"   
 
 export default function Contact() {
   return (
     <Layout>
       <Container width="normal">
         <Box paddingY={5}>
-          <Heading as="h1" center>Contact the ZeroTier Sales Team
+          <Heading as="h1" center>ZeroTier Business 
           </Heading>
           <Text center>
           For product support, please visit the ZeroTier community board.
@@ -23,17 +23,17 @@ export default function Contact() {
           <form
             method="POST"
             action="https://zerotier.activehosted.com/proc.php"
-            id="_form_1_"
+            id="_form_15_"
             novalidate
           >
-            <input type="hidden" name="u" value="1" />
-            <input type="hidden" name="f" value="1" />
+            <input type="hidden" name="u" value="15" />
+            <input type="hidden" name="f" value="15" />
             <input type="hidden" name="s" />
             <input type="hidden" name="c" value="0" />
             <input type="hidden" name="m" value="0" />
             <input type="hidden" name="act" value="sub" />
             <input type="hidden" name="v" value="2" />
-            <input type="hidden" name="or" value="0468b51512225f2c86741f9bbee18714" />
+            <input type="hidden" name="or" value="9a2a5f90293c77e92833671a2e989a61" />
             <Box>
               <Text>First Name*</Text>
               <input type="text" id="firstname" name="firstname" placeholder="First Name" required dataName="firstname"/>
@@ -46,6 +46,17 @@ export default function Contact() {
               <Text>Email Address*</Text>
               <input type="email" id="email" name="email" placeholder="Email Address" required data-name="email"/>
             </Box>
+            <Box>
+              <Text>ZeroTier Business*</Text>
+              <input type="hidden" name="field[16][]" id="field[16][]" value="~|" required data-name="intended_use"/>
+            <span>
+            <input id="field_16Yes" type="checkbox" name="field[16][]" value="Yes" checked="" required="" data-name="bizannual"/> Yes*
+            </span>
+            <span>
+            <input id="field_16No" type="checkbox" name="field[16][]" value="No" data-name="bizannual"/> No
+            </span>
+            </Box>
+            <Box>
             <Box>
               <Text>Intended Use*</Text>
               <select name="field[20]" id="field[20]" required="" data-name="intended_use">
@@ -61,8 +72,7 @@ export default function Contact() {
                   Resell / Integrate
                 </option>
               </select>
-            </Box>
-            <Box>
+            </Box>    
               <Text>Networking Use Case*</Text>
               <input type="hidden" name="field[15][]" value="~|" required data-name="use_cases"/>
                 <select id="field[15][]"  name="field[15][]" required="" data-name="use_cases">
@@ -97,7 +107,7 @@ export default function Contact() {
                 <input type="text" id="phone" name="phone" placeholder="Phone Number" data-name="phone"/>
               </Box>
               <Box>
-                <Text>What Is Your Sales Question?</Text>
+                <Text>Current ZeroTier Customers Only: What Is Your Account Email Address? </Text>
                 <textarea id="field[3]" name="field[3]" placeholder="" data-name="message"></textarea>
               </Box>
               <Box>
@@ -113,5 +123,5 @@ export default function Contact() {
   )
 }
 export const Head = () => {
-  return <SEOHead title="Contact Sales" />
+  return <SEOHead title="ZeroTier Business" />
 }

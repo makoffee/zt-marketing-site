@@ -6669,11 +6669,11 @@ gatsby-telemetry@^4.7.0:
 
 "gatsby-theme-abstract-blog@https://github.com/makoffee/gatsby-theme-abstract-blog.git":
   version "1.0.0-3"
-  resolved "https://github.com/makoffee/gatsby-theme-abstract-blog.git#a4aa1e28e3b8515df0ab689282590facf8d68908"
+  resolved "https://github.com/makoffee/gatsby-theme-abstract-blog.git#e7508fd77647ad8cb8d2de52cb0f6e1ecdf95eab"
 
 "gatsby-theme-contentful-blog@https://github.com/makoffee/gatsby-theme-contentful-blog.git":
   version "1.0.0-4"
-  resolved "https://github.com/makoffee/gatsby-theme-contentful-blog.git#fc03fe47eec6500cb21e910cd09f7ecda49813ff"
+  resolved "https://github.com/makoffee/gatsby-theme-contentful-blog.git#4a2521359dec51cd4742487d7e5902e4c68b46c9"
   dependencies:
     "@contentful/rich-text-html-renderer" "^16.0.2"
     gatsby-plugin-image "^3.5.0"

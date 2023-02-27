@@ -41,7 +41,7 @@ export default function Contact() {
               <input type="email" id="email" name="email" placeholder="Email Address" required/>
             </Box>
             <Box style={{Flex: "0 1 auto"}}>
-                <button id="_form_3_submit" class="ui_buttons_primary__ur0mb5f ui_button__ur0mb5e" type="submit">
+                <button id="_form_3_submit" className="button primary" type="submit">
                 Subscribe
                 </button>
             </Box>

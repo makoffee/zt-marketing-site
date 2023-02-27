@@ -14,7 +14,7 @@ export default function NavItemGroup({ name, navItems }) {
             {navItems.map((navItem) => (
               <li key={navItem.id}>
                 <NavLink to={navItem.href} >
-                  <Flex variant="start" gap={2}>
+                  <Flex variant="start" gap={3}>
                     <Flex variant="columnStart" marginY={0} gap={0}>
                       <Box as="span" style={{fontSize: theme.fontSizes[1]}}>
                         {navItem.text}
