@@ -1,6 +1,6 @@
 import React from 'react';
 import Layout from "../components/layout"
-import { Container, Box, Heading, Text, Space, Flex, } from "../components/ui"
+import { Container, Box, Heading, Text, Space, Flex, Subhead, } from "../components/ui"
 import SEOHead from "../components/head"   
 
 export default function Contact() {
@@ -17,7 +17,15 @@ export default function Contact() {
         </Box>
         <Flex responsive varient="responsiveMedium" gap={4} variant="columnStart">
         <Box paddingY={4} width="half">
-          <Text>Something cool goes here.</Text>
+          <Subhead>An annual plan for internal teams or small businesses.</Subhead>
+          <Text bold>Business Plan Features:</Text>
+            <Text>✔ 3 Admins</Text>
+            <Text>✔ 3 Business SSO seats</Text>
+            <Text>✔ 150 Nodes</Text>
+            <Text>✔ Ticketed support</Text>
+            <Text>✔ Annual pricing</Text>
+            <Text bold>All for $1500.00 USD/year.</Text>
+            <Text>Note: If your organization already has a paid account, Business will be an upgrade from your current plan. </Text>
         </Box>
         <Box paddingY={4} width="half">
           <form

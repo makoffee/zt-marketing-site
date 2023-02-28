@@ -9,6 +9,8 @@ import {
   Heading,
   Text,
   Avatar,
+  Section,
+  BannerImage,
 } from "../components/ui"
 import { avatar as avatarStyle } from "../components/ui.css"
 import * as styles from "./blog-post.css"
@@ -108,12 +110,26 @@ const options = {
 export default function BlogPost(props) {
   return (
     <Layout>
+      <Section>
+      <div style={{ display: "grid"}}>
+          {props.image.gatsbyImageData && (
+          <BannerImage alt={props.image.alt} image={getImage(props.image.gatsbyImageData)}/>
+      )}
+      <div
+        style={{
+          gridArea: "1/1",
+          position: "relative",
+          placeItems: "center",
+          display: "grid",
+          background: theme.colors.headerGradient,
+        }}
+      >
       <Container>
-        <Box paddingY={5}>
-          <Heading as="h1" center>
+        <Box width="full" style={{ zIndex:2}} center>
+        <Heading as="h1" center>
             {props.title}
           </Heading>
-          <Space size={4} />
+          <Space size={2} />
           {props.author && (
             <Box center>
               <Flex>
@@ -134,15 +150,15 @@ export default function BlogPost(props) {
               </Flex>
             </Box>
           )}
-          <Space size={4} />
+          <Space size={2} />
           <Text center>{props.date}</Text>
-          <Space size={4} />
-          {props.image && (
-            <GatsbyImage
-              alt={props.image.alt}
-              image={props.image.gatsbyImageData}
-            />
-          )}
+        </Box>
+      </Container>
+      </div>
+      </div>
+    </Section>
+      <Container>
+        <Box>
           <Space size={5} />
           <Container width="narrow">
           <div style={{fontSize: theme.fontSizes[3], lineHeight: theme.lineHeights.text}}>

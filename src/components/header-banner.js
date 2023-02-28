@@ -1,6 +1,7 @@
 import { graphql } from "gatsby"
 import * as React from "react"
 import { getImage } from "gatsby-plugin-image"
+import { theme } from "../theme.css"
 import {
   Box,
   ButtonList,

@@ -3,11 +3,13 @@ import { graphql } from "gatsby"
 import {
   Container,
   Box,
+  Section,
 } from "./ui"
 
 export default function VideoEmbed(props) {
   return (
-    <Container width="normal">
+    <Section>
+    <Container width="narrow">
       <Box center>
         <div className="video" style={{
             position: "relative",
@@ -36,6 +38,7 @@ export default function VideoEmbed(props) {
         </div>
       </Box>
     </Container>
+    </Section>
   )
 }
 

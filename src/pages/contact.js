@@ -6,7 +6,7 @@ import SEOHead from "../components/head"
 export default function Contact() {
   return (
     <Layout>
-      <Container width="normal">
+      <Container width="narrow">
         <Box paddingY={5}>
           <Heading as="h1" center>Contact the ZeroTier Sales Team
           </Heading>
@@ -17,7 +17,8 @@ export default function Contact() {
         </Box>
         <Flex responsive varient="responsiveMedium" gap={4} variant="columnStart">
         <Box paddingY={4} width="half">
-          <Text>Something cool goes here.</Text>
+          <Text>For sales, proof-of-concept requests, or software licensing questions, fill out the form to the right.</Text>
+          <Text>For product support, please visit the ZeroTier community board.</Text>
         </Box>
         <Box paddingY={4} width="half">
           <form
