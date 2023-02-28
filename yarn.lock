@@ -5136,9 +5136,9 @@ ee-first@1.1.1:
   integrity sha512-WMwm9LhRUo+WUaRN+vRuETqG89IgZphVSNkdFgeb6sS/E4OrDIN7t48CAewSHXc6C8lefD8KKfr5vY61brQlow==
 
 electron-to-chromium@^1.4.284:
-  version "1.4.312"
-  resolved "https://registry.yarnpkg.com/electron-to-chromium/-/electron-to-chromium-1.4.312.tgz#e70a5b46252814ffc576b2c29032e1a559b9ad53"
-  integrity sha512-e7g+PzxzkbiCD1aNhdj+Tx3TLlfrQF/Lf+LAaUdoLvB1kCxf9wJimqXdWEqnoiYjFtxIR1hGBmoHsBIcCBNOMA==
+  version "1.4.313"
+  resolved "https://registry.yarnpkg.com/electron-to-chromium/-/electron-to-chromium-1.4.313.tgz#ff95f01926ab748c65beb23fc55f2f178e7a24a9"
+  integrity sha512-QckB9OVqr2oybjIrbMI99uF+b9+iTja5weFe0ePbqLb5BHqXOJUO1SG6kDj/1WtWPRIBr51N153AEq8m7HuIaA==
 
 elegant-spinner@^1.0.1:
   version "1.0.1"
@@ -6669,11 +6669,11 @@ gatsby-telemetry@^4.7.0:
 
 "gatsby-theme-abstract-blog@https://github.com/makoffee/gatsby-theme-abstract-blog.git":
   version "1.0.0-3"
-  resolved "https://github.com/makoffee/gatsby-theme-abstract-blog.git#a75c5af5e2b6e9c2e5f287bb7a4090f1f410692a"
+  resolved "https://github.com/makoffee/gatsby-theme-abstract-blog.git#98339a56a058798d5fcc65035d78adbb5553cf2d"
 
 "gatsby-theme-contentful-blog@https://github.com/makoffee/gatsby-theme-contentful-blog.git":
   version "1.0.0-4"
-  resolved "https://github.com/makoffee/gatsby-theme-contentful-blog.git#32ba576f3fb38b4ec60f98eee099b1ee617128c0"
+  resolved "https://github.com/makoffee/gatsby-theme-contentful-blog.git#d1573e26524f235c3c8b4e80b1e154d71ff9dff8"
   dependencies:
     "@contentful/rich-text-html-renderer" "^16.0.2"
     gatsby-plugin-image "^3.5.0"
@@ -10647,6 +10647,11 @@ react-is@^16.13.1:
   version "16.13.1"
   resolved "https://registry.yarnpkg.com/react-is/-/react-is-16.13.1.tgz#789729a4dc36de2999dc156dd6c1d9c18cea56a4"
   integrity sha512-24e6ynE2H+OKt4kqsOvNd8kBpV65zoxbA4BVsEOB3ARVWQki/DHzaUoC5KuON/BiccDaCCTZBuOcfZs70kR8bQ==
+
+react-multiline-clamp@^2.0.0:
+  version "2.0.0"
+  resolved "https://registry.yarnpkg.com/react-multiline-clamp/-/react-multiline-clamp-2.0.0.tgz#913a2092368ef1b52c1c79364d506ba4af27e019"
+  integrity sha512-iPm3HxFD6LO63lE5ZnThiqs+6A3c+LW3WbsEM0oa0iNTa0qN4SKx/LK/6ZToSmXundEcQXBFVNzKDvgmExawTw==
 
 react-refresh@^0.14.0:
   version "0.14.0"

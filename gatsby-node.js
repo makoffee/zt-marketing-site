@@ -125,6 +125,7 @@ exports.createSchemaCustomization = async ({ actions }) => {
       gatsbyImageData: GatsbyImageData @imagePassthroughArgs
       url: String
     }
+
     interface HomepageHero implements Node & HomepageBlock {
       id: ID!
       blocktype: String
@@ -325,10 +326,12 @@ exports.createSchemaCustomization = async ({ actions }) => {
       image: HomepageImage
       content: [HomepageBlock]
     }
+
     interface RichTextBlock implements Node & HomepageBlock {
       id: ID!
       blocktype: String
       title: String
+      body: JSON
       html: String!
       links: [HomepageLink]
     }
@@ -549,10 +552,11 @@ exports.createSchemaCustomization = async ({ actions }) => {
     blocktype: String @blocktype
     title: String
     html: String! @richText
+    body: JSON
     image: HomepageImage @link(from: "image___NODE")
     links: [HomepageLink] @link(from: "links___NODE")
   }
-  `)
+`)
 
   // CMS specific types for About page
   actions.createTypes(/* GraphQL */ `

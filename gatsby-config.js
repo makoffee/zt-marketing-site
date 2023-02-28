@@ -20,7 +20,6 @@ module.exports = {
         host: process.env.CONTENTFUL_HOST,
         // uncomment for uncomment for local image storage
         // downloadLocal: true,
-        quality: 100,
         images: {
           quality: 100,
         }
@@ -42,7 +41,14 @@ module.exports = {
         }
       }
     },
-    `gatsby-plugin-sharp`,
+    {
+      resolve: `gatsby-plugin-sharp`,
+      options: {
+        defaults: {
+          quality: 80,
+        },
+      },
+    },
     `gatsby-transformer-sharp`,
     `gatsby-plugin-image`,
     "gatsby-plugin-vanilla-extract",

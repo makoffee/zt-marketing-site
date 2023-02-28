@@ -13,6 +13,7 @@ import {
   Text,
 } from "../components/ui"
 import SEOHead from "../components/head"
+import Clamp from "react-multiline-clamp"
 
 function PostCard({ slug, image, title, excerpt, author, category, ...props }) {
   return (
@@ -46,12 +47,10 @@ function PostCardSmall({ slug, image, title, excerpt, category, ...props }) {
           <Space size={3} />
         </>
       )}
-      <Subhead>
         <Kicker>{category}</Kicker>
-        {title}
+        <Clamp withTooltip lines={2}><Subhead>{title}</Subhead></Clamp>
         <Space size={3} />
-        <Text as="p">{excerpt}</Text>
-      </Subhead>
+        <Clamp withTooltip lines={3}><Text as="p">{excerpt}</Text></Clamp>
     </BlockLink>
   )
 }
