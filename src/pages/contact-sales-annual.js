@@ -49,12 +49,14 @@ export default function Contact() {
             <Box>
               <Text>ZeroTier Business*</Text>
               <input type="hidden" name="field[16][]" id="field[16][]" value="~|" required data-name="intended_use"/>
-            <span>
-            <input id="field_16Yes" type="checkbox" name="field[16][]" value="Yes" checked="" required="" data-name="bizannual"/> Yes*
-            </span>
-            <span>
-            <input id="field_16No" type="checkbox" name="field[16][]" value="No" data-name="bizannual"/> No
-            </span>
+              <Box>
+                <input id="field_16Yes" type="checkbox" name="field[16][]" value="Yes" checked="" required="" data-name="bizannual" style={{width: "20px", display:"inline"}}/> 
+                <label for="field_16Yes">Yes*</label>
+              </Box>
+              <Box>
+                <input id="field_16No" type="checkbox" name="field[16][]" value="No" data-name="bizannual" style={{width: "20px", display:"inline"}} />
+                <label for="field_16No">No</label>
+              </Box>
             </Box>
             <Box>
             <Box>

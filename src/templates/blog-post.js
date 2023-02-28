@@ -1,5 +1,5 @@
 import * as React from "react"
-import { GatsbyImage } from "gatsby-plugin-image"
+import { GatsbyImage, getImage } from "gatsby-plugin-image"
 import Layout from "../components/layout"
 import {
   Container,
@@ -15,6 +15,27 @@ import * as styles from "./blog-post.css"
 import SEOHead from "../components/head"
 import * as sections from "../components/sections"
 import Fallback from "../components/fallback"
+import { BLOCKS, MARKS, INLINES } from "@contentful/rich-text-types"
+import { renderRichText } from "gatsby-source-contentful/rich-text"
+
+const options = {
+  renderMark: {
+    [MARKS.BOLD]: (text) => <b className="font-bold">{text}</b>,
+  },
+  renderNode: {
+    [INLINES.HYPERLINK]: (node, children) => {
+      const { uri } = node.data
+      return (
+        <a href={uri} className="underline">
+          {children}
+        </a>
+      )
+    },
+    [BLOCKS.HEADING_2]: (node, children) => {
+      return <h2>{children}</h2>
+    },
+  },
+}
 
 export default function BlogPost(props) {
   return (
@@ -55,6 +76,8 @@ export default function BlogPost(props) {
             />
           )}
           <Space size={5} />
+          <Text>{props.body}</Text>
+          <Space size={5} />
           <div
             className={styles.blogPost}
             dangerouslySetInnerHTML={{
@@ -62,7 +85,7 @@ export default function BlogPost(props) {
             }}
           />
         </Box>
-        <Box className={styles.blogPost}>
+        <Box>
         {props.blocks && props.blocks.map((block) => {
             const { id, blocktype, ...componentProps } = block
             const Component = sections[blocktype] || Fallback

@@ -222,6 +222,7 @@ export function HeroImage({ alt, image }) {
     <GatsbyImage alt={alt} image={getImage(image)} 
     className={styles.hero} 
     layout="fullWidth"
+    quality={"80"}
     // You can optionally force an aspect ratio for the generated image
     //aspectratio={3 / 1}
     // This is a presentational image, so the alt should be an empty string
@@ -235,6 +236,7 @@ export function BannerImage({ alt, image }) {
     <GatsbyImage alt={alt} image={getImage(image)} 
     className={styles.banner} 
     layout="fullWidth"
+    quality="80"
     // You can optionally force an aspect ratio for the generated image
     //aspectRatio={16 / 9}
     // This is a presentational image, so the alt should be an empty string

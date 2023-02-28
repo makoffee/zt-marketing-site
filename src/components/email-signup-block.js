@@ -18,7 +18,7 @@ export default function EmailSignupBlock(props) {
                     <Text bold variant="lead" style={{marginBottom:"0"}}>{props.heading}</Text>
                     <Text variant="small">{props.text}</Text>
                 </Flex>
-                <Flex gap={2} style={{flex:"1 0 auto"}}>
+                <Flex gap={2} style={{flex:"1 0 auto", justifyContent:"right"}}>
                     <form
                         method="POST"
                         action="https://zerotier.activehosted.com/proc.php"
@@ -33,12 +33,12 @@ export default function EmailSignupBlock(props) {
                         <input type="hidden" name="act" value="sub" />
                         <input type="hidden" name="v" value="2" />
                         <input type="hidden" name="or" value="27b3a913d054ff5c3b2f3fd64d5fc5d5" data-name="or"/>
-                        <Flex variant="verticalCenter" style={{justifyContent:"flex-end"}}>
+                        <Flex variant="verticalCenter" style={{justifyContent:"right"}}>
                             <Flex style={{flex:"1 0 auto", justifyContent:"flex-end"}}>
                                 <input type="email" id="email" name="email" placeholder="Email Address" required style={{marginBottom:"0"}}/>
                              </Flex>
                             <Flex>
-                            <button id="_form_3_submit" className="ui_buttons_primary__ur0mb5f ui_button__ur0mb5e" type="submit">Subscribe</button>
+                            <button id="_form_3_submit" className="button primary" type="submit">Subscribe</button>
                             </Flex>
                         </Flex>
                     </form>

@@ -118,3 +118,20 @@ globalKeyframes("fadeOut", {
   },
 })
 
+globalStyle(".button", {  
+  display: "inline-flex",
+  textDecoration: "none",
+  fontWeight: theme.fontWeights.bold,
+  fontSize: theme.fontSizes[2],
+  lineHeight: theme.lineHeights.solid,
+  paddingTop: theme.space[2],
+  paddingBottom: theme.space[2],
+  paddingLeft: theme.space[3],
+  paddingRight: theme.space[3],
+  borderRadius: theme.radii.button,
+})
+
+globalStyle(".primary", {
+  backgroundColor: theme.colors.primary,
+  border: '2px solid ' +  theme.colors.primary,
+})
