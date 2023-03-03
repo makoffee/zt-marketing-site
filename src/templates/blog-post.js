@@ -162,8 +162,9 @@ export default function BlogPost(props) {
           <Space size={5} />
           <Container width="narrow">
           <div style={{fontSize: theme.fontSizes[3], lineHeight: theme.lineHeights.text}}>
-            {renderRichText(props.body, options)}
+            {renderRichText(props.body)}
           </div>
+          <div>{props.body.raw}</div>
           </Container>
         </Box>
         <Box>

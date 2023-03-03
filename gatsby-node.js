@@ -327,12 +327,18 @@ exports.createSchemaCustomization = async ({ actions }) => {
       content: [HomepageBlock]
     }
 
+    interface RichTextRefrences implements Node {\
+      id: ID!
+      references: Node
+    }
+
     interface RichTextBlock implements Node & HomepageBlock {
       id: ID!
       blocktype: String
       title: String
       body: JSON
       html: String!
+      references: RichTextRefrences
       links: [HomepageLink]
     }
     interface CtaImageBlock implements Node & HomepageBlock {
@@ -553,6 +559,7 @@ exports.createSchemaCustomization = async ({ actions }) => {
     title: String
     html: String! @richText
     body: JSON
+    references: RichTextRefrences @link(from: "references___NODE")
     image: HomepageImage @link(from: "image___NODE")
     links: [HomepageLink] @link(from: "links___NODE")
   }

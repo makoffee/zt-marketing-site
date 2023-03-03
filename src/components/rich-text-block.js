@@ -24,7 +24,7 @@ const options = {
     ),
   },
   renderNode: {
-    [INLINES.HYPERLINK]: (node, children) => (
+    [INLINES.HYPERLINK]: (node, children, parnet) => (
       <a
         href={node.data.uri}
         target="_blank"
@@ -88,13 +88,13 @@ const options = {
     ),
     [BLOCKS.HR]: () => <hr />,
     [BLOCKS.EMBEDDED_ASSET]: (node) => {
-            const {gatsbyImageData, description} = node.data.target.sys
-            return (
-                <div className="contentimg">
-                    <GatsbyImage image={getImage(gatsbyImageData)} alt={description} />
-                </div>
-            )
-        }, 
+      const {gatsbyImageData, description} = node.data.target.sys
+      return (
+          <div className="contentimg">
+              <GatsbyImage image={getImage(gatsbyImageData)} alt={description} />
+          </div>
+      )
+    }, 
   },
 }
 
@@ -108,7 +108,10 @@ export default function RichTextBlock(props) {
                 {props.title}
               </Subhead>
               <div style={{fontSize: theme.fontSizes[2], lineHeight: theme.lineHeights.text}}>
-                {renderRichText(props.body, options)}
+                {renderRichText(props.body)}
+              </div>
+              <div>
+                // {props.body.references___NODE}
               </div>
               {props.links && <ButtonList links={props.links} varient="whiteReversed"/>}
             </Box>
