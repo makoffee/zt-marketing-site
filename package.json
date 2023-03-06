@@ -1,6 +1,6 @@
 {
-  "name": "gatsby-starter-contentful-homepage",
-  "version": "1.0.0",
+  "name": "zerotier-marketing",
+  "version": "1.0.1",
   "license": "MIT",
   "private": true,
   "engines": {
@@ -42,7 +42,7 @@
     "gatsby-plugin-sharp": "^5.5.0",
     "gatsby-plugin-sitemap": "^6.4.0",
     "gatsby-plugin-vanilla-extract": "^4.0.1",
-    "gatsby-source-contentful": "^8.6.0",
+    "gatsby-source-contentful": "8.7.0",
     "gatsby-theme-abstract-blog": "https://github.com/makoffee/gatsby-theme-abstract-blog.git",
     "gatsby-theme-contentful-blog": "https://github.com/makoffee/gatsby-theme-contentful-blog.git",
     "gatsby-transformer-remark": "^6.7.0",

@@ -4,12 +4,16 @@ import {
   Container,
   Box,
   Section,
+  Text,
+  Subhead
 } from "./ui"
 
 export default function VideoEmbed(props) {
   return (
     <Section>
     <Container width="narrow">
+    <Subhead>{props.title}</Subhead>
+    <Text>{props.description}</Text>
       <Box center>
         <div className="video" style={{
             position: "relative",
@@ -46,6 +50,7 @@ export const query = graphql`
   fragment VideoEmbedContent on VideoEmbed {
     id
     title
+    description
     src
   }
 `

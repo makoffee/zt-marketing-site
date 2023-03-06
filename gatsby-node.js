@@ -124,6 +124,7 @@ exports.createSchemaCustomization = async ({ actions }) => {
       alt: String
       gatsbyImageData: GatsbyImageData @imagePassthroughArgs
       url: String
+      description: String
     }
 
     interface HomepageHero implements Node & HomepageBlock {
@@ -171,6 +172,7 @@ exports.createSchemaCustomization = async ({ actions }) => {
       id: ID!
       blocktype: String
       title: String
+      description: String
       src: String
     }
     interface HomepageLogo implements Node {
@@ -326,19 +328,19 @@ exports.createSchemaCustomization = async ({ actions }) => {
       image: HomepageImage
       content: [HomepageBlock]
     }
-
-    interface RichTextRefrences implements Node {\
+    interface BlogContent implements Node & HomepageBlock {
       id: ID!
-      references: Node
+      blocktype: String
+      name: String
+      body: JSON
+      image: HomepageImage
     }
-
     interface RichTextBlock implements Node & HomepageBlock {
       id: ID!
       blocktype: String
       title: String
       body: JSON
       html: String!
-      references: RichTextRefrences
       links: [HomepageLink]
     }
     interface CtaImageBlock implements Node & HomepageBlock {
@@ -464,6 +466,7 @@ exports.createSchemaCustomization = async ({ actions }) => {
       @dontInfer {
       blocktype: String @blocktype
       title: String
+      description: String
       src: String
     }
     type ContentfulHomepageLogo implements Node & HomepageLogo @dontInfer {
@@ -559,9 +562,19 @@ exports.createSchemaCustomization = async ({ actions }) => {
     title: String
     html: String! @richText
     body: JSON
-    references: RichTextRefrences @link(from: "references___NODE")
-    image: HomepageImage @link(from: "image___NODE")
     links: [HomepageLink] @link(from: "links___NODE")
+  }
+`)
+
+// Custom rich text content area for blog posts
+  actions.createTypes(/* GraphQL */ `
+  type ContentfulBlogContent implements Node & BlogContent & HomepageBlock
+    @dontInfer {
+    id: ID!
+    blocktype: String @blocktype
+    name: String
+    body: JSON
+    image: HomepageImage @link(from: "image___NODE")
   }
 `)
 
