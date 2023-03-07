@@ -1,89 +1,79 @@
-<a href="https://www.gatsbyjs.com">
+<a href="https://www.zerotier.com">
   <img alt="Gatsby" src="https://github.com/makoffee/zerotier/blob/main/src/favicon.png" width="60" />
 </a>
 
-# Gatsby Starter Contentful Homepage
+# ZeroTier Marketing Site
 
-Create a homepage using Gatsby and Contentful. This starter demonstrates how to use Contentful to build a homepage and can be customized to match your own visual branding.
-
-[View the Demo](https://gatsbycontentfulhomepage.gatsbyjs.io/)
-
-**Note:**
-This version of the Contentful homepage starter is written in JavaScript. If you want to use Contentful but TypeScript is more your style, there is also a TypeScript version maintained on [GitHub](https://github.com/gatsbyjs/gatsby-starter-contentful-homepage-ts).
+Built using Gatsby and Contentful (React.js / Node.js / GraphQL / TypeScript / Vanilla-Extract CSS).
 
 ## Quick start
 
-You will need a new or existing [Contentful space][] to use this starter and will be asked for your [Space ID][], [Content Management API Key][] (also referred to as a Personal Access Token) and [Content Delivery API Key][] during installation.
+You will need a new or existing [Contentful space][] to use this theme and will need your [Space ID][], [Content Management API Key][] (also referred to as a Personal Access Token) and [Content Delivery API Key][] during setup for local development.
 
 [contentful space]: https://www.contentful.com/help/contentful-101/#step-2-create-a-space
 [space id]: https://www.contentful.com/help/find-space-id/
 [content delivery api key]: https://www.contentful.com/developers/docs/references/authentication/#api-keys-in-the-contentful-web-app
 [content management api key]: https://www.contentful.com/developers/docs/references/authentication/#the-content-management-api
 
-1. **Create a Gatsby site**
+1. **Install Yarn**
 
-   Use the Gatsby CLI to get started locally:
-
-   ```sh repo
-   npx gatsby new my-homepage https://github.com/gatsbyjs/gatsby-starter-contentful-homepage
-   ```
-
-1. **Run the Contentful setup script**
-
-   From your site's root directory, run:
+   It is recommended to install Yarn through the npm package manager, which comes bundled with Node.js when you install it on your system.
 
    ```sh
-   cd my-homepage
-   yarn setup
+   npm install --global yarn
+   ```
+
+1. **Clone zerotier-marketing-site from GitHub**
+
+   ```sh
+    git clone git@github.com:zerotier/zerotier-marketing-site
    ```
 
    This will run a script to populate your Contentful space's content model and add demo content.
 
-1. **Start developing**
+1. **Add Environment Variables**
+  You will need to create two hidden files in the root of your project ".env.development" and ".env.production" that will contain your CONTENTFUL_SPACE_ID & CONTENTFUL_ACCESS_TOKEN.  Keep these private, and out of source control.
 
-   In your site directory, start the development server:
+Add the following to both.
+
+  ```
+    # All environment variables will be sourced
+    # and made available to gatsby-config.js, gatsby-node.js, etc.
+    # Do NOT commit this file to source control
+    CONTENTFUL_SPACE_ID='XXXXXXXXXXXX'
+    CONTENTFUL_ACCESS_TOKEN='XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX'
+  ```
+
+1. **Install build dependencies**
+
+   In your site directory, run the yarn install script.  There will be warnings, you may need to install some packages manually with implicet versions.
 
    ```sh
-   yarn start
+   yarn install
+   ```
+1. **Start Developing**
+
+   ```sh
+   yarn develop
    ```
 
-   Your site should now be running at <http://localhost:8000>
+   Your local development site should now be running at <http://localhost:8000>
 
-1. **Open the source code and start editing**
+   For testing GraphQL
 
-## Deploy your site
 
-Once your content is available in Contentful, deploy your site to [Gatsby Cloud](https://gatsbyjs.com/products/cloud):
+## Deploying the site
 
-1. Push your local site to a new repo in either GitHub, GitLab, or Bitbucket
-1. Log into your [Gatsby Cloud Dashboard][] and click on **Add a site**
-1. Use the **Import from a Git repository** option to find your site
-1. Add the environment variables from your `.env.production` file to Gatsby Cloud during setup
-1. Click **Build site** and your site should start building
+Once your content is available in Contentful and you have a working local build you would like to deploy.  You can now deploy your site to [Vercel](https://vercel.com):
 
-For a more detailed walkthrough, see the tutorial on how to [build your site with Gatsby Cloud][tutorial].
+1. Push your local site a new branch [dev] on GitHub.  You will now be able to view a preview build on Vercel.
+1. Merge the brange with [main].  !!! Merging will trigger a prodution build, so be sure to debug and test before deploying.
 
-[gatsby cloud dashboard]: https://gatsbyjs.com/dashboard
-[tutorial]: https://www.gatsbyjs.com/docs/tutorial/part-1/#build-your-site-with-gatsby-cloud
+Previews of the dev branch can be viewed at: [https://zerotier-dev.vercel.app/](https://zerotier-dev.vercel.app/)
+Note you must be logged into [Vercel](https://vercel.com) to view preview builds.
 
-### Deploy without using the CLI
+Production builds are available at: [https://zerotier-production.vercel.app/](https://zerotier-production.vercel.app/)
 
-Alternatively, you can deploy this starter directly to Gatsby Cloud.
-
-This repository uses the `gatsby-provision` convention to allow for automatic CMS content provisioning during the Deploy Now flow in Gatsby Cloud. After you Quick Connect Contentful to your site, you will be given the option to run the `gatsby-provision` script to populate the selected Contentful space with the site's associated content model and content.
-
-Otherwise, you can always set up your content in Contentful manually before deploying to Gatsby Cloud.
-
-[![Deploy to Gatsby](https://www.gatsbyjs.com/deploynow.svg "Deploy to Gatsby")](https://www.gatsbyjs.com/dashboard/deploynow?url=https://github.com/gatsbyjs/gatsby-starter-contentful-homepage)
-
-## Setting up Gatsby Cloud Preview
-
-To use Gatsby Cloud Preview with this site, see the documentation for
-[Installing Content Sync for Contentful][].
-
-[installing content sync for contentful]: https://support.gatsbyjs.com/hc/en-us/articles/4410371995539-Installing-Content-Sync-for-Contentful
-[add the gatsby cloud app to contentful]: https://support.gatsbyjs.com/hc/en-us/articles/360056047134-Add-the-Gatsby-Cloud-App-to-Contentful
-[connecting to contentful manually]: https://support.gatsbyjs.com/hc/en-us/articles/360052076554-Connecting-to-Contentful-Manually
 
 ## What's included?
 
@@ -131,17 +121,6 @@ If you'd like to add additional colors, add additional keys to this object.
 This file is imported into `src/theme.css.ts` and creates CSS custom properties, that can be imported and used in other `.css.ts` files.
 
 The UI components file `src/components/ui.js` imports styles from `src/components/ui.css.ts`. You can see how the theme and color values are being used in this file.
-
-### Add your logo
-
-![Logo](./docs/images/logo.png)
-
-Replace the `src/components/brand-logo.js` component with your own brand logo.
-If you have an SVG version, it can be rendered inline as a React component, following the example in this file. Note that SVG attributes will need to be camel cased for JSX.
-
-Using an inline SVG for the logo allows it to pick up the colors used in CSS, which is how the logo colors are inverted for the mobile menu.
-
-If you prefer to use an image, use the [`StaticImage`](https://www.gatsbyjs.com/docs/reference/built-in-components/gatsby-plugin-image/#staticimage) component from `gatsby-plugin-image` in place of the SVG in this file.
 
 ### Customize headings, buttons, and other styles
 
@@ -310,9 +289,3 @@ Looking for more guidance? Full documentation for Gatsby lives [on the website](
 
 - **For most developers, we recommend starting with our [in-depth tutorial for creating a site with Gatsby](https://www.gatsbyjs.com/tutorial/).** It starts with zero assumptions about your level of ability and walks through every step of the process.
 - **To dive straight into code samples, head [to our documentation](https://www.gatsbyjs.com/docs/).**
-
-## 💫 Deploy
-
-[Build, Deploy, and Host On The Only Cloud Built For Gatsby](https://www.gatsbyjs.com/cloud/)
-
-Gatsby Cloud is an end-to-end cloud platform specifically built for the Gatsby framework that combines a modern developer experience with an optimized, global edge network.
