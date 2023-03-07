@@ -102,7 +102,7 @@ export default function Header() {
                 ))}
             </FlexList>
           </nav>
-          <FlexList gap={2}>{cta && <Button to={login.href} variant="linkReversed">{login.text}</Button>} {cta && <Button to={cta.href} variant="primary">{cta.text}</Button>}</FlexList>
+          <FlexList gap={1}>{cta && <Button to={login.href} variant="linkReversed">{login.text}</Button>} {cta && <Button to={cta.href} variant="primary">{cta.text}</Button>}</FlexList>
         </Flex>
       </Container>
       <Container className={mobileHeaderNavWrapper[isOpen ? "open" : "closed"]}>
@@ -119,7 +119,7 @@ export default function Header() {
             </NavLink>
           </span>
           <Flex>
-            <Space />
+
             <div>
               {cta && (
                 <Button to={cta.href} variant={isOpen ? "reversed" : "primary"}>

@@ -2,20 +2,34 @@ import { style, styleVariants } from "@vanilla-extract/css"
 import { calc } from "@vanilla-extract/css-utils"
 import { theme } from "../theme.css"
 
-const breakpoints = ["40em", "63em", "200em"]
+const breakpoints = ["426px", "990px", "1400px", "2560px"]
 
 export const media = {
   small: `screen and (min-width: ${breakpoints[0]})`,
-  medium: `screen and (min-width: ${breakpoints[1]})`,
-  large: `screen and (min-width: ${breakpoints[2]})`,
+  medium: `screen and (max-width: ${breakpoints[3]}) and (min-width: ${breakpoints[1]})`,
+  large: `screen and (min-width: ${breakpoints[3]})`,
 }
 
 export const container = style({
   maxWidth: theme.sizes.container,
   marginLeft: "auto",
   marginRight: "auto",
-  paddingLeft: theme.space[4],
-  paddingRight: theme.space[4],
+  paddingLeft: theme.space[2],
+  paddingRight: theme.space[2],
+  "@media": {
+    [media.small]: {
+      paddingLeft: theme.space[3],
+      paddingRight: theme.space[3],
+    },
+    [media.medium]: {
+      paddingLeft: theme.space[4],
+      paddingRight: theme.space[4],
+    },
+    [media.large]: {
+      paddingLeft: theme.space[4],
+      paddingRight: theme.space[4],
+    },
+  },
 })
 
 export type Containers = "normal" | "wide" | "narrow" | "tight" | "fullbleed"
@@ -208,6 +222,9 @@ export const widths: Record<Widths, string> = styleVariants(
         [media.medium]: {
           width: "50%",
         },
+        [media.large]: {
+          width: "50%",
+        },
       },
     },
     quarter: {
@@ -374,10 +391,21 @@ export const text: Record<TextVariants, string> = styleVariants({
     margin0,
     {
       marginBottom: theme.space[3],
-      fontSize: theme.fontSizes[2],
+      fontSize: theme.fontSizes[0],
       fontWeight: theme.fontWeights.normal,
       lineHeight: theme.lineHeights.text,
       letterSpacing: theme.letterSpacings.normal,
+      "@media": {
+        [media.small]: {
+          fontSize: theme.fontSizes[1],
+        },
+        [media.medium]: {
+          fontSize: theme.fontSizes[2],
+        },
+        [media.large]: {
+          fontSize: theme.fontSizes[3],
+        },
+      },
     },
   ],
   lead: [
@@ -402,7 +430,13 @@ export const text: Record<TextVariants, string> = styleVariants({
       letterSpacing: theme.letterSpacings.tight,
       "@media": {
         [media.small]: {
-          fontSize: theme.fontSizes[7],
+          fontSize: theme.fontSizes[5],
+        },
+        [media.medium]: {
+          fontSize: theme.fontSizes[6],
+        },
+        [media.large]: {
+          fontSize: theme.fontSizes[8],
         },
       },
     },
@@ -417,8 +451,14 @@ export const text: Record<TextVariants, string> = styleVariants({
       lineHeight: theme.lineHeights.tight,
       letterSpacing: theme.letterSpacings.tight,
       "@media": {
+        [media.small]: {
+          fontSize: theme.fontSizes[5],
+        },
         [media.medium]: {
           fontSize: theme.fontSizes[6],
+        },
+        [media.large]: {
+          fontSize: theme.fontSizes[7],
         },
       },
     },
