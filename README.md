@@ -8,7 +8,7 @@ Built using Gatsby and Contentful (React.js / Node.js / GraphQL / TypeScript / V
 
 ## Quick start
 
-You will need a new or existing [Contentful space][] to use this theme and will need your [Space ID][], [Content Management API Key][] (also referred to as a Personal Access Token) and [Content Delivery API Key][] during setup for local development.
+You will need a new or to connect to the existing ZeroTier [Contentful space][] to use this theme and will need the [Space ID][], [Content Management API Key][] (also referred to as a Personal Access Token) and [Content Delivery API Key][] during setup for local development.
 
 [contentful space]: https://www.contentful.com/help/contentful-101/#step-2-create-a-space
 [space id]: https://www.contentful.com/help/find-space-id/
