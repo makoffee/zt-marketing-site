@@ -2,12 +2,20 @@ import { style, styleVariants } from "@vanilla-extract/css"
 import { calc } from "@vanilla-extract/css-utils"
 import { theme } from "../theme.css"
 
-const breakpoints = ["426px", "990px", "1400px", "2560px"]
+//const breakpoints = ["426px", "990px", "1400px", "2560px"]
+
+//export const media = {
+//  small: `screen and (min-width: ${breakpoints[0]})`,
+//  medium: `screen and (max-width: ${breakpoints[3]}) and (min-width: ${breakpoints[1]})`,
+//  large: `screen and (min-width: ${breakpoints[3]})`,
+//}
+
+const breakpoints = ["40em", "52em", "128em"]
 
 export const media = {
   small: `screen and (min-width: ${breakpoints[0]})`,
-  medium: `screen and (max-width: ${breakpoints[3]}) and (min-width: ${breakpoints[1]})`,
-  large: `screen and (min-width: ${breakpoints[3]})`,
+  medium: `screen and (min-width: ${breakpoints[1]})`,
+  large: `screen and (min-width: ${breakpoints[2]})`,
 }
 
 export const container = style({
@@ -436,7 +444,7 @@ export const text: Record<TextVariants, string> = styleVariants({
           fontSize: theme.fontSizes[6],
         },
         [media.large]: {
-          fontSize: theme.fontSizes[8],
+          fontSize: theme.fontSizes[7],
         },
       },
     },
