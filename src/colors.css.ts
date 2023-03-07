@@ -10,9 +10,4 @@ export const colors = {
   darkGradient: "linear-gradient(0deg, #1A1A1A00, #1A1A1A60, #0a0a0a75, #0a0a0a)",
   heroGradientLeft: "linear-gradient(90deg, #1A1A1A,  #1A1A1A, #1A1A1A25, #1A1A1A00)",
   headerGradient: "linear-gradient(0deg, #00000099, #00000050, #00000000)",
-<<<<<<< HEAD
 }
-=======
-  // hope this works
-}
->>>>>>> d701670 (fix broken colors.css)

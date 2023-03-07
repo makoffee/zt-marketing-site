@@ -8,7 +8,7 @@ module.exports = {
   siteMetadata: {
     siteUrl: "https://zerotier.com",
     title: "ZeroTier | Global Area Networking",
-    author: `mattcoffee.com`,
+    author: `ZeroTier, Inc.`,
     description: "Securely connect any device, anywhere. Connect team members from anywhere in the world on any device. ZeroTier creates secure networks between on-premise, cloud, desktop, and mobile devices. Starter for building homepages with Contentful",
   },
   plugins: [
@@ -36,7 +36,8 @@ module.exports = {
             policy: [{userAgent: '*', disallow: ['/']}]
           },
           production: {
-            policy: [{userAgent: '*', allow: '/'}]
+            // update this before launch
+            policy: [{userAgent: '*', disallow: '/'}]
           }
         }
       }
@@ -59,7 +60,7 @@ module.exports = {
         short_name: "ZeroTier",
         start_url: "/",
         // These can be imported once ESM support lands
-        background_color: "#ff1A1A1Ae491",
+        background_color: "#ff1A1A1",
         theme_color: "#fdb25d",
         icon: "src/favicon.png",
       },
@@ -73,17 +74,7 @@ module.exports = {
         defaultDataLayer: { platform: "gatsby" },
         gtmAuth: "RLqZPgQQ-Q9NRzt2acBP7w",
         gtmPreview: "env-1",
-        //dataLayerName: "YOUR_DATA_LAYER_NAME",
-  
-        // Name of the event that is triggered
-        // on every Gatsby route change.
-        //
-        // Defaults to gatsby-route-change
-        // routeChangeEventName: "YOUR_ROUTE_CHANGE_EVENT_NAME",
-        // Defaults to false
         enableWebVitalsTracking: true,
-        // Defaults to https://www.googletagmanager.com
-        //selfHostedOrigin: "YOUR_SELF_HOSTED_ORIGIN",
       }
     },
     {
