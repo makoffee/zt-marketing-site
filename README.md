@@ -29,8 +29,6 @@ You will need a new or to connect to the existing ZeroTier [Contentful space][] 
     git clone git@github.com:zerotier/zerotier-marketing-site
    ```
 
-   This will run a script to populate your Contentful space's content model and add demo content.
-
 1. **Add Environment Variables**
   You will need to create two hidden files in the root of your project ".env.development" and ".env.production" that will contain your CONTENTFUL_SPACE_ID & CONTENTFUL_ACCESS_TOKEN.  Keep these private, and out of source control.
 
@@ -123,8 +121,6 @@ This file is imported into `src/theme.css.ts` and creates CSS custom properties,
 The UI components file `src/components/ui.js` imports styles from `src/components/ui.css.ts`. You can see how the theme and color values are being used in this file.
 
 ### Customize headings, buttons, and other styles
-
-![Headings & Buttons](./docs/images/headings-buttons.png)
 
 To further customize the look and feel of the homepage, edit the UI components in `src/components/ui.js` and styles in `src/components/ui.css.ts`.
 

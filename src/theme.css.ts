@@ -27,13 +27,13 @@ Object.assign(
 )
 
 const fontSizes = {
-  0: "clamp(14px, 2.5vw, 20px)",
-  1: "18px",
-  2: "20px",
-  3: "22px",
-  4: "24px",
-  5: "32px",
-  6: "48px",
+  0: "clamp(14px, 2.5vw, 16px)",
+  1: "clamp(16px, 2.5vw, 18px)",
+  2: "clamp(18px, 2.5vw, 20px)",
+  3: "clamp(20px, 2.5vw, 22px)",
+  4: "clamp(24px, 2.5vw, 32px)",
+  5: "clamp(32px, 2.5vw, 48px)",
+  6: "clamp(48px, 2.5vw, 64px)",
   7: "64px",
 }
 

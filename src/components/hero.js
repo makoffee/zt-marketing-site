@@ -47,7 +47,7 @@ export default function Hero(props) {
             <SuperHeading as="h1">
               {props.h1}
             </SuperHeading>
-            <Text as="h3">{props.text}</Text>
+            <Text variant="lead">{props.text}</Text>
             <ButtonList links={props.links} varient="primary"/>
           </Box>
             {props.image && (
