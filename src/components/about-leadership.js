@@ -8,7 +8,6 @@ import {
   Section,
   Text,
   Box,
-  Kicker,
   Space,
 } from "./ui"
 
@@ -17,6 +16,7 @@ function AboutProfile(props) {
     <Box width="quarter" padding={4} center>
       {props.image && (
         <GatsbyImage
+          grayscale={true}
           alt={props.image.alt}
           image={getImage(props.image.gatsbyImageData)}
         />
@@ -43,7 +43,6 @@ export default function AboutLeadership(props) {
     <Section>
       <Container width="normal">
         <Box center paddingY={4}>
-          {props.kicker && <Kicker>{props.kicker}</Kicker>}
           {props.heading && <Heading as="h1">{props.heading}</Heading>}
           {props.subhead && <Text>{props.subhead}</Text>}
         </Box>
@@ -60,7 +59,6 @@ export default function AboutLeadership(props) {
 export const query = graphql`
   fragment AboutLeadershipContent on AboutLeadership {
     id
-    kicker
     heading
     subhead
     content {

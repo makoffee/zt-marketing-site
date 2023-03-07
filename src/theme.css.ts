@@ -27,7 +27,7 @@ Object.assign(
 )
 
 const fontSizes = {
-  0: "16px",
+  0: "clamp(14px, 2.5vw, 20px)",
   1: "18px",
   2: "20px",
   3: "22px",
@@ -43,6 +43,7 @@ const fontWeights = {
   semibold: "600",
   bold: "500",
   extrabold: "600",
+  
 }
 
 const fonts = {
@@ -52,7 +53,7 @@ const fonts = {
 }
 
 const lineHeights = {
-  text: "1.65",
+  text: "1.5",
   heading: "1.25",
   tight: "1.1",
   solid: "1",

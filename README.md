@@ -1,5 +1,5 @@
 <a href="https://www.gatsbyjs.com">
-  <img alt="Gatsby" src="https://www.gatsbyjs.com/Gatsby-Monogram.svg" width="60" />
+  <img alt="Gatsby" src="https://github.com/makoffee/zerotier/blob/main/src/favicon.png" width="60" />
 </a>
 
 # Gatsby Starter Contentful Homepage

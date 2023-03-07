@@ -2,7 +2,15 @@ import { style, styleVariants } from "@vanilla-extract/css"
 import { calc } from "@vanilla-extract/css-utils"
 import { theme } from "../theme.css"
 
-const breakpoints = ["40em", "52em", "128em"]
+//const breakpoints = ["426px", "990px", "1400px", "2560px"]
+
+//export const media = {
+//  small: `screen and (min-width: ${breakpoints[0]})`,
+//  medium: `screen and (max-width: ${breakpoints[3]}) and (min-width: ${breakpoints[1]})`,
+//  large: `screen and (min-width: ${breakpoints[3]})`,
+//}
+
+const breakpoints = ["40em", "990px", "1440px"]
 
 export const media = {
   small: `screen and (min-width: ${breakpoints[0]})`,
@@ -14,8 +22,22 @@ export const container = style({
   maxWidth: theme.sizes.container,
   marginLeft: "auto",
   marginRight: "auto",
-  paddingLeft: theme.space[4],
-  paddingRight: theme.space[4],
+  paddingLeft: theme.space[3],
+  paddingRight: theme.space[3],
+  "@media": {
+    [media.small]: {
+      paddingLeft: theme.space[3],
+      paddingRight: theme.space[3],
+    },
+    [media.medium]: {
+      paddingLeft: theme.space[4],
+      paddingRight: theme.space[4],
+    },
+    [media.large]: {
+      paddingLeft: theme.space[4],
+      paddingRight: theme.space[4],
+    },
+  },
 })
 
 export type Containers = "normal" | "wide" | "narrow" | "tight" | "fullbleed"
@@ -78,60 +100,103 @@ export type FlexVariants =
   | "center"
   | "verticalCenter"
   | "responsive"
+  | "responsiveMedium"
+  | "stretchMedium"
+  | "stretchMediumResponsive"
   | "spaceEvenly"
 
 
-export const flexVariants: Record<FlexVariants, string> = styleVariants({
-  wrap: {
-    flexWrap: "wrap",
-  },
-  start: {
-    alignItems: "flex-start",
-  },
-  baseline: {
-    alignItems: "baseline",
-  },
-  columnStart: {
-    flexDirection: "column",
-    alignItems: "flex-start",
-  },
-  column: {
-    flexDirection: "column",
-  },
-  end: {
-    alignItems: "flex-end",
-  },
-  stretch: {
-    alignItems: "stretch",
-  },
-  spaceBetween: {
-    width: "100%",
-    flexWrap: "wrap",
-    justifyContent: "space-between",
-    flexBasis: "auto",
-  },
-  spaceEvenly: {
-    width: "100%",
-    flexWrap: "wrap",
-    justifyContent: "space-evenly",
-  },
-  center: {
-    width: "100%",
-    flexWrap: "wrap",
-    justifyContent: "center",
-  },
-  verticalCenter: {
-    alignItems: "center",
-  },
-  responsive: {
-    flexDirection: "column",
-    "@media": {
-      [media.small]: {
-        flexDirection: "row",
+  export const flexVariants: Record<FlexVariants, string> = styleVariants({
+    wrap: {
+      flexWrap: "wrap",
+    },
+    start: {
+      alignItems: "flex-start",
+    },
+    baseline: {
+      alignItems: "baseline",
+    },
+    columnStart: {
+      flexDirection: "column",
+      alignItems: "flex-start",
+    },
+    column: {
+      flexDirection: "column",
+    },
+    end: {
+      alignItems: "flex-end",
+    },
+    stretch: {
+      alignItems: "stretch",
+    },
+    spaceBetween: {
+      width: "100%",
+      flexWrap: "wrap",
+      justifyContent: "space-between",
+      flexBasis: "auto",
+    },
+    spaceEvenly: {
+      width: "100%",
+      flexWrap: "wrap",
+      justifyContent: "space-evenly",
+    },
+    center: {
+      width: "100%",
+      flexWrap: "wrap",
+      justifyContent: "center",
+    },
+    verticalCenter: {
+      alignItems: "center",
+    },
+    responsive: {
+      flexDirection: "column",
+      "@media": {
+        [media.small]: {
+          flexDirection: "row",
+        },
       },
     },
-  },
-})
+    responsiveMedium: {
+      flexDirection: "column",
+      "@media": {
+        [media.small]: {
+          flexDirection: "row",
+        },
+        [media.medium]: {
+          flexDirection: "row",
+        },
+      },
+    },
+    stretchMedium: {
+      alignItems: "stretch",
+      flexDirection: "column",
+    },
+    stretchMediumResponsive: {
+      alignItems: "stretch",
+      flexDirection: "column",
+      flexWrap: "nowrap",
+      "@media": {
+        [media.small]: {
+          flexDirection: "row",
+          flexWrap: "wrap",
+          marginLeft:"10vw",
+          marginRight:"10vw",
+        },
+        [media.medium]: {
+          flexDirection: "row",
+          flexWrap: "nowrap",
+          marginLeft:"0px",
+          marginRight:"0px",
+        },
+        [media.large]: {
+          flexDirection: "row",
+          flexWrap: "nowrap",
+          marginLeft:"0px",
+          marginRight:"0px",
+        },
+      },
+    },
+  })
 
 export const flexGap = styleVariants(theme.space, (gap) => ({ gap }))
 
@@ -145,24 +210,77 @@ export type Widths =
 
 export const widths: Record<Widths, string> = styleVariants(
   {
-    full: "100%",
-    half: "50%",
-    quarter: "25%",
-    third: "33.3333%",
-    twothirds: "33.3333%",
-    fitContent: "fit-content",
-  },
-  (width) => [
-    {
+    full: {
       width: "100%",
       "@media": {
         [media.small]: {
-          width,
+          width: "100%",
+        },
+        [media.medium]: {
+          width: "100%",
         },
       },
-      
     },
-  ]
+    half: {
+      width: "100%",
+      "@media": {
+        [media.small]: {
+          width: "100%",
+        },
+        [media.medium]: {
+          width: "50%",
+        },
+        [media.large]: {
+          width: "50%",
+        },
+      },
+    },
+    quarter: {
+      width: "100%",
+      "@media": {
+        [media.small]: {
+          width: "50%",
+        },
+        [media.medium]: {
+          width: "25%",
+        },
+      },
+    },
+    third: {
+      width: "100%",
+      "@media": {
+        [media.small]: {
+          width: "50%",
+        },
+        [media.medium]: {
+          width: "33%",
+        },
+      },
+    },
+    twothirds: {
+      width: "100%",
+      "@media": {
+        [media.small]: {
+          width: "100%",
+        },
+        [media.medium]: {
+          width: "66.666%",
+        },
+      },
+    },
+    fitContent: {
+      width: "fitContent%",
+      "@media": {
+        [media.small]: {
+          width: "fitContent%",
+        },
+        [media.medium]: {
+          width: "fitContent%",
+        },
+      },
+    },
+
+  }
 )
 
 export const list = style({
@@ -281,10 +399,21 @@ export const text: Record<TextVariants, string> = styleVariants({
     margin0,
     {
       marginBottom: theme.space[3],
-      fontSize: theme.fontSizes[2],
+      fontSize: theme.fontSizes[1],
       fontWeight: theme.fontWeights.normal,
       lineHeight: theme.lineHeights.text,
       letterSpacing: theme.letterSpacings.normal,
+      "@media": {
+        [media.small]: {
+          fontSize: theme.fontSizes[1],
+        },
+        [media.medium]: {
+          fontSize: theme.fontSizes[2],
+        },
+        [media.large]: {
+          fontSize: theme.fontSizes[3],
+        },
+      },
     },
   ],
   lead: [
@@ -300,15 +429,20 @@ export const text: Record<TextVariants, string> = styleVariants({
   superHeading: [
     margin0,
     {
-      marginTop: theme.space[4],
-      marginBottom: theme.space[6],
-      fontSize: theme.fontSizes[5],
+      marginBottom: theme.space[3],
       fontFamily: theme.fonts.heading,
+      fontSize: theme.fontSizes[5],
       fontWeight: theme.fontWeights.extrabold,
-      lineHeight: theme.lineHeights.heading,
+      lineHeight: theme.lineHeights.tight,
       letterSpacing: theme.letterSpacings.tight,
       "@media": {
         [media.small]: {
+          fontSize: theme.fontSizes[5],
+        },
+        [media.medium]: {
+          fontSize: theme.fontSizes[6],
+        },
+        [media.large]: {
           fontSize: theme.fontSizes[7],
         },
       },
@@ -319,12 +453,18 @@ export const text: Record<TextVariants, string> = styleVariants({
     {
       marginBottom: theme.space[3],
       fontFamily: theme.fonts.heading,
-      fontSize: theme.fontSizes[5],
+      fontSize: theme.fontSizes[4],
       fontWeight: theme.fontWeights.extrabold,
       lineHeight: theme.lineHeights.tight,
       letterSpacing: theme.letterSpacings.tight,
       "@media": {
+        [media.small]: {
+          fontSize: theme.fontSizes[4],
+        },
         [media.medium]: {
+          fontSize: theme.fontSizes[5],
+        },
+        [media.large]: {
           fontSize: theme.fontSizes[6],
         },
       },
@@ -434,13 +574,35 @@ export const link = style({
 
 export const navlink = style({
   color: "inherit",
+  fontSize: theme.fontSizes[2],
   textDecoration: "none",
   transitionProperty: "color",
-  transitionDuration: "0.2s",
+  transitionDuration: "0s",
   transitionTimingFunction: "ease-in-out",
   ":hover": {
     color: theme.colors.active,
   },
+  "@media": {
+    [media.small]: {
+      ":hover": {
+        color: theme.colors.active,
+        
+      },
+    },
+    [media.medium]: {
+      ":hover": {
+        color: theme.colors.primary,
+        
+      },
+    },
+    [media.large]: {
+      ":hover": {
+        color: theme.colors.primary,
+        
+      },
+    },
+  },
+  
 })
 
 export const navButtonlink = style({
@@ -452,10 +614,10 @@ export const navButtonlink = style({
   border: "none",
   textDecoration: "none",
   transitionProperty: "color",
-  transitionDuration: "0.2s",
-  transitionTimingFunction: "ease-in-out",
+  transitionDuration: "0s",
+  transitionTimingFunction: "ease-out",
   ":hover": {
-    color: theme.colors.active,
+    color: theme.colors.primary,
     cursor: "pointer",
   },
 })
@@ -480,14 +642,14 @@ const button = style({
   fontWeight: theme.fontWeights.bold,
   fontSize: theme.fontSizes[2],
   lineHeight: theme.lineHeights.solid,
-  paddingTop: theme.space[3],
-  paddingBottom: theme.space[3],
+  paddingTop: theme.space[2],
+  paddingBottom: theme.space[2],
   paddingLeft: theme.space[3],
   paddingRight: theme.space[3],
   borderRadius: theme.radii.button,
 })
-
-export type ButtonVariants = "primary" | "reversed" | "link" | "linkReversed" | "white"
+ 
+export type ButtonVariants = "primary" | "reversed" | "link" | "linkReversed" | "white" | "whiteReversed" | "dark" | "gradient"
 
 export const buttons: Record<ButtonVariants, string> = styleVariants({
   primary: [
@@ -572,6 +734,42 @@ export const buttons: Record<ButtonVariants, string> = styleVariants({
       },
     },
   ],
+  whiteReversed: [
+    button,
+    {
+      color: theme.colors.text,
+      backgroundColor: "transparent",
+      border: '2px solid ' +  theme.colors.text,
+      ":hover": {
+        color: theme.colors.muted,
+        backgroundColor: theme.colors.text,
+        border: '2px solid ' +  theme.colors.text,
+      },
+      ":focus": {
+        color: theme.colors.muted,
+        backgroundColor: theme.colors.text,
+        border: '2px solid ' +  theme.colors.text,
+      },
+    },
+  ],
+  dark: [
+    button,
+    {
+      color: theme.colors.primary,
+      backgroundColor: theme.colors.muted,
+      border: '2px solid ' +  theme.colors.muted,
+      ":hover": {
+        color: theme.colors.primary,
+        backgroundColor: theme.colors.muted,
+        border: '2px solid ' +  theme.colors.muted,
+      },
+      ":focus": {
+        color: theme.colors.primary,
+        backgroundColor: theme.colors.muted,
+        border: '2px solid ' +  theme.colors.muted,
+      },
+    },
+  ],
   active: [
     button,
     {
@@ -587,6 +785,24 @@ export const buttons: Record<ButtonVariants, string> = styleVariants({
         color: theme.colors.text,
         backgroundColor: "transparent",
         border: '2px solid ' +  theme.colors.active,
+      },
+    },
+  ],
+  gradient: [
+    button,
+    {
+      color: theme.colors.background,
+      backgroundColor: theme.colors.gradient,
+      border: '2px solid ' +  theme.colors.gradient,
+      ":hover": {
+        color: theme.colors.gradient,
+        backgroundColor: "transparent",
+        border: '2px solid ' +  theme.colors.gradient,
+      },
+      ":focus": {
+        color: theme.colors.gradient,
+        backgroundColor: "transparent",
+        border: '2px solid ' +  theme.colors.gradient,
       },
     },
   ],
@@ -607,7 +823,7 @@ export const borders: Record<Borders, string> = styleVariants({
   },
 })
 
-export type Backgrounds = "primary" | "muted" | "active" | "white"
+export type Backgrounds = "primary" | "muted" | "active" | "white" | "black"
 
 export const backgrounds: Record<Backgrounds, string> = styleVariants({
   primary: {
@@ -626,6 +842,10 @@ export const backgrounds: Record<Backgrounds, string> = styleVariants({
     color: theme.colors.muted,
     backgroundColor: theme.colors.text,
   },
+  black: {
+    color: theme.colors.text,
+    backgroundColor: theme.colors.black,
+  },
 })
 
 export const blockquote = style({
@@ -643,6 +863,31 @@ export const avatar = style({
   height: theme.sizes.avatar,
   borderRadius: theme.radii.circle,
 })
+
+export const hero = style({
+  gridArea: "1/1",
+  // You can set a maximum height for the image, if you wish.
+  // maxHeight: "50vh",
+  minHeight: "90vh",
+  maxHeight: "90vh",
+  position: "relative",
+  top: -126,
+  marginBottom: -126,
+  zIndex:-1,
+})
+
+export const banner = style({
+  gridArea: "1/1",
+  // You can set a maximum height for the image, if you wish.
+  maxHeight: "50vh",
+  minHeight: "450px",
+  position: "relative",
+  top: -126,
+  marginBottom: -126,
+  zIndex:-1,
+})
+
+
 
 export type LogoSizes = "small" | "medium"
 
@@ -705,6 +950,22 @@ export const visuallyHidden = style({
   position: "absolute",
   whiteSpace: "nowrap",
   width: "1px",
+})
+
+export const hideOnMobile = style({
+  display: "none",
+  "@media": {
+    [media.small]: {
+      display: "none",
+    },
+    [media.medium]: {
+      display: "none",
+    },
+    [media.large]: {
+      display: "none",
+    },
+  },
+  
 })
 
 // for debugging only

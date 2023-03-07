@@ -1,15 +1,14 @@
 import { graphql } from "gatsby"
 import { GatsbyImage, getImage } from "gatsby-plugin-image"
-
 import * as React from "react"
+import { theme } from "../theme.css"
 import {
   Box,
   ButtonList,
   Container,
   Flex,
-  Heading,
+  SuperHeading,
   Section,
-  Subhead,
   Text,
   HeroImage,
 } from "./ui"
@@ -17,32 +16,52 @@ import {
 export default function Hero(props) {
   return (
     
-   // <Section style={{ backgroundImage: `url(${heroBackground})`, backgroundSize: 'cover', paddingTop:"0px"}}>
-   <Section style={{ minHeight: '70vh'}}>
-      {props.heroimage && (
-          <HeroImage alt={props.heroimage.alt} image={props.heroimage.gatsbyImageData}/>
-      )}
+    <Section style={{margin:0, padding:0}}>
+    <div style={{ display: "grid"}}>
+         {props.heroimage && (
+         <HeroImage alt={props.heroimage.alt} image={props.heroimage.gatsbyImageData}/>
+     )}
+     <div
+       style={{
+         gridArea: "1/1",
+         position: "relative",
+         background: theme.colors.heroGradientLeft,
+         display: "grid",
+         top: "-126px",
+         marginBottom: "-126px",
+         height: "90vh",
+         zIndex:-1,
+       }}
+     ></div>
+     <div
+       style={{
+         gridArea: "1/1",
+         position: "relative",
+         placeItems: "center",
+         display: "grid",
+       }}
+     >
       <Container>
-        <Flex gap={4} variant="responsive" style={{ paddingTop: '10vh'}} >
+        <Flex responsive varient="responsiveMedium" gap={4} >
         <Box width="half" style={{ zIndex:2}} >
-
-            <Heading as="h1">
+            <SuperHeading as="h1">
               {props.h1}
-            </Heading>
-            <Subhead as="h2">{props.subhead}</Subhead>
-            <Text as="p">{props.text}</Text>
+            </SuperHeading>
+            <Text as="h3">{props.text}</Text>
             <ButtonList links={props.links} varient="primary"/>
           </Box>
-          <Box width="half">
             {props.image && (
+              <Box width="half">
               <GatsbyImage
                 alt={props.image.alt}
                 image={getImage(props.image.gatsbyImageData)}
               />
+                        </Box>
             )}
-          </Box>
         </Flex>
       </Container>
+      </div>
+      </div>
     </Section>
   )
 }
@@ -51,7 +70,6 @@ export const query = graphql`
   fragment HomepageHeroContent on HomepageHero {
     id
     h1: heading
-    subhead
     text
     links {
       id
@@ -60,8 +78,8 @@ export const query = graphql`
     }
     heroimage {
       id
-      gatsbyImageData
       alt
+      gatsbyImageData
     }
     image {
       id

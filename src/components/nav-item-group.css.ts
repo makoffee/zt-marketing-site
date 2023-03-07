@@ -12,12 +12,12 @@ export const navGroupTitle = style([
   { ":hover": { color: theme.colors.background } },
   {
     "@media": {
-      [media.small]: {
+      [media.medium]: {
         padding: 0,
         alignItems: "baseline",
         color: "inherit",
-        fontSize: "inherit",
-        ":hover": { color: theme.colors.active },
+        fontSize: theme.fontSizes[2],
+        ":hover": { color: theme.colors.primary },
       },
     },
   },
@@ -25,7 +25,7 @@ export const navGroupTitle = style([
 
 export const navGroupTitleInner = style({
   "@media": {
-    [media.small]: {
+    [media.medium]: {
       alignItems: "baseline",
     },
   },
@@ -36,9 +36,9 @@ const navLinkListWrapperBase = style({
   whiteSpace: "nowrap",
   width: "fit-content",
   "@media": {
-    [media.small]: {
+    [media.medium]: {
       position: "absolute",
-      background: theme.colors.background,
+      background: theme.colors.black,
       padding: `${theme.space[3]} ${theme.space[3]} ${theme.space[0]} ${theme.space[3]}`,
       top: "calc(100% + 20px)",
       left: "50%",
@@ -70,7 +70,7 @@ export const navLinkListWrapper = styleVariants({
     navLinkListWrapperBase,
     {
       "@media": {
-        [media.small]: {
+        [media.medium]: {
           animation: "zoomInUp 0.15s ease-in-out",
         },
       },
@@ -80,7 +80,7 @@ export const navLinkListWrapper = styleVariants({
     navLinkListWrapperBase,
     {
       "@media": {
-        [media.small]: {
+        [media.medium]: {
           animation: "zoomOutDown 0.15s ease-in-out",
           animationFillMode: "forwards",
         },
@@ -93,7 +93,7 @@ export const navLinkListWrapperInner = style({
   paddingLeft: theme.space[4],
   paddingBottom: theme.space[3],
   "@media": {
-    [media.small]: {
+    [media.medium]: {
       paddingLeft: 0,
       alignItems: "stretch",
     },
@@ -116,7 +116,7 @@ export const navLinkListLink = style([
   mobileNavLink,
   {
     "@media": {
-      [media.small]: {
+      [media.medium]: {
         padding: theme.space[2],
         margin: 0,
         color: "inherit",
@@ -124,7 +124,7 @@ export const navLinkListLink = style([
         fontWeight: theme.fontWeights.bold,
         borderRadius: theme.radii.button,
         ":hover": {
-          background: theme.colors.muted,
+          background: theme.colors.background,
           color: "inherit",
         },
       },
@@ -136,7 +136,7 @@ export const navLinkDescription = style({
   display: "none",
   whiteSpace: "normal",
   "@media": {
-    [media.small]: {
+    [media.medium]: {
       display: "block",
       fontSize: theme.fontSizes[1],
       margin: 0,
@@ -146,6 +146,6 @@ export const navLinkDescription = style({
 })
 
 export const navLinkTitle = style({
-  margin: 0,
+  marginLeft: theme.space[2],
   padding: 0,
 })

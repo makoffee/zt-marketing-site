@@ -1,25 +1,20 @@
 import * as React from "react"
 import { graphql } from "gatsby"
 import { GatsbyImage, getImage } from "gatsby-plugin-image"
-import ReactMarkdown from "react-markdown";
 
 import {
-  Container,
-  Section,
   Flex,
   Box,
   Subhead,
-  Text,
   ButtonList,
 } from "./ui"
+import { theme } from "../theme.css"
 
 
 export default function Feature(props) {  
   return (
-    <Section padding={4} background="muted">
-      <Container>
         <Flex gap={4} variant="responsive">
-          <Box width="half" order={props.flip ? 1 : null}>
+          <Box width="half" order={props.flip ? 1 : null} padding={4}>
             {props.image && (
               <GatsbyImage
                 alt={props.image.alt}
@@ -27,20 +22,20 @@ export default function Feature(props) {
               />
             )}
           </Box>
-          <Box width="half">
+          <Box width="half" padding={3}>
             <Subhead>
               {props.heading}
             </Subhead>
-            <div style={{fontSize: "22px"}}
+            <Box>
+            <div
             dangerouslySetInnerHTML={{
               __html: props.html,
             }}
             />
+            </Box>
             <ButtonList links={props.links} varient="white"/>
           </Box>
         </Flex>
-      </Container>
-    </Section>
   )
 }
 

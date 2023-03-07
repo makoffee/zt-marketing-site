@@ -161,7 +161,7 @@ export function NavButtonLink({ ...props }) {
   return <Base as="button" cx={[styles.navButtonlink]} {...props} />
 }
 
-export function Button({ variant = "primary", ...props }) {
+export function Button({ variant = [], ...props }) {
   return <Base as={Link} cx={[styles.buttons[variant]]} {...props} />
 }
 
@@ -177,11 +177,11 @@ export function ButtonList({ links = [], varient = [], reversed = false, ...prop
   }
   
   return (
-    <FlexList marginY={4} {...props}>
+    <FlexList marginY={2} {...props} responsive>
       {links &&
         links.map((link, i) => (
           <li key={link.id}>
-            <Button href={link.href} variant={getVariant(i)}>
+            <Button href={link.href} variant={getVariant(i)} >
               {link.text}
             </Button>
           </li>
@@ -213,13 +213,28 @@ export function Blockquote(props) {
 
 export function Avatar({ alt, image }) {
   return (
-    <GatsbyImage alt={alt} image={getImage(image)} className={styles.avatar} />
+    <GatsbyImage alt={alt} image={image} className={styles.avatar}/>
   )
 }
 
 export function HeroImage({ alt, image }) {
   return (
-    <GatsbyImage alt={alt} image={getImage(image)} style={{ position: "absolute", minHeight: "100vh", width: "auto", zIndex:-1, top:"0px"}} />
+    <GatsbyImage alt={alt} image={getImage(image)} 
+    className={styles.hero} 
+    layout="fullWidth"
+    formats={["auto", "webp", "avif"]}
+    />
+  )
+}
+
+export function BannerImage({ alt, image }) {
+  return (
+    <GatsbyImage alt={alt} image={getImage(image)} 
+    className={styles.banner} 
+    layout="fullWidth"
+    quality="80"
+    formats={["auto", "webp", "avif"]}
+    />
   )
 }
 

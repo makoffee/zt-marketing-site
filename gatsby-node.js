@@ -1,3 +1,15 @@
+// For local storage of images pulled from contentful, add LocalFile interface, along with source-filesystem-plugin in gatsby-config.js
+//
+//  interface LocalFile implements Node {
+//  id: ID!
+//  alt: String @proxy(from: "title")
+//  childImageSharp: GatsbyImageData @imagePassthroughArgs
+//  url: String
+//  file: JSON
+//  title: String
+// }
+
+
 const { documentToHtmlString } = require("@contentful/rich-text-html-renderer")
 const { getGatsbyImageResolver } = require("gatsby-plugin-image/graphql-utils")
 
@@ -83,18 +95,15 @@ exports.createSchemaCustomization = async ({ actions }) => {
       id: ID!
       blocktype: String
     }
-
     interface HomepageLink implements Node {
       id: ID!
       href: String
       text: String
     }
-
     interface HeaderNavItem implements Node {
       id: ID!
       navItemType: String
     }
-
     interface NavItem implements Node & HeaderNavItem {
       id: ID!
       navItemType: String
@@ -103,7 +112,6 @@ exports.createSchemaCustomization = async ({ actions }) => {
       icon: HomepageImage
       description: String
     }
-
     interface NavItemGroup implements Node & HeaderNavItem {
       id: ID!
       navItemType: String
@@ -116,93 +124,87 @@ exports.createSchemaCustomization = async ({ actions }) => {
       alt: String
       gatsbyImageData: GatsbyImageData @imagePassthroughArgs
       url: String
+      description: String
     }
 
     interface HomepageHero implements Node & HomepageBlock {
       id: ID!
       blocktype: String
       heading: String!
-      kicker: String
       subhead: String
       image: HomepageImage
       heroimage: HomepageImage
       text: String
       links: [HomepageLink]
     }
-
-    interface HomepageFeatureMarkdownTextNode implements Node {
-      id: ID!
-      markdown: MarkdownRemark
-    }
-
     interface HomepageFeature implements Node & HomepageBlock {
       id: ID!
       blocktype: String
       heading: String
-      kicker: String
       text: String
-      markdown: MarkdownRemark
-      content: [HomepageFeatureMarkdownTextNode]
-      html: String
+      html: String!
       image: HomepageImage
       links: [HomepageLink]
     }
-
     interface HomepageFeatureList implements Node & HomepageBlock {
       id: ID!
       blocktype: String
-      kicker: String
       heading: String
       text: String
       content: [HomepageFeature]
     }
-
     interface HomepageCta implements Node & HomepageBlock {
       id: ID!
       blocktype: String
-      kicker: String
       heading: String
       text: String
       image: HomepageImage
       links: [HomepageLink]
     }
-
+    interface TextBanner implements Node & HomepageBlock {
+      id: ID!
+      blocktype: String
+      heading: String
+      html: String!
+      icon: HomepageImage
+    }
+    interface VideoEmbed implements Node & HomepageBlock {
+      id: ID!
+      blocktype: String
+      title: String
+      description: String
+      src: String
+    }
     interface HomepageLogo implements Node {
       id: ID!
       image: HomepageImage
       alt: String
     }
-
     interface HomepageLogoList implements Node & HomepageBlock {
       id: ID!
       blocktype: String
       text: String
       logos: [HomepageLogo]
     }
-
     interface HomepageTestimonial implements Node {
       id: ID!
       quote: String
       source: String
       avatar: HomepageImage
     }
-
     interface HomepageTestimonialList implements Node & HomepageBlock {
       id: ID!
       blocktype: String
-      kicker: String
       heading: String
       content: [HomepageTestimonial]
     }
-
     interface HomepageBenefit implements Node {
       id: ID!
       heading: String
       text: String
-      html: String
+      html: String!
       image: HomepageImage
     }
-
     interface HomepageBenefitList implements Node & HomepageBlock {
       id: ID!
       blocktype: String
@@ -210,26 +212,6 @@ exports.createSchemaCustomization = async ({ actions }) => {
       text: String
       content: [HomepageBenefit]
     }
-
-    interface HomepageStat implements Node {
-      id: ID!
-      value: String
-      label: String
-      heading: String
-    }
-
-    interface HomepageStatList implements Node & HomepageBlock {
-      id: ID!
-      blocktype: String
-      kicker: String
-      heading: String
-      text: String
-      image: HomepageImage
-      icon: HomepageImage
-      content: [HomepageStat]
-      links: [HomepageLink]
-    }
-
     interface HomepageProduct implements Node {
       id: ID!
       heading: String
@@ -243,16 +225,13 @@ exports.createSchemaCustomization = async ({ actions }) => {
       image: HomepageImage
       links: [HomepageLink]
     }
-
     interface HomepageProductList implements Node & HomepageBlock {
       id: ID!
       blocktype: String
       heading: String
-      kicker: String
       text: String
       content: [HomepageProduct]
     }
-
     interface Homepage implements Node {
       id: ID!
       title: String
@@ -260,13 +239,12 @@ exports.createSchemaCustomization = async ({ actions }) => {
       image: HomepageImage
       content: [HomepageBlock]
     }
-
     interface LayoutHeader implements Node {
       id: ID!
       navItems: [HeaderNavItem]
       cta: HomepageLink
+      login: HomepageLink
     }
-
     enum SocialService {
       TWITTER
       FACEBOOK
@@ -277,23 +255,20 @@ exports.createSchemaCustomization = async ({ actions }) => {
       DISCORD
       TWITCH
     }
-
     interface SocialLink implements Node {
       id: ID!
       username: String!
       service: SocialService!
     }
-
-
-
     interface LayoutFooter implements Node {
       id: ID!
+      tagline: String
       links: [HomepageLink]
+      navItems: [HeaderNavItem]
       meta: [HomepageLink]
       socialLinks: [SocialLink]
       copyright: String
     }
-
     interface Layout implements Node {
       id: ID!
       header: LayoutHeader
@@ -307,7 +282,6 @@ exports.createSchemaCustomization = async ({ actions }) => {
       image: HomepageImage
       content: [HomepageBlock]
     }
-
     interface AboutHero implements Node & HomepageBlock {
       id: ID!
       blocktype: String
@@ -315,43 +289,29 @@ exports.createSchemaCustomization = async ({ actions }) => {
       text: String
       image: HomepageImage
     }
-
     interface AboutStat implements Node {
       id: ID!
       value: String
       label: String
     }
-
     interface AboutStatList implements Node & HomepageBlock {
       id: ID!
       blocktype: String
       content: [AboutStat]
     }
-
     interface AboutProfile implements Node {
       id: ID!
       image: HomepageImage
       name: String
       jobTitle: String
     }
-
     interface AboutLeadership implements Node & HomepageBlock {
       id: ID!
       blocktype: String
-      kicker: String
       heading: String
       subhead: String
       content: [AboutProfile]
     }
-
-    interface AboutLogoList implements Node & HomepageBlock {
-      id: ID!
-      blocktype: String
-      heading: String
-      links: [HomepageLink]
-      logos: [HomepageLogo]
-    }
-
     interface Page implements Node {
       id: ID!
       slug: String!
@@ -360,7 +320,6 @@ exports.createSchemaCustomization = async ({ actions }) => {
       image: HomepageImage
       html: String!
     }
-
     interface LandingPage implements Node {
       id: ID!
       slug: String!
@@ -369,23 +328,48 @@ exports.createSchemaCustomization = async ({ actions }) => {
       image: HomepageImage
       content: [HomepageBlock]
     }
-
+    interface BlogContent implements Node & HomepageBlock {
+      id: ID!
+      blocktype: String
+      name: String
+      body: JSON
+      image: HomepageImage
+    }
     interface RichTextBlock implements Node & HomepageBlock {
       id: ID!
       blocktype: String
       title: String
+      body: JSON
       html: String!
+      links: [HomepageLink]
     }
-
     interface CtaImageBlock implements Node & HomepageBlock {
       id: ID!
       blocktype: String
-      kicker: String
       heading: String
       text: String
       image: HomepageImage
       icon: HomepageImage
       links: [HomepageLink]
+    }
+    interface HeaderBanner implements Node & HomepageBlock {
+      id: ID!
+      blocktype: String
+      heading: String!
+      heroimage: HomepageImage
+      text: String
+      links: [HomepageLink]
+    }
+    interface EmailSignupBlock implements Node & HomepageBlock {
+      id: ID!
+      blocktype: String
+      heading: String
+      text: String
+    }
+
+    interface Markdown implements Node {
+      id: ID!
+      markdownRemark: JSON
     }
 
   `)
@@ -396,8 +380,7 @@ exports.createSchemaCustomization = async ({ actions }) => {
       id: ID!
       href: String
       text: String
-    }
-
+    } 
     type ContentfulNavItem implements Node & NavItem & HeaderNavItem
       @dontInfer {
       id: ID!
@@ -407,7 +390,6 @@ exports.createSchemaCustomization = async ({ actions }) => {
       icon: HomepageImage @link(from: "icon___NODE")
       description: String
     }
-
     type ContentfulNavItemGroup implements Node & NavItemGroup & HeaderNavItem
       @dontInfer {
       id: ID!
@@ -415,8 +397,7 @@ exports.createSchemaCustomization = async ({ actions }) => {
       name: String
       navItems: [NavItem] @link(from: "navItems___NODE")
     }
-
-    type ContentfulAsset implements Node & HomepageImage {
+    type ContentfulAsset implements Node & HomepageImage & Image {
       id: ID!
       alt: String @proxy(from: "title")
       gatsbyImageData: GatsbyImageData
@@ -424,71 +405,81 @@ exports.createSchemaCustomization = async ({ actions }) => {
       file: JSON
       title: String
     }
-
     type ContentfulHomepageHero implements Node & HomepageHero & HomepageBlock {
       id: ID!
       blocktype: String @blocktype
       heading: String!
-      kicker: String
       subhead: String
       image: HomepageImage @link(from: "image___NODE")
       heroimage: HomepageImage @link(from: "heroimage___NODE")
       text: String
       links: [HomepageLink] @link(from: "links___NODE")
     }
-
-    type ContentfulHomepageFeatureMarkdownTextNode implements Node & HomepageFeatureMarkdownTextNode 
-      @dontInfer {
+    type ContentfulHeaderBanner implements Node & HeaderBanner & HomepageBlock {
       id: ID!
-      markdown: MarkdownRemark
+      blocktype: String @blocktype
+      heading: String!
+      image: HomepageImage @link(from: "image___NODE")
+      heroimage: HomepageImage @link(from: "heroimage___NODE")
+      text: String
+      links: [HomepageLink] @link(from: "links___NODE")
     }
-
+    type ContentfulEmailSignupBlock implements Node & EmailSignupBlock & HomepageBlock {
+      id: ID!
+      blocktype: String @blocktype
+      heading: String
+      text: String
+    }
     type ContentfulHomepageFeature implements Node & HomepageBlock & HomepageFeature
       @dontInfer {
       id: ID!
       blocktype: String @blocktype
       heading: String
-      kicker: String
       text: String
-      markdown: MarkdownRemark
-      content: [HomepageFeatureMarkdownTextNode] @link(from: "content___NODE")
-      html: String @richText
+      html: String! @richText
       image: HomepageImage @link(from: "image___NODE")
       links: [HomepageLink] @link(from: "links___NODE")
     }
-
     type ContentfulHomepageFeatureList implements Node & HomepageBlock & HomepageFeatureList
       @dontInfer {
       blocktype: String @blocktype
-      kicker: String
       heading: String
       text: String
       content: [HomepageFeature] @link(from: "content___NODE")
     }
-
     type ContentfulHomepageCta implements Node & HomepageBlock & HomepageCta
       @dontInfer {
       blocktype: String @blocktype
-      kicker: String
       heading: String
       text: String
       image: HomepageImage @link(from: "image___NODE")
       links: [HomepageLink] @link(from: "links___NODE")
     }
-
+    type ContentfulTextBanner implements Node & HomepageBlock & TextBanner
+      @dontInfer {
+      blocktype: String @blocktype
+      heading: String
+      html: String! @richText
+      icon: HomepageImage @link(from: "icon___NODE")
+    }
+    type ContentfulVideoEmbed implements Node & HomepageBlock & VideoEmbed
+      @dontInfer {
+      blocktype: String @blocktype
+      title: String
+      description: String
+      src: String
+    }
     type ContentfulHomepageLogo implements Node & HomepageLogo @dontInfer {
       id: ID!
       image: HomepageImage @link(from: "image___NODE")
       alt: String
     }
-
     type ContentfulHomepageLogoList implements Node & HomepageBlock & HomepageLogoList
       @dontInfer {
       blocktype: String @blocktype
       text: String
       logos: [HomepageLogo] @link(from: "logos___NODE")
     }
-
     type ContentfulHomepageTestimonial implements Node & HomepageTestimonial
       @dontInfer {
       id: ID!
@@ -496,25 +487,21 @@ exports.createSchemaCustomization = async ({ actions }) => {
       source: String
       avatar: HomepageImage @link(from: "avatar___NODE")
     }
-
     type ContentfulHomepageTestimonialList implements Node & HomepageBlock & HomepageTestimonialList
       @dontInfer {
       id: ID!
       blocktype: String @blocktype
-      kicker: String
       heading: String
       content: [HomepageTestimonial] @link(from: "content___NODE")
     }
-
     type ContentfulHomepageBenefit implements Node & HomepageBenefit
       @dontInfer {
       id: ID!
       heading: String
       text: String
-      html: String @richText
+      html: String! @richText
       image: HomepageImage @link(from: "image___NODE")
     }
-
     type ContentfulHomepageBenefitList implements Node & HomepageBlock & HomepageBenefitList
       @dontInfer {
       id: ID!
@@ -523,27 +510,6 @@ exports.createSchemaCustomization = async ({ actions }) => {
       text: String
       content: [HomepageBenefit] @link(from: "content___NODE")
     }
-
-    type ContentfulHomepageStat implements Node & HomepageStat @dontInfer {
-      id: ID!
-      value: String
-      label: String
-      heading: String
-    }
-
-    type ContentfulHomepageStatList implements Node & HomepageBlock & HomepageStatList
-      @dontInfer {
-      id: ID!
-      blocktype: String @blocktype
-      kicker: String
-      heading: String
-      text: String
-      image: HomepageImage @link(from: "image___NODE")
-      icon: HomepageImage @link(from: "icon___NODE")
-      content: [HomepageStat] @link(from: "content___NODE")
-      links: [HomepageLink] @link(from: "links___NODE")
-    }
-
     type ContentfulHomepageProduct implements Node & HomepageProduct
       @dontInfer {
       heading: String
@@ -557,16 +523,13 @@ exports.createSchemaCustomization = async ({ actions }) => {
       image: HomepageImage @link(from: "image___NODE")
       links: [HomepageLink] @link(from: "links___NODE")
     }
-
     type ContentfulHomepageProductList implements Node & HomepageProductList & HomepageBlock
       @dontInfer {
       blocktype: String @blocktype
       heading: String
-      kicker: String
       text: String
       content: [HomepageProduct] @link(from: "content___NODE")
     }
-
     type ContentfulHomepage implements Node & Homepage @dontInfer {
       id: ID!
       title: String
@@ -582,7 +545,6 @@ exports.createSchemaCustomization = async ({ actions }) => {
       @dontInfer {
       id: ID!
       blocktype: String @blocktype
-      kicker: String
       heading: String
       text: String
       image: HomepageImage @link(from: "image___NODE")
@@ -599,10 +561,22 @@ exports.createSchemaCustomization = async ({ actions }) => {
     blocktype: String @blocktype
     title: String
     html: String! @richText
-    image: HomepageImage @link(from: "image___NODE")
-
+    body: JSON
+    links: [HomepageLink] @link(from: "links___NODE")
   }
-  `)
+`)
+
+// Custom rich text content area for blog posts
+  actions.createTypes(/* GraphQL */ `
+  type ContentfulBlogContent implements Node & BlogContent & HomepageBlock
+    @dontInfer {
+    id: ID!
+    blocktype: String @blocktype
+    name: String
+    body: JSON
+    image: HomepageImage @link(from: "image___NODE")
+  }
+`)
 
   // CMS specific types for About page
   actions.createTypes(/* GraphQL */ `
@@ -613,48 +587,32 @@ exports.createSchemaCustomization = async ({ actions }) => {
       heading: String
       text: String
       image: HomepageImage @link(from: "image___NODE")
-
     }
-
     type ContentfulAboutStat implements Node & AboutStat @dontInfer {
       id: ID!
       value: String
       label: String
     }
-
     type ContentfulAboutStatList implements Node & AboutStatList & HomepageBlock
       @dontInfer {
       id: ID!
       blocktype: String @blocktype
       content: [AboutStat] @link(from: "content___NODE")
     }
-
     type ContentfulAboutProfile implements Node & AboutProfile @dontInfer {
       id: ID!
       image: HomepageImage @link(from: "image___NODE")
       name: String
       jobTitle: String
     }
-
     type ContentfulAboutLeadership implements Node & AboutLeadership & HomepageBlock
       @dontInfer {
       id: ID!
       blocktype: String @blocktype
-      kicker: String
       heading: String
       subhead: String
       content: [AboutProfile] @link(from: "content___NODE")
     }
-
-    type ContentfulAboutLogoList implements Node & AboutLogoList & HomepageBlock
-      @dontInfer {
-      id: ID!
-      blocktype: String @blocktype
-      heading: String
-      links: [HomepageLink] @link(from: "links___NODE")
-      logos: [HomepageLogo] @link(from: "logos___NODE")
-    }
-
     type ContentfulAboutPage implements Node & AboutPage @dontInfer {
       id: ID!
       title: String
@@ -670,22 +628,22 @@ exports.createSchemaCustomization = async ({ actions }) => {
       id: ID!
       navItems: [HeaderNavItem] @link(from: "navItems___NODE")
       cta: HomepageLink @link(from: "cta___NODE")
+      login: HomepageLink @link(from: "login___NODE")
     }
-
     type ContentfulSocialLink implements Node & SocialLink @dontInfer {
       id: ID!
       username: String!
       service: SocialService!
     }
-
     type ContentfulLayoutFooter implements Node & LayoutFooter @dontInfer {
       id: ID!
+      tagline: String
       links: [HomepageLink] @link(from: "links___NODE")
       meta: [HomepageLink] @link(from: "meta___NODE")
+      navItems: [HeaderNavItem] @link(from: "navItems___NODE")
       socialLinks: [SocialLink] @link(from: "socialLinks___NODE")
       copyright: String
     }
-
     type ContentfulLayout implements Node & Layout @dontInfer {
       id: ID!
       header: LayoutHeader @link(from: "header___NODE")
@@ -704,9 +662,8 @@ exports.createSchemaCustomization = async ({ actions }) => {
       html: String! @richText
     }
   `)
-    // LandingPage types
-    actions.createTypes(/* GraphQL */ `
-
+  // LandingPage types
+  actions.createTypes(/* GraphQL */ `
     type ContentfulLandingPage implements Node & LandingPage @dontInfer {
       id: ID!
       slug: String!
@@ -715,7 +672,6 @@ exports.createSchemaCustomization = async ({ actions }) => {
       image: HomepageImage @link(from: "image___NODE")
       content: [HomepageBlock] @link(from: "content___NODE")
     }
-
   `)
 }
 
@@ -730,4 +686,3 @@ exports.createPages = ({ actions }) => {
     component: require.resolve("./src/components/footer.js"),
   })
 }
-      

@@ -2,52 +2,53 @@ import * as React from "react"
 import { graphql } from "gatsby"
 import { GatsbyImage, getImage } from "gatsby-plugin-image"
 import {
-  Container,
   Section,
+  Container,
   FlexList,
   Box,
   Heading,
   Text,
   Space,
 } from "./ui"
+import { theme } from "../theme.css"
 
 function Benefit(props) {
   return (
     <Box as="li" width="quarter" padding={4} paddingY={3}>
-      {props.image && (
+      <Box style={{padding:"0 20% 0 20%"}}>
+        {props.image && (
           <GatsbyImage
             alt={props.image.alt}
             image={getImage(props.image.gatsbyImageData)}
-            responsive
-            //className={styles.aboutHeroImage}
           />
-        )}
-      <Space size={2} />
-      <Heading variant="subheadSmall">{props.heading}</Heading>
-      <div style={{}}
+        )}  
+      </Box>
+      <Space size={2}/>
+      <Heading center variant="subheadSmall">{props.heading}</Heading>
+        <div style={{textAlign:"center", fontSize: theme.fontSizes[2], lineHeight: theme.lineHeights.text}}
             dangerouslySetInnerHTML={{
               __html: props.html,
             }}
-            />
+          />
     </Box>
   )
 }
 
 export default function BenefitList(props) {
   return (
-    <Section>
+    <Section padding={4}>
       <Container width="wide">
         <Box center>
           {props.heading && <Heading>{props.heading}</Heading>}
           {props.text && <Text variant="lead">{props.text}</Text>}
         </Box>
-        <Space size={3} />
-        <FlexList gutter={3} variant="start" responsive wrap>
+
+        <FlexList gutter={4} variant="start" responsive wrap>
           {props.content.map((benefit) => (
             <Benefit key={benefit.id} {...benefit} />
           ))}
         </FlexList>
-      </Container>
+        </Container>
     </Section>
   )
 }

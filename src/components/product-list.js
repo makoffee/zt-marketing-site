@@ -5,19 +5,17 @@ import {
   Section,
   FlexList,
   Text,
-  Kicker,
   Heading,
   Subhead,
   Box,
   Icon,
-  LinkList,
   ButtonList, 
 } from "./ui"
-import { backgrounds, ButtonVariants } from "./ui.css"
 
 function Product(props) {
   return (
-    <Box center paddingY={4} radius="large" responisve background="muted" border={props.variant} width="third">
+    
+    <Box center paddingY={4} radius="large" background="muted" border={props.variant}>
       {props.image && (
         <Icon
           alt={props.image.alt}
@@ -25,14 +23,15 @@ function Product(props) {
           size="large"
         />
       )}
-      <Subhead>{props.heading}</Subhead>
-      <Text>{props.text}</Text>
-      <Text>{props.productFeature1}</Text>
-      <Text>{props.productFeature2}</Text>
-      <Text>{props.productFeature3}</Text>
-      <Text>{props.productFeature4}</Text>
-      <Text>{props.productFeature5}</Text>
+      <Subhead>{props.heading}</Subhead>  
+      <Text bold>{props.text}</Text>
+      <Text variant="small">{props.productFeature1}</Text>
+      <Text variant="small">{props.productFeature2}</Text>
+      <Text variant="small">{props.productFeature3}</Text>
+      <Text variant="small">{props.productFeature4}</Text>
+      <Text variant="small">{props.productFeature5}</Text>
       <ButtonList links={props.links} varient={props.variant}/>
+     
     </Box>
   )
 }
@@ -43,14 +42,13 @@ export default function ProductList(props) {
       <Container >
         <Box center paddingY={4}>
           <Heading>
-            {props.kicker && <Kicker>{props.kicker}</Kicker>}
             {props.heading}
           </Heading>
           {props.text && <Text>{props.text}</Text>}
         </Box>
-        <FlexList gap={4} variant="start" responsive>
+        <FlexList gap={4} variant="stretchMediumResponsive">
           {props.content.map((product) => (
-              <Product {...product} />
+            <Product key={product.id} {...product} />
           ))}
         </FlexList>
       </Container>
@@ -61,7 +59,6 @@ export default function ProductList(props) {
 export const query = graphql`
   fragment HomepageProductListContent on HomepageProductList {
     id
-    kicker
     heading
     text
     content {

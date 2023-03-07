@@ -20,6 +20,7 @@ import {
   VisuallyHidden,
 } from "./ui"
 import BrandLogo from "./brand-logo"
+import FooterItemGroup from "./footer-item-group"
 
 const socialMedia = {
   TWITTER: {
@@ -74,10 +75,27 @@ export default function Footer() {
       layout {
         footer {
           id
-          links {
+          tagline
+          navItems {
             id
-            href
-            text
+            navItemType
+            ... on NavItem {
+              href
+              text
+            }
+            ... on NavItemGroup {
+              name
+              navItems {
+                id
+                href
+                text
+                description
+                icon {
+                  alt
+                  gatsbyImageData
+                }
+              }
+            }
           }
           meta {
             id
@@ -95,9 +113,10 @@ export default function Footer() {
     }
   `)
 
-  const { links, meta, socialLinks, copyright } = data.layout.footer
+  const { meta, socialLinks, copyright, navItems, tagline } = data.layout.footer
 
   return (
+    
     <Box as="footer" paddingY={4}>
       <Container>
         <Flex variant="start" responsive>
@@ -106,17 +125,24 @@ export default function Footer() {
             <VisuallyHidden>Home</VisuallyHidden>
             <BrandLogo />
           </NavLink>
-          This is where the mission statement would go.
+          <Text variant="small">{tagline}</Text>
           </Flex>
           <Space />
           <FlexList variant="start" responsive>
-            {links &&
-              links.map((link) => (
-                <li key={link.id}>
-                  <NavLink to={link.href}>{link.text}</NavLink>
-                </li>
+              {navItems?.map((navItem) => (
+                 <li key={navItem.id} style={{paddingBottom:"20px"}}>
+                 {navItem.navItemType === "Group" ? (
+                   <FooterItemGroup
+                     name={navItem.name}
+                     navItems={navItem.navItems}
+                   />
+                 ) : (
+                   <NavLink to={navItem.href}>{navItem.text}</NavLink>
+                 )}
+               </li>
+               
               ))}
-          </FlexList>
+            </FlexList>
         </Flex>
         <Space size={4} />
         <FlexList>

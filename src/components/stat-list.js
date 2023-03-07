@@ -6,7 +6,6 @@ import {
   Section,
   FlexList,
   Text,
-  Kicker,
   Heading,
   Flex,
   Box,
@@ -34,7 +33,6 @@ export default function StatList(props) {
               <Icon alt={props.icon.alt} image={props.icon.gatsbyImageData} />
             )}
             <Heading>
-              {props.kicker && <Kicker>{props.kicker}</Kicker>}
               {props.heading}
             </Heading>
             {props.text && <Text variant="lead">{props.text}</Text>}
@@ -66,7 +64,6 @@ export default function StatList(props) {
 export const query = graphql`
   fragment HomepageStatListContent on HomepageStatList {
     id
-    kicker
     heading
     text
     image {

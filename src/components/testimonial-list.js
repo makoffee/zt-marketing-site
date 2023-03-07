@@ -4,7 +4,6 @@ import {
   Container,
   Section,
   Heading,
-  Kicker,
   Flex,
   Box,
   FlexList,
@@ -16,7 +15,7 @@ import {
 
 function Testimonial(props) {
   return (
-    <Flex variant="start">
+    <Flex variant="start" responsive>
       {props.avatar && (
         <Avatar alt={props.avatar.alt} image={props.avatar.gatsbyImageData} />
       )}
@@ -40,7 +39,6 @@ export default function TestimonialList(props) {
       <Container width="narrow">
         <Box center>
           <Heading>
-            {props.kicker && <Kicker>{props.kicker}</Kicker>}
             {props.heading}
           </Heading>
         </Box>
@@ -60,7 +58,6 @@ export default function TestimonialList(props) {
 export const query = graphql`
   fragment HomepageTestimonialListContent on HomepageTestimonialList {
     id
-    kicker
     heading
     content {
       id

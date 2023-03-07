@@ -12,7 +12,7 @@ export default function Page(props) {
       <Box paddingY={5}>
         <Container width="narrow">
           <Heading as="h1">{page.title}</Heading>
-          <div
+          <div style={{fontSize: "18px", lineHeight: "1.25em"}}
             dangerouslySetInnerHTML={{
               __html: page.html,
             }}

@@ -15,6 +15,7 @@ import {
 import {
   mobileNavOverlay,
   mobileNavLink,
+  desktopHeaderNav,
   desktopHeaderNavWrapper,
   mobileHeaderNavWrapper,
   mobileNavSVGColorWrapper,
@@ -49,6 +50,11 @@ export default function Header() {
               }
             }
           }
+          login {
+            id
+            href
+            text
+          }
           cta {
             id
             href
@@ -59,7 +65,7 @@ export default function Header() {
     }
   `)
 
-  const { navItems, cta } = data.layout.header
+  const { navItems, cta, login } = data.layout.header
   const [isOpen, setOpen] = React.useState(false)
 
   React.useEffect(() => {
@@ -71,7 +77,7 @@ export default function Header() {
   }, [isOpen])
 
   return (
-    <header>
+    <header className={desktopHeaderNav}>
       <Container className={desktopHeaderNavWrapper}>
         <Space size={2} />
         <Flex variant="spaceBetween">
@@ -96,7 +102,7 @@ export default function Header() {
                 ))}
             </FlexList>
           </nav>
-          <div>{cta && <Button to={cta.href}>{cta.text}</Button>}</div>
+          <FlexList gap={1}>{cta && <Button to={login.href} variant="linkReversed">{login.text}</Button>} {cta && <Button to={cta.href} variant="primary">{cta.text}</Button>}</FlexList>
         </Flex>
       </Container>
       <Container className={mobileHeaderNavWrapper[isOpen ? "open" : "closed"]}>
@@ -113,7 +119,7 @@ export default function Header() {
             </NavLink>
           </span>
           <Flex>
-            <Space />
+
             <div>
               {cta && (
                 <Button to={cta.href} variant={isOpen ? "reversed" : "primary"}>
@@ -136,9 +142,11 @@ export default function Header() {
         </Flex>
       </Container>
       {isOpen && (
+        
         <div className={mobileNavOverlay}>
+          
           <nav>
-            <FlexList responsive variant="stretch">
+            <FlexList variant="stretchMedium">
               {navItems?.map((navItem) => (
                 <li key={navItem.id}>
                   {navItem.navItemType === "Group" ? (
@@ -150,13 +158,19 @@ export default function Header() {
                     <NavLink to={navItem.href} className={mobileNavLink}>
                       {navItem.text}
                     </NavLink>
+                    
                   )}
                 </li>
               ))}
+              <NavLink to={login.href} className={mobileNavLink}>
+                      {login.text}
+                    </NavLink>
             </FlexList>
           </nav>
         </div>
       )}
     </header>
+    
   )
+  
 }

@@ -1,15 +1,15 @@
 import * as React from "react"
 import { graphql } from "gatsby"
-import { Container, Box, Kicker, Heading, Text } from "./ui"
+import { Container, Box, Heading, Text, Section } from "./ui"
 import Feature from "./feature"
 
 export default function FeatureList(props) {
   return (
-    <Container width="fullbleed">
-      <Box background="muted" radius="large">
-        <Box center paddingY={5}>
+    <Section>
+    <Container width="normal">
+        <Box padding={3} radius="large" background="muted">
+        <Box center paddingY={4}>
           <Heading>
-            {props.kicker && <Kicker>{props.kicker}</Kicker>}
             {props.heading}
           </Heading>
           {props.text && <Text>{props.text}</Text>}
@@ -19,13 +19,13 @@ export default function FeatureList(props) {
         ))}
       </Box>
     </Container>
+    </Section>
   )
 }
 
 export const query = graphql`
   fragment HomepageFeatureListContent on HomepageFeatureList {
     id
-    kicker
     heading
     text
     content {
