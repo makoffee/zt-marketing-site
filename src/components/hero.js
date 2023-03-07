@@ -1,6 +1,5 @@
 import { graphql } from "gatsby"
 import { GatsbyImage, getImage } from "gatsby-plugin-image"
-
 import * as React from "react"
 import { theme } from "../theme.css"
 import {
@@ -8,7 +7,7 @@ import {
   ButtonList,
   Container,
   Flex,
-  Heading,
+  SuperHeading,
   Section,
   Text,
   HeroImage,
@@ -45,9 +44,9 @@ export default function Hero(props) {
       <Container>
         <Flex responsive varient="responsiveMedium" gap={4} >
         <Box width="half" style={{ zIndex:2}} >
-            <Heading as="h1">
+            <SuperHeading as="h1">
               {props.h1}
-            </Heading>
+            </SuperHeading>
             <Text as="h3">{props.text}</Text>
             <ButtonList links={props.links} varient="primary"/>
           </Box>

@@ -15,7 +15,7 @@ import {
 
 function Testimonial(props) {
   return (
-    <Flex variant="start">
+    <Flex variant="start" responsive>
       {props.avatar && (
         <Avatar alt={props.avatar.alt} image={props.avatar.gatsbyImageData} />
       )}

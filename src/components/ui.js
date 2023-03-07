@@ -177,11 +177,11 @@ export function ButtonList({ links = [], varient = [], reversed = false, ...prop
   }
   
   return (
-    <FlexList marginY={4} {...props}>
+    <FlexList marginY={2} {...props} responsive>
       {links &&
         links.map((link, i) => (
           <li key={link.id}>
-            <Button href={link.href} variant={getVariant(i)}>
+            <Button href={link.href} variant={getVariant(i)} >
               {link.text}
             </Button>
           </li>
@@ -222,10 +222,6 @@ export function HeroImage({ alt, image }) {
     <GatsbyImage alt={alt} image={getImage(image)} 
     className={styles.hero} 
     layout="fullWidth"
-    quality={"80"}
-    // You can optionally force an aspect ratio for the generated image
-    //aspectratio={3 / 1}
-    // This is a presentational image, so the alt should be an empty string
     formats={["auto", "webp", "avif"]}
     />
   )
@@ -237,9 +233,6 @@ export function BannerImage({ alt, image }) {
     className={styles.banner} 
     layout="fullWidth"
     quality="80"
-    // You can optionally force an aspect ratio for the generated image
-    //aspectRatio={16 / 9}
-    // This is a presentational image, so the alt should be an empty string
     formats={["auto", "webp", "avif"]}
     />
   )

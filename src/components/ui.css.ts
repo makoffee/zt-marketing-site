@@ -10,7 +10,7 @@ import { theme } from "../theme.css"
 //  large: `screen and (min-width: ${breakpoints[3]})`,
 //}
 
-const breakpoints = ["40em", "52em", "128em"]
+const breakpoints = ["40em", "990px", "1440px"]
 
 export const media = {
   small: `screen and (min-width: ${breakpoints[0]})`,
@@ -22,8 +22,8 @@ export const container = style({
   maxWidth: theme.sizes.container,
   marginLeft: "auto",
   marginRight: "auto",
-  paddingLeft: theme.space[2],
-  paddingRight: theme.space[2],
+  paddingLeft: theme.space[3],
+  paddingRight: theme.space[3],
   "@media": {
     [media.small]: {
       paddingLeft: theme.space[3],
@@ -399,7 +399,7 @@ export const text: Record<TextVariants, string> = styleVariants({
     margin0,
     {
       marginBottom: theme.space[3],
-      fontSize: theme.fontSizes[0],
+      fontSize: theme.fontSizes[1],
       fontWeight: theme.fontWeights.normal,
       lineHeight: theme.lineHeights.text,
       letterSpacing: theme.letterSpacings.normal,
@@ -429,12 +429,11 @@ export const text: Record<TextVariants, string> = styleVariants({
   superHeading: [
     margin0,
     {
-      marginTop: theme.space[4],
-      marginBottom: theme.space[6],
-      fontSize: theme.fontSizes[5],
+      marginBottom: theme.space[3],
       fontFamily: theme.fonts.heading,
+      fontSize: theme.fontSizes[5],
       fontWeight: theme.fontWeights.extrabold,
-      lineHeight: theme.lineHeights.heading,
+      lineHeight: theme.lineHeights.tight,
       letterSpacing: theme.letterSpacings.tight,
       "@media": {
         [media.small]: {
@@ -454,19 +453,19 @@ export const text: Record<TextVariants, string> = styleVariants({
     {
       marginBottom: theme.space[3],
       fontFamily: theme.fonts.heading,
-      fontSize: theme.fontSizes[5],
+      fontSize: theme.fontSizes[4],
       fontWeight: theme.fontWeights.extrabold,
       lineHeight: theme.lineHeights.tight,
       letterSpacing: theme.letterSpacings.tight,
       "@media": {
         [media.small]: {
-          fontSize: theme.fontSizes[5],
+          fontSize: theme.fontSizes[4],
         },
         [media.medium]: {
-          fontSize: theme.fontSizes[6],
+          fontSize: theme.fontSizes[5],
         },
         [media.large]: {
-          fontSize: theme.fontSizes[7],
+          fontSize: theme.fontSizes[6],
         },
       },
     },
@@ -951,6 +950,22 @@ export const visuallyHidden = style({
   position: "absolute",
   whiteSpace: "nowrap",
   width: "1px",
+})
+
+export const hideOnMobile = style({
+  display: "none",
+  "@media": {
+    [media.small]: {
+      display: "none",
+    },
+    [media.medium]: {
+      display: "none",
+    },
+    [media.large]: {
+      display: "none",
+    },
+  },
+  
 })
 
 // for debugging only

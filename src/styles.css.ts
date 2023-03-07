@@ -31,7 +31,11 @@ globalStyle("input", {
   marginBottom: theme.space[3],
   borderRadius: "8px",
   fontSize: theme.fontSizes[0],
+  borderWidth: 0,
+})
 
+globalStyle("input:focus", {
+  boxShadow: "0px 0px 20px #fdb25d"
 })
 
 globalStyle("select", {
