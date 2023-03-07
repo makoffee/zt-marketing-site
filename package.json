@@ -1,7 +1,7 @@
 {
-  "name": "zerotier-marketing",
+  "name": "zerotier-marketing-site",
   "version": "1.0.1",
-  "license": "MIT",
+  "license": "0BSD",
   "private": true,
   "engines": {
     "node": ">=18.0.0"
@@ -50,6 +50,7 @@
     "is-absolute-url": "^4.0.1",
     "joi": "^17.7.0",
     "react": "^18.2.0",
+    "react-accessible-accordion": "^5.0.0",
     "react-dom": "^18.2.0",
     "react-feather": "^2.0.10",
     "react-multiline-clamp": "^2.0.0",

@@ -26,11 +26,13 @@ export default function Feature(props) {
             <Subhead>
               {props.heading}
             </Subhead>
-            <div style={{fontSize: theme.fontSizes[3], lineHeight:"1.5em"}}
+            <Box>
+            <div
             dangerouslySetInnerHTML={{
               __html: props.html,
             }}
             />
+            </Box>
             <ButtonList links={props.links} varient="white"/>
           </Box>
         </Flex>
