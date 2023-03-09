@@ -203,6 +203,8 @@ exports.createSchemaCustomization = async ({ actions }) => {
       heading: String
       text: String
       html: String!
+      cta: HomepageLink
+      varient: String
       image: HomepageImage
     }
     interface HomepageBenefitList implements Node & HomepageBlock {
@@ -210,6 +212,7 @@ exports.createSchemaCustomization = async ({ actions }) => {
       blocktype: String
       heading: String
       text: String
+      width: String
       content: [HomepageBenefit]
     }
     interface HomepageProduct implements Node {
@@ -500,6 +503,8 @@ exports.createSchemaCustomization = async ({ actions }) => {
       heading: String
       text: String
       html: String! @richText
+      varient: String
+      cta: HomepageLink @link(from: "cta___NODE")
       image: HomepageImage @link(from: "image___NODE")
     }
     type ContentfulHomepageBenefitList implements Node & HomepageBlock & HomepageBenefitList
@@ -508,6 +513,7 @@ exports.createSchemaCustomization = async ({ actions }) => {
       blocktype: String @blocktype
       heading: String
       text: String
+      width: String
       content: [HomepageBenefit] @link(from: "content___NODE")
     }
     type ContentfulHomepageProduct implements Node & HomepageProduct

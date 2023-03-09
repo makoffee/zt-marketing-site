@@ -64,9 +64,9 @@ const socialMedia = {
     icon: <Linkedin />,
   },
   MASTODON: {
-    url: "https://social.zerotier.com/@zerotier",
+    url: "https://social.zerotier.com@zerotier",
     name: "Mastodon",
-    icon: <Globe />,
+    icon: <MastodonIcon />,
   }
 }
 
@@ -176,10 +176,10 @@ export default function Footer() {
                 )
               })}
               <li>
-                <NavLink to={socialMedia.MASTODON.url}>
+                <IconLink to={socialMedia.MASTODON.url}>
                   <VisuallyHidden>Mastodon</VisuallyHidden>
                     <MastodonIcon />
-                  </NavLink>
+                  </IconLink>
               </li>
               </FlexList>
           <Space size={4} />
