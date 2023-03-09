@@ -8,6 +8,7 @@ import {
   Youtube,
   GitHub,
   Linkedin,
+  Globe,
 } from "react-feather"
 import {
   Container,
@@ -22,6 +23,7 @@ import {
 } from "./ui"
 import BrandLogo from "./brand-logo"
 import FooterItemGroup from "./footer-item-group"
+import MastodonIcon from "./mastodon-icon"
 
 const socialMedia = {
   TWITTER: {
@@ -59,6 +61,11 @@ const socialMedia = {
     name: "LinkedIn",
     icon: <Linkedin />,
   },
+  MASTODON: {
+    url: "https://social.zerotier.com/@zerotier",
+    name: "Mastodon",
+    icon: <Globe />,
+  }
 }
 
 const getSocialURL = ({ service, username }) => {
@@ -166,7 +173,13 @@ export default function Footer() {
                   )
                 )
               })}
-          </FlexList>
+              <li>
+                <NavLink to={socialMedia.MASTODON.url}>
+                  <VisuallyHidden>Mastodon</VisuallyHidden>
+                    <MastodonIcon />
+                  </NavLink>
+              </li>
+              </FlexList>
           <Space size={4} />
         <Flex variant="start" responsive>
         <Text variant="small">{copyright}</Text>
