@@ -25,6 +25,8 @@ import BrandLogo from "./brand-logo"
 import FooterItemGroup from "./footer-item-group"
 import MastodonIcon from "./mastodon-icon"
 
+// touch this file
+
 const socialMedia = {
   TWITTER: {
     url: "https://twitter.com",
