@@ -50,6 +50,7 @@ export const query = graphql`
         ...TextBannerContent
         ...EmailSignupBlockContent
         ...VideoEmbedContent
+        ...AccordionListContent
       }
     }
   }

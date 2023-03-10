@@ -198,6 +198,18 @@ exports.createSchemaCustomization = async ({ actions }) => {
       heading: String
       content: [HomepageTestimonial]
     }
+    interface AccordionItem implements Node {
+      id: ID!
+      title: String
+      body: JSON
+    }
+    interface AccordionList implements Node & HomepageBlock {
+      id: ID!
+      blocktype: String
+      heading: String
+      text: String
+      content: [AccordionItem]
+    }
     interface HomepageBenefit implements Node {
       id: ID!
       heading: String
@@ -496,6 +508,20 @@ exports.createSchemaCustomization = async ({ actions }) => {
       blocktype: String @blocktype
       heading: String
       content: [HomepageTestimonial] @link(from: "content___NODE")
+    }
+    type ContentfulAccordionItem implements Node & AccordionItem
+      @dontInfer {
+      id: ID!
+      title: String
+      body: JSON
+    }
+    type ContentfulAccordionList implements Node & HomepageBlock & AccordionList
+      @dontInfer {
+      id: ID!
+      blocktype: String @blocktype
+      heading: String
+      text: String
+      content: [AccordionItem] @link(from: "content___NODE")
     }
     type ContentfulHomepageBenefit implements Node & HomepageBenefit
       @dontInfer {

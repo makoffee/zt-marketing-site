@@ -79,7 +79,13 @@ module.exports = {
     },
     {
       resolve: `gatsby-transformer-remark`,
-      options: {},
+      options: {
+        plugins: [
+          {
+              resolve: "gatsby-remark-prismjs",
+          },
+        ],
+      },
     },
     // uncomment for local image storage
     //{

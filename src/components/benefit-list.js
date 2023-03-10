@@ -14,7 +14,7 @@ import {
 } from "./ui"
 import { theme } from "../theme.css"
 
-function Benefit(props) {
+function Benefit(props, width) {
   return (
     <Box as="li" width="quarter" padding={4} paddingY={3}>
       <Box style={{padding:"0 20% 0 20%"}}>
