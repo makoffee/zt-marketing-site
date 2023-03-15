@@ -19,7 +19,7 @@ export function AccordionListItem(props) {
         <AccordionItem>
             <AccordionItemHeading>
                 <AccordionItemButton>
-                    <Text>{props.title}</Text>
+                    <Text bold>{props.title}</Text>
                 </AccordionItemButton>
             </AccordionItemHeading>
             <AccordionItemPanel>
@@ -36,7 +36,7 @@ export default function AccordionList(props) {
 
     <Section>
         <Container width="normal">
-            <Box padding={4} radius="large">
+            <Box radius="large">
             {props.title && (<Heading>
                 {props.heading}
                 </Heading>)}

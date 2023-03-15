@@ -51,6 +51,7 @@ export const query = graphql`
         ...EmailSignupBlockContent
         ...VideoEmbedContent
         ...AccordionListContent
+        ...CodeBlockContent
       }
     }
   }

@@ -89,6 +89,22 @@ exports.createSchemaCustomization = async ({ actions }) => {
     },
   })
 
+  actions.createFieldExtension({
+    name: "contentfulCode",
+    extend(options) {
+      return {
+        async resolve(source, args, context, info) {
+          const type = info.schema.getType(source.internal.type)
+          const resolver = type.getFields().contentfulCode?.resolve
+          const result = await resolver(source, args, context, {
+            fieldName: "contentfulCode",
+          })
+          return result.code
+        },
+      }
+    },
+  })
+
   // abstract interfaces
   actions.createTypes(/* GraphQL */ `
     interface HomepageBlock implements Node {
@@ -350,6 +366,20 @@ exports.createSchemaCustomization = async ({ actions }) => {
       body: JSON
       image: HomepageImage
     }
+    interface CodeBlock implements Node & HomepageBlock {
+      id: ID!
+      blocktype: String
+      name: String
+      code: String!
+      language: String
+    }
+
+    type contentfulCodeBlockTextNode implements Node {
+      id: ID!
+      code: String!
+      # determine if markdown is required for this field type
+    }
+
     interface RichTextBlock implements Node & HomepageBlock {
       id: ID!
       blocktype: String
@@ -380,11 +410,6 @@ exports.createSchemaCustomization = async ({ actions }) => {
       blocktype: String
       heading: String
       text: String
-    }
-
-    interface Markdown implements Node {
-      id: ID!
-      markdownRemark: JSON
     }
 
   `)
@@ -608,6 +633,20 @@ exports.createSchemaCustomization = async ({ actions }) => {
     body: JSON
     image: HomepageImage @link(from: "image___NODE")
   }
+`)
+
+// Custom rich text content area for code blocks
+actions.createTypes(/* GraphQL */ `
+type ContentfulCodeBlock implements Node & CodeBlock & HomepageBlock
+  @dontInfer {
+  id: ID!
+  blocktype: String @blocktype
+  name: String
+  language: String
+  contentfulCode: contentfulCodeBlockTextNode
+        @link(from: "code___NODE")
+  code: String! @contentfulCode
+}
 `)
 
   // CMS specific types for About page

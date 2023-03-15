@@ -27,7 +27,7 @@ export default function Feature(props) {
               {props.heading}
             </Subhead>
             <Box>
-            <div
+            <div style={{fontSize: theme.fontSizes[2], lineHeight: theme.lineHeights.text}}
             dangerouslySetInnerHTML={{
               __html: props.html,
             }}
