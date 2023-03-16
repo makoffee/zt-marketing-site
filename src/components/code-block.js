@@ -7,7 +7,7 @@ import {
 } from "../components/ui"
 import { theme } from "../theme.css"
 import Prism from "prismjs"
-import "prismjs/themes/prism-tomorrow.css"
+import "prismjs/themes/prism-tomorrow.min.css"
 
 export function Code({ code, language }) {
     useEffect(() => {
