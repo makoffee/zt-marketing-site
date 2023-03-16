@@ -11,6 +11,7 @@ import {
   Section,
   Text,
   HeroImage,
+  Space,
 } from "./ui"
 
 export default function Hero(props) {
@@ -48,6 +49,7 @@ export default function Hero(props) {
               {props.h1}
             </SuperHeading>
             <Text variant="lead">{props.text}</Text>
+            <Space size={4}/>
             <ButtonList links={props.links} varient="primary"/>
           </Box>
             {props.image && (
@@ -56,7 +58,7 @@ export default function Hero(props) {
                 alt={props.image.alt}
                 image={getImage(props.image.gatsbyImageData)}
               />
-                        </Box>
+              </Box>
             )}
         </Flex>
       </Container>

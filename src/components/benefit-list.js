@@ -14,9 +14,9 @@ import {
 } from "./ui"
 import { theme } from "../theme.css"
 
-function Benefit(props, width) {
+function Benefit(props) {
   return (
-    <Box as="li" width="quarter" padding={4} paddingY={3}>
+    <Box as="li" width={props.width} padding={4} paddingY={3}>
       <Box style={{padding:"0 20% 0 20%"}}>
         {props.image && (
           <GatsbyImage
@@ -49,7 +49,7 @@ export default function BenefitList(props) {
 
         <FlexList gutter={4} variant="start" responsive wrap>
           {props.content.map((benefit) => (
-            <Benefit key={benefit.id} {...benefit} />
+            <Benefit key={benefit.id} {...benefit} width="quarter"/>
           ))}
         </FlexList>
         </Container>

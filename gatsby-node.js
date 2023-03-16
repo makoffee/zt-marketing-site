@@ -226,6 +226,7 @@ exports.createSchemaCustomization = async ({ actions }) => {
       text: String
       content: [AccordionItem]
     }
+
     interface HomepageBenefit implements Node {
       id: ID!
       heading: String
@@ -247,12 +248,9 @@ exports.createSchemaCustomization = async ({ actions }) => {
       id: ID!
       heading: String
       text: String
-      productFeature1: String
-      productFeature2: String
-      productFeature3: String
-      productFeature4: String
-      productFeature5: String
+
       variant: String
+      html: String!
       image: HomepageImage
       links: [HomepageLink]
     }
@@ -571,12 +569,8 @@ exports.createSchemaCustomization = async ({ actions }) => {
       @dontInfer {
       heading: String
       text: String
-      productFeature1: String
-      productFeature2: String
-      productFeature3: String
-      productFeature4: String
-      productFeature5: String
       variant: String
+      html: String! @richText
       image: HomepageImage @link(from: "image___NODE")
       links: [HomepageLink] @link(from: "links___NODE")
     }
