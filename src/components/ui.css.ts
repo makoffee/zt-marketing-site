@@ -952,22 +952,6 @@ export const visuallyHidden = style({
   width: "1px",
 })
 
-export const hideOnMobile = style({
-  display: "none",
-  "@media": {
-    [media.small]: {
-      display: "none",
-    },
-    [media.medium]: {
-      display: "none",
-    },
-    [media.large]: {
-      display: "none",
-    },
-  },
-  
-})
-
 // for debugging only
 export const debug = style({
   outline: "1px solid tomato",

@@ -64,7 +64,7 @@ const socialMedia = {
     icon: <Linkedin />,
   },
   MASTODON: {
-    url: "https://social.zerotier.com@zerotier",
+    url: "https://social.zerotier.com/@zerotier",
     name: "Mastodon",
     icon: <MastodonIcon />,
   }

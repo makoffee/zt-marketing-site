@@ -3,7 +3,7 @@ import * as React from "react"
 export default function MastodonIcon() {
   return (
     <svg id="Layer_1" data-name="Layer 1" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24">
-    <path fill="none" stroke="currentColor" stroke-width="2" stroke-miterlimit="10" d="M21.6,14.3c-0.3,1.5-2.5,3.1-5.1,3.4
+    <path fill="none" stroke="currentColor" strokeWidth="2" strokeMiterlimit="10" d="M21.6,14.3c-0.3,1.5-2.5,3.1-5.1,3.4
 	c-1.3,0.2-2.7,0.3-4.1,0.2c-2.3-0.1-4.1-0.6-4.1-0.6c0,0.2,0,0.4,0,0.6c0.3,2.3,2.3,2.4,4.1,2.5c1.9,0.1,3.6-0.5,3.6-0.5l0.1,1.7
 	c0,0-1.3,0.7-3.7,0.8c-1.3,0.1-2.9,0-4.8-0.5c-4.1-1.1-4.7-5.4-4.9-9.8c0-1.3,0-2.5,0-3.6c0-4.5,2.9-5.8,2.9-5.8c1.5-0.7,4-1,6.7-1
 	h0.1c2.6,0,5.2,0.3,6.7,1c0,0,2.9,1.3,2.9,5.8C22,8.7,22,12,21.6,14.3"/>
