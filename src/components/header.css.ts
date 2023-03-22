@@ -5,10 +5,11 @@ import { media } from "./ui.css"
 
 export const desktopHeaderNav = style({
   backgroundImage: theme.colors.darkGradient,
-  //position: "fixed",
+  position: "relative",
   width: "100%",
-  zIndex: 3,
   //paddingBottom: "20px",
+  zIndex: "1000",
+
 })
 
 export const desktopHeaderNavWrapper = style({
@@ -62,7 +63,7 @@ export const mobileNavOverlay = style({
   height: "100vh",
   paddingTop: theme.space[4],
   backgroundColor: theme.colors.black,
-  zIndex: 3,
+  zIndex: 4,
   "@media": {
     [media.medium]: {
       display: "none",
