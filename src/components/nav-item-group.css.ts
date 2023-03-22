@@ -9,7 +9,7 @@ export const navGroupWrapper = style({
 
 export const navGroupTitle = style([
   mobileNavLink,
-  { ":hover": { color: theme.colors.background } },
+  { ":hover": { color: theme.colors.active } },
   {
     "@media": {
       [media.medium]: {
