@@ -58,7 +58,7 @@ const navLinkListWrapperBase = style({
           height: 0,
           borderStyle: "solid",
           borderWidth: "0 14px 17.3px 14px",
-          borderColor: `transparent transparent ${theme.colors.background} transparent`,
+          borderColor: `transparent transparent ${theme.colors.black} transparent`,
         },
       },
     },
