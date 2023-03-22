@@ -9,12 +9,14 @@ import {
   Heading,
   Text,
   Space,
+  ButtonList,
+  Button,
 } from "./ui"
 import { theme } from "../theme.css"
 
 function Benefit(props) {
   return (
-    <Box as="li" width="quarter" padding={4} paddingY={3}>
+    <Box as="li" width={props.width} padding={4} paddingY={3}>
       <Box style={{padding:"0 20% 0 20%"}}>
         {props.image && (
           <GatsbyImage
@@ -30,6 +32,8 @@ function Benefit(props) {
               __html: props.html,
             }}
           />
+          <Box center>{props.cta && <Button to={props.cta.href} variant={props.varient}>{props.cta.text}</Button>}</Box>
+          
     </Box>
   )
 }
@@ -45,7 +49,7 @@ export default function BenefitList(props) {
 
         <FlexList gutter={4} variant="start" responsive wrap>
           {props.content.map((benefit) => (
-            <Benefit key={benefit.id} {...benefit} />
+            <Benefit key={benefit.id} {...benefit} width="quarter"/>
           ))}
         </FlexList>
         </Container>
@@ -58,11 +62,17 @@ export const query = graphql`
     id
     heading
     text
+    width
     content {
       id
       heading
-      text
       html
+      varient
+      cta {
+        id
+        href
+        text
+      }
       image {
         id
         gatsbyImageData

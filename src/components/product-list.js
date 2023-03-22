@@ -9,13 +9,15 @@ import {
   Subhead,
   Box,
   Icon,
-  ButtonList, 
+  ButtonList,
+  Space,
 } from "./ui"
+import { theme } from "../theme.css"
 
 function Product(props) {
   return (
     
-    <Box center paddingY={4} radius="large" background="muted" border={props.variant}>
+    <Box center paddingY={4} padding={3} radius="large" background="muted" border={props.variant}>
       {props.image && (
         <Icon
           alt={props.image.alt}
@@ -25,11 +27,12 @@ function Product(props) {
       )}
       <Subhead>{props.heading}</Subhead>  
       <Text bold>{props.text}</Text>
-      <Text variant="small">{props.productFeature1}</Text>
-      <Text variant="small">{props.productFeature2}</Text>
-      <Text variant="small">{props.productFeature3}</Text>
-      <Text variant="small">{props.productFeature4}</Text>
-      <Text variant="small">{props.productFeature5}</Text>
+      <div style={{fontSize: theme.fontSizes[1], lineHeight: theme.lineHeights.text}}
+            dangerouslySetInnerHTML={{
+              __html: props.html,
+            }}
+            />
+      <Space size={2}/>
       <ButtonList links={props.links} varient={props.variant}/>
      
     </Box>
@@ -65,11 +68,7 @@ export const query = graphql`
       id
       heading
       text
-      productFeature1
-      productFeature2
-      productFeature3
-      productFeature4
-      productFeature5
+      html
       variant
       image {
         alt

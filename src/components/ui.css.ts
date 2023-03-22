@@ -403,17 +403,6 @@ export const text: Record<TextVariants, string> = styleVariants({
       fontWeight: theme.fontWeights.normal,
       lineHeight: theme.lineHeights.text,
       letterSpacing: theme.letterSpacings.normal,
-      "@media": {
-        [media.small]: {
-          fontSize: theme.fontSizes[1],
-        },
-        [media.medium]: {
-          fontSize: theme.fontSizes[2],
-        },
-        [media.large]: {
-          fontSize: theme.fontSizes[3],
-        },
-      },
     },
   ],
   lead: [
@@ -431,21 +420,10 @@ export const text: Record<TextVariants, string> = styleVariants({
     {
       marginBottom: theme.space[3],
       fontFamily: theme.fonts.heading,
-      fontSize: theme.fontSizes[5],
+      fontSize: theme.fontSizes[6],
       fontWeight: theme.fontWeights.extrabold,
       lineHeight: theme.lineHeights.tight,
       letterSpacing: theme.letterSpacings.tight,
-      "@media": {
-        [media.small]: {
-          fontSize: theme.fontSizes[5],
-        },
-        [media.medium]: {
-          fontSize: theme.fontSizes[6],
-        },
-        [media.large]: {
-          fontSize: theme.fontSizes[7],
-        },
-      },
     },
   ],
   heading: [
@@ -453,28 +431,18 @@ export const text: Record<TextVariants, string> = styleVariants({
     {
       marginBottom: theme.space[3],
       fontFamily: theme.fonts.heading,
-      fontSize: theme.fontSizes[4],
+      fontSize: theme.fontSizes[5],
       fontWeight: theme.fontWeights.extrabold,
       lineHeight: theme.lineHeights.tight,
       letterSpacing: theme.letterSpacings.tight,
-      "@media": {
-        [media.small]: {
-          fontSize: theme.fontSizes[4],
-        },
-        [media.medium]: {
-          fontSize: theme.fontSizes[5],
-        },
-        [media.large]: {
-          fontSize: theme.fontSizes[6],
-        },
-      },
+
     },
   ],
   subhead: [
     margin0,
     {
       marginBottom: theme.space[3],
-      fontSize: theme.fontSizes[5],
+      fontSize: theme.fontSizes[4],
       fontWeight: theme.fontWeights.extrabold,
       lineHeight: theme.lineHeights.tight,
       letterSpacing: theme.letterSpacings.tight,
@@ -950,22 +918,6 @@ export const visuallyHidden = style({
   position: "absolute",
   whiteSpace: "nowrap",
   width: "1px",
-})
-
-export const hideOnMobile = style({
-  display: "none",
-  "@media": {
-    [media.small]: {
-      display: "none",
-    },
-    [media.medium]: {
-      display: "none",
-    },
-    [media.large]: {
-      display: "none",
-    },
-  },
-  
 })
 
 // for debugging only

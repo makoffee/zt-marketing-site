@@ -37,7 +37,7 @@ export default function Contact() {
             <input type="hidden" name="v" value="2" />
             <input type="hidden" name="or" value="27b3a913d054ff5c3b2f3fd64d5fc5d5" data-name="or"/>
             <Flex variant="start" style={{justifyContent:"right"}}>
-            <Box style={{Flex: "1 0 0"}}>
+            <Box style={{Flex: "1 1 auto"}}>
               <input type="email" id="email" name="email" placeholder="Email Address" required/>
             </Box>
             <Box style={{Flex: "0 1 auto"}}>

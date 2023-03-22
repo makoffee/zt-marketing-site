@@ -34,7 +34,7 @@ export default function BlogPost(props) {
           position: "relative",
           placeItems: "center",
           display: "grid",
-          background: theme.colors.headerGradient,
+          backgroundImage: theme.colors.headerGradient,
         }}
       >
       <Container>

@@ -16,9 +16,9 @@ function AboutProfile(props) {
     <Box width="quarter" padding={4} center>
       {props.image && (
         <GatsbyImage
-          grayscale={true}
           alt={props.image.alt}
           image={getImage(props.image.gatsbyImageData)}
+          style={{filter: "grayscale(1)"}}
         />
       )}
       <Space size={3} />
@@ -28,8 +28,9 @@ function AboutProfile(props) {
             {props.name}
           </Text>
         )}
+        <Space size={2} />
         {props.jobTitle && (
-          <Text variant="medium" center>
+          <Text variant="small" center>
             {props.jobTitle}
           </Text>
         )}

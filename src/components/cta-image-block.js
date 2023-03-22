@@ -10,7 +10,7 @@ import {
   Box,
   Icon,
   ButtonList,
-  Nudge,
+  Space,
 } from "./ui"
 
 export default function CtaImageBlock(props) {
@@ -27,9 +27,10 @@ export default function CtaImageBlock(props) {
               {props.heading}
             </Heading>
             {props.text && <Text variant="lead">{props.text}</Text>}
+            <Space size={4}/>
             <ButtonList links={props.links} reversed />
           </Box>
-          <Box width="half" paddingX={4} hideOnMobile>
+          <Box width="half">
             {props.image && (
 
                 <GatsbyImage

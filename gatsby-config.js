@@ -63,6 +63,7 @@ module.exports = {
         background_color: "#ff1A1A1",
         theme_color: "#fdb25d",
         icon: "src/favicon.png",
+        theme_color_in_head: false,
       },
     },
     "gatsby-theme-contentful-blog",
@@ -79,7 +80,13 @@ module.exports = {
     },
     {
       resolve: `gatsby-transformer-remark`,
-      options: {},
+      options: {
+        plugins: [
+          {
+              resolve: "gatsby-remark-prismjs",
+          },
+        ],
+      },
     },
     // uncomment for local image storage
     //{

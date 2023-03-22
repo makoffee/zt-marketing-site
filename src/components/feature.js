@@ -7,6 +7,7 @@ import {
   Box,
   Subhead,
   ButtonList,
+  Space,
 } from "./ui"
 import { theme } from "../theme.css"
 
@@ -27,12 +28,13 @@ export default function Feature(props) {
               {props.heading}
             </Subhead>
             <Box>
-            <div
+            <div style={{fontSize: theme.fontSizes[3], lineHeight: theme.lineHeights.text}}
             dangerouslySetInnerHTML={{
               __html: props.html,
             }}
             />
             </Box>
+            <Space size={4}/>
             <ButtonList links={props.links} varient="white"/>
           </Box>
         </Flex>

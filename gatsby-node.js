@@ -89,6 +89,22 @@ exports.createSchemaCustomization = async ({ actions }) => {
     },
   })
 
+  actions.createFieldExtension({
+    name: "contentfulCode",
+    extend(options) {
+      return {
+        async resolve(source, args, context, info) {
+          const type = info.schema.getType(source.internal.type)
+          const resolver = type.getFields().contentfulCode?.resolve
+          const result = await resolver(source, args, context, {
+            fieldName: "contentfulCode",
+          })
+          return result.code
+        },
+      }
+    },
+  })
+
   // abstract interfaces
   actions.createTypes(/* GraphQL */ `
     interface HomepageBlock implements Node {
@@ -198,11 +214,26 @@ exports.createSchemaCustomization = async ({ actions }) => {
       heading: String
       content: [HomepageTestimonial]
     }
+    interface AccordionItem implements Node {
+      id: ID!
+      title: String
+      body: JSON
+    }
+    interface AccordionList implements Node & HomepageBlock {
+      id: ID!
+      blocktype: String
+      heading: String
+      text: String
+      content: [AccordionItem]
+    }
+
     interface HomepageBenefit implements Node {
       id: ID!
       heading: String
       text: String
       html: String!
+      cta: HomepageLink
+      varient: String
       image: HomepageImage
     }
     interface HomepageBenefitList implements Node & HomepageBlock {
@@ -210,18 +241,16 @@ exports.createSchemaCustomization = async ({ actions }) => {
       blocktype: String
       heading: String
       text: String
+      width: String
       content: [HomepageBenefit]
     }
     interface HomepageProduct implements Node {
       id: ID!
       heading: String
       text: String
-      productFeature1: String
-      productFeature2: String
-      productFeature3: String
-      productFeature4: String
-      productFeature5: String
+
       variant: String
+      html: String!
       image: HomepageImage
       links: [HomepageLink]
     }
@@ -335,6 +364,20 @@ exports.createSchemaCustomization = async ({ actions }) => {
       body: JSON
       image: HomepageImage
     }
+    interface CodeBlock implements Node & HomepageBlock {
+      id: ID!
+      blocktype: String
+      name: String
+      code: String!
+      language: String
+    }
+
+    type contentfulCodeBlockTextNode implements Node {
+      id: ID!
+      code: String!
+      # determine if markdown is required for this field type
+    }
+
     interface RichTextBlock implements Node & HomepageBlock {
       id: ID!
       blocktype: String
@@ -365,11 +408,6 @@ exports.createSchemaCustomization = async ({ actions }) => {
       blocktype: String
       heading: String
       text: String
-    }
-
-    interface Markdown implements Node {
-      id: ID!
-      markdownRemark: JSON
     }
 
   `)
@@ -494,12 +532,28 @@ exports.createSchemaCustomization = async ({ actions }) => {
       heading: String
       content: [HomepageTestimonial] @link(from: "content___NODE")
     }
+    type ContentfulAccordionItem implements Node & AccordionItem
+      @dontInfer {
+      id: ID!
+      title: String
+      body: JSON
+    }
+    type ContentfulAccordionList implements Node & HomepageBlock & AccordionList
+      @dontInfer {
+      id: ID!
+      blocktype: String @blocktype
+      heading: String
+      text: String
+      content: [AccordionItem] @link(from: "content___NODE")
+    }
     type ContentfulHomepageBenefit implements Node & HomepageBenefit
       @dontInfer {
       id: ID!
       heading: String
       text: String
       html: String! @richText
+      varient: String
+      cta: HomepageLink @link(from: "cta___NODE")
       image: HomepageImage @link(from: "image___NODE")
     }
     type ContentfulHomepageBenefitList implements Node & HomepageBlock & HomepageBenefitList
@@ -508,18 +562,15 @@ exports.createSchemaCustomization = async ({ actions }) => {
       blocktype: String @blocktype
       heading: String
       text: String
+      width: String
       content: [HomepageBenefit] @link(from: "content___NODE")
     }
     type ContentfulHomepageProduct implements Node & HomepageProduct
       @dontInfer {
       heading: String
       text: String
-      productFeature1: String
-      productFeature2: String
-      productFeature3: String
-      productFeature4: String
-      productFeature5: String
       variant: String
+      html: String! @richText
       image: HomepageImage @link(from: "image___NODE")
       links: [HomepageLink] @link(from: "links___NODE")
     }
@@ -576,6 +627,20 @@ exports.createSchemaCustomization = async ({ actions }) => {
     body: JSON
     image: HomepageImage @link(from: "image___NODE")
   }
+`)
+
+// Custom rich text content area for code blocks
+actions.createTypes(/* GraphQL */ `
+type ContentfulCodeBlock implements Node & CodeBlock & HomepageBlock
+  @dontInfer {
+  id: ID!
+  blocktype: String @blocktype
+  name: String
+  language: String
+  contentfulCode: contentfulCodeBlockTextNode
+        @link(from: "code___NODE")
+  code: String! @contentfulCode
+}
 `)
 
   // CMS specific types for About page

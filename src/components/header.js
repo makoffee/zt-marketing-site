@@ -89,7 +89,7 @@ export default function Header() {
             <FlexList gap={4}>
               {navItems &&
                 navItems.map((navItem) => (
-                  <li key={navItem.id}>
+                  <li key={navItem.id} style={{zIndex:"2"}}>
                     {navItem.navItemType === "Group" ? (
                       <NavItemGroup
                         name={navItem.name}
