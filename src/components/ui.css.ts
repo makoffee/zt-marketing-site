@@ -857,18 +857,25 @@ export const banner = style({
 
 
 
-export type LogoSizes = "small" | "medium"
+export type LogoSizes = "small" | "medium" | "retina"
 
 export const logos: Record<LogoSizes, string> = styleVariants({
   small: {
-    width: "85px",
-    height: "20px",
+    maxWidth: "85px",
+    maxHeight: "20px",
+    width: "auto",
+    height: "auto",
   },
   medium: {
     maxHeight: "40px",
-    maxWidth: "136px",
+    maxWidth: "100%",
     width: "auto",
     height: "auto",
+  },
+  retina: {
+    height: "auto",
+    width: "auto",
+    maxWidth: "136px",
   },
 })
 

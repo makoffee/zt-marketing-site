@@ -6,7 +6,7 @@ export function LogoItem(props) {
   if (!props.image) return null
 
   return (
-    <Logo alt={props.alt} image={props.image.gatsbyImageData} size="medium" />
+    <Logo alt={props.alt} image={props.image.gatsbyImageData} size="retina" />
   )
 }
 
