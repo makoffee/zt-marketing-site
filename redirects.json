@@ -1,6 +1,10 @@
 [
     {
-      "from": "/2021/10/14/zerotier-central-now-integrates-with-hashicorp-terraform/",
-      "to": "/blog/zerotier-central-now-integrates-with-hashicorp-terraform/"
+        "from": "/2021/10/14/zerotier-central-now-integrates-with-hashicorp-terraform/",
+        "to": "/blog/zerotier-central-now-integrates-with-hashicorp-terraform/"
+    },
+    {
+        "from": "/2021/*/*/*",
+        "to": "/blog/*"
     }
   ]
