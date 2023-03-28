@@ -1,10 +1,170 @@
 [
     {
+        "from": "/2022/12/20/zerotier-and-github-actions/",
+        "to": "/blog/zerotier-and-github-actions/"
+    },
+    {
+        "from": "/2022/12/20/zerotier-and-github-actions/",
+        "to": "/blog/zerotier-and-github-actions/"
+    },
+    {
+        "from": "/2022/08/22/zerotier-at-def-con-30/",
+        "to": "/blog/zerotier-at-def-con-30/"
+    },
+    {
+        "from": "/2022/06/09/zerotier-business-sso-is-here-and-so-is-our-new-pricing/",
+        "to": "/blog/zerotier-business-sso-is-here-and-so-is-our-new-pricing/"
+    },
+    {
+        "from": "/2022/06/09/zerotier-business-sso-is-here-and-so-is-our-new-pricing/",
+        "to": "/blog/zerotier-business-sso-is-here-and-so-is-our-new-pricing/"
+    },
+    {
+        "from": "/2022/05/19/using-flow-rules-to-direct-users-to-services/",
+        "to": "/blog/using-flow-rules-to-direct-users-to-services/"
+    },
+    {
+        "from": "/2022/04/11/the-zerotier-dns-story/",
+        "to": "/blog/the-zerotier-dns-story/"
+    },
+    {
+        "from": "/2022/04/11/zerotier-for-windows-local-privilege-escalation/",
+        "to": "/blog/zerotier-for-windows-local-privilege-escalation/"
+    },
+    {
+        "from": "/2022/01/27/zerotier-at-networking-field-day-27/",
+        "to": "/blog/zerotier-at-networking-field-day-27/"
+    },
+    {
+        "from": "/2022/01/27/zerotier-at-networking-field-day-27/",
+        "to": "/blog/zerotier-at-networking-field-day-27/"
+    },
+    {
         "from": "/2021/10/14/zerotier-central-now-integrates-with-hashicorp-terraform/",
         "to": "/blog/zerotier-central-now-integrates-with-hashicorp-terraform/"
     },
     {
-        "from": "/2021/*/*/*",
-        "to": "/blog/*"
+        "from": "/2021/09/21/incident-response-to-september-20th-2021/",
+        "to": "/blog/incident-response-to-september-20th-2021/"
+    },
+    {
+        "from": "/2021/08/31/zerotier-on-mikrotik/",
+        "to": "/blog/zerotier-on-mikrotik/"
+    },
+    {
+        "from": "/2021/08/04/zerotier-summer-2021-update/",
+        "to": "/blog/zerotier-summer-2021-update/"
+    },
+    {
+        "from": "/2021/07/20/zerotier-makes-running-private-cloud-storage-more-accessible-and-easier-to-use/",
+        "to": "/blog/zerotier-makes-running-private-cloud-storage-more-accessible-and-easier-to-use/"
+    },
+    {
+        "from": "/2021/06/16/zerotier-at-sea/",
+        "to": "/blog/zerotier-at-sea/"
+    },
+    {
+        "from": "/2021/05/06/zeronsd-unicast-dns-resolution-for-zerotier-now-in-alpha/",
+        "to": "/blog/zeronsd-unicast-dns-resolution-for-zerotier-now-in-alpha/"
+    },
+    {
+        "from": "/2021/05/04/may-4-2021-downtime-postmortem/",
+        "to": "/blog/may-4-2021-downtime-postmortem/"
+    },
+    {
+        "from": "/2021/02/17/zerotier-raises-2m-for-a-radically-simple-approach-to-networking/",
+        "to": "/blog/zerotier-raises-2m-for-a-radically-simple-approach-to-networking/"
+    },
+    {
+        "from": "/2021/02/09/new-zerotier-organizations/",
+        "to": "/blog/new-zerotier-organizations/"
+    },
+    {
+        "from": "/2021/01/29/network-collective-google-cloud-demo/",
+        "to": "/blog/network-collective-google-cloud-demo/"
+    },
+    {
+        "from": "/2020/11/20/zerotier-1-6-0/",
+        "to": "/blog/zerotier-1-6-0/"
+    },
+    {
+        "from": "/2020/10/09/zerotier-1-6-0-beta1-released/",
+        "to": "/blog/zerotier-1-6-0-beta1-released/"
+    },
+    {
+        "from": "/2020/09/09/version-1-6-pricing-updates-new-site-and-more/",
+        "to": "/blog/version-1-6-pricing-updates-new-site-and-more/"
+    },
+    {
+        "from": "/2020/08/26/upcoming-maintenance-august-29-2020-10pm-pdt/",
+        "to": "/blog/upcoming-maintenance-august-29-2020-10pm-pdt/"
+    },
+    {
+        "from": "/2020/03/17/working-from-home/",
+        "to": "/blog/working-from-home/"
+    },
+    {
+        "from": "/2019/10/30/on-the-gpl-to-bsl-transition/",
+        "to": "/blog/on-the-gpl-to-bsl-transition/"
+    },
+    {
+        "from": "/2019/09/24/zerotier-2-0-status/",
+        "to": "/blog/zerotier-2-0-status/"
+    },
+    {
+        "from": "/2019/09/04/aes-gmac-ctr-siv/",
+        "to": "/blog/aes-gmac-ctr-siv/"
+    },
+    {
+        "from": "/2019/08/30/zerotier-root-server-upgrades/",
+        "to": "/blog/zerotier-root-server-upgrades/"
+    },
+    {
+        "from": "/2019/08/21/zerotier-2-0-cryptography-notes/",
+        "to": "/blog/zerotier-2-0-cryptography-notes/"
+    },
+    {
+        "from": "/2019/08/21/how-zerotier-eliminated-kernel-extensions-on-macos/",
+        "to": "/blog/how-zerotier-eliminated-kernel-extensions-on-macos/"
+    },
+    {
+        "from": "/2019/06/30/lf-announcement/",
+        "to": "/blog/lf-announcement/"
+    },
+    {
+        "from": "/2019/06/28/zerotier-1-4-0pre/",
+        "to": "/blog/zerotier-1-4-0pre/"
+    },
+    {
+        "from": "/2019/06/26/state-of-the-zerotier-address/",
+        "to": "/blog//tate-of-the-zerotier-address/"
+    },
+    {
+        "from": "/2017/05/05/the-horror-in-the-standard-library/",
+        "to": "/blog/the-horror-in-the-standard-library/"
+    },
+    {
+        "from": "/2017/04/20/benchmarking-zerotier-vs-openvpn-and-linux-ipsec/",
+        "to": "/blog/benchmarking-zerotier-vs-openvpn-and-linux-ipsec/"
+    },
+    {
+        "from": "/2016/08/31/capability-based-security-for-virtual-networks/",
+        "to": "/blog/capability-based-security-for-virtual-networks/"
+    },
+    {
+        "from": "/2016/06/22/the-zerotier-sdk-p2p-apps-with-standard-protocols/",
+        "to": "/blog/the-zerotier-sdk-p2p-apps-with-standard-protocols/"
+    },
+    {
+        "from": "/2015/11/20/meet-alice-and-bob-the-new-root-server-infrastructure/",
+        "to": "/blog/meet-alice-and-bob-the-new-root-server-infrastructure/"
+    },
+    {
+        "from": "/2015/09/29/introducing-network-containers/",
+        "to": "/blog/introducing-network-containers/"
+    },
+    {
+        "from": "/2014/08/25/the-state-of-nat-traversal/",
+        "to": "/blog/the-state-of-nat-traversal/"
     }
   ]
