@@ -238,7 +238,7 @@ export function BannerImage({ alt, image }) {
   )
 }
 
-export function Logo({ alt, image, size = "small" }) {
+export function Logo({ alt, image, size = "medium" }) {
   return (
     <GatsbyImage
       alt={alt}

@@ -194,6 +194,7 @@ exports.createSchemaCustomization = async ({ actions }) => {
     interface HomepageLogo implements Node {
       id: ID!
       image: HomepageImage
+      link: String
       alt: String
     }
     interface HomepageLogoList implements Node & HomepageBlock {
@@ -510,6 +511,7 @@ exports.createSchemaCustomization = async ({ actions }) => {
     type ContentfulHomepageLogo implements Node & HomepageLogo @dontInfer {
       id: ID!
       image: HomepageImage @link(from: "image___NODE")
+      link: String
       alt: String
     }
     type ContentfulHomepageLogoList implements Node & HomepageBlock & HomepageLogoList

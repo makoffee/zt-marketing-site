@@ -10,7 +10,7 @@ export default function TextBanner(props) {
   return (
     <Container width="normal">
         <Box center>
-          <div style={{fontSize: theme.fontSizes[1], justifyContent: "center", alignItems: "center", paddingBottom:"1px"}}
+          <div style={{fontSize: theme.fontSizes[2], justifyContent: "center", alignItems: "center", paddingBottom:"1px"}}
               dangerouslySetInnerHTML={{
                 __html: props.html,
               }}

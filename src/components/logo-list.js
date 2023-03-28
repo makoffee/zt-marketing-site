@@ -6,7 +6,9 @@ export function LogoItem(props) {
   if (!props.image) return null
 
   return (
-    <Logo alt={props.alt} image={props.image.gatsbyImageData} size="medium" />
+    <a href={props.link}>
+      <Logo alt={props.alt} image={props.image.gatsbyImageData} size="retina" />
+      </a>
   )
 }
 
@@ -25,7 +27,7 @@ export default function LogoList(props) {
             (logo) =>
               logo && (
                 <li key={logo.id}>
-                  <LogoItem {...logo} />
+                    <LogoItem {...logo} />
                 </li>
               )
           )}
@@ -42,6 +44,7 @@ export const query = graphql`
     logos {
       id
       alt
+      link
       image {
         id
         gatsbyImageData
