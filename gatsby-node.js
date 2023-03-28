@@ -742,7 +742,9 @@ type ContentfulCodeBlock implements Node & CodeBlock & HomepageBlock
   `)
 }
 
-exports.createPages = ({ actions }) => {
+const redirects = require('./redirects.json');
+
+exports.createPages = async ({ graphql, actions }) => {
   const { createSlice } = actions
   createSlice({
     id: "header",
@@ -752,4 +754,12 @@ exports.createPages = ({ actions }) => {
     id: "footer",
     component: require.resolve("./src/components/footer.js"),
   })
+  const { createRedirect } = actions;
+
+  redirects.forEach(redirect => {
+    createRedirect({
+      fromPath: redirect.from,
+      toPath: redirect.to,
+    });
+  });
 }
