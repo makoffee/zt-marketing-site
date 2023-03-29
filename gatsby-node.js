@@ -744,7 +744,7 @@ type ContentfulCodeBlock implements Node & CodeBlock & HomepageBlock
 
 const redirects = require('./redirects.json');
 
-exports.createPages = async ({ graphql, actions }) => {
+exports.createPages = async ({ actions }) => {
   const { createSlice } = actions
   createSlice({
     id: "header",
@@ -760,6 +760,6 @@ exports.createPages = async ({ graphql, actions }) => {
     createRedirect({
       fromPath: redirect.from,
       toPath: redirect.to,
-    });
-  });
+    })
+  })
 }

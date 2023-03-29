@@ -4,16 +4,8 @@
         "to": "/blog/zerotier-and-github-actions/"
     },
     {
-        "from": "/2022/12/20/zerotier-and-github-actions/",
-        "to": "/blog/zerotier-and-github-actions/"
-    },
-    {
         "from": "/2022/08/22/zerotier-at-def-con-30/",
         "to": "/blog/zerotier-at-def-con-30/"
-    },
-    {
-        "from": "/2022/06/09/zerotier-business-sso-is-here-and-so-is-our-new-pricing/",
-        "to": "/blog/zerotier-business-sso-is-here-and-so-is-our-new-pricing/"
     },
     {
         "from": "/2022/06/09/zerotier-business-sso-is-here-and-so-is-our-new-pricing/",
@@ -30,10 +22,6 @@
     {
         "from": "/2022/04/11/zerotier-for-windows-local-privilege-escalation/",
         "to": "/blog/zerotier-for-windows-local-privilege-escalation/"
-    },
-    {
-        "from": "/2022/01/27/zerotier-at-networking-field-day-27/",
-        "to": "/blog/zerotier-at-networking-field-day-27/"
     },
     {
         "from": "/2022/01/27/zerotier-at-networking-field-day-27/",
@@ -57,7 +45,7 @@
     },
     {
         "from": "/2021/07/20/zerotier-makes-running-private-cloud-storage-more-accessible-and-easier-to-use/",
-        "to": "/blog/zerotier-makes-running-private-cloud-storage-more-accessible-and-easier-to-use/"
+        "to": "/blog/zerotier-makes-running-private-cloud-storage-more-accessible-and-easier-to/"
     },
     {
         "from": "/2021/06/16/zerotier-at-sea/",
@@ -73,15 +61,15 @@
     },
     {
         "from": "/2021/02/17/zerotier-raises-2m-for-a-radically-simple-approach-to-networking/",
-        "to": "/blog/zerotier-raises-2m-for-a-radically-simple-approach-to-networking/"
+        "to": "/blog/zerotier-raises-usd2m-for-a-radically-simple-approach-to-networking/"
     },
     {
         "from": "/2021/02/09/new-zerotier-organizations/",
-        "to": "/blog/new-zerotier-organizations/"
+        "to": "/blog/zerotier-organizations/"
     },
     {
         "from": "/2021/01/29/network-collective-google-cloud-demo/",
-        "to": "/blog/network-collective-google-cloud-demo/"
+        "to": "/blog/network-collective-shows-you-how-to-connect-to-google-cloud-using-zerotier/"
     },
     {
         "from": "/2020/11/20/zerotier-1-6-0/",
@@ -113,7 +101,7 @@
     },
     {
         "from": "/2019/09/04/aes-gmac-ctr-siv/",
-        "to": "/blog/aes-gmac-ctr-siv/"
+        "to": "/blog/research-notes-aes-gmac-ctr-siv/"
     },
     {
         "from": "/2019/08/30/zerotier-root-server-upgrades/",
@@ -121,7 +109,7 @@
     },
     {
         "from": "/2019/08/21/zerotier-2-0-cryptography-notes/",
-        "to": "/blog/zerotier-2-0-cryptography-notes/"
+        "to": "/blog/research-notes-on-2-x-cryptography/"
     },
     {
         "from": "/2019/08/21/how-zerotier-eliminated-kernel-extensions-on-macos/",
@@ -129,7 +117,7 @@
     },
     {
         "from": "/2019/06/30/lf-announcement/",
-        "to": "/blog/lf-announcement/"
+        "to": "/blog/blog/lf-a-fully-decentralized-fully-replicated-key-value-store/"
     },
     {
         "from": "/2019/06/28/zerotier-1-4-0pre/",
@@ -137,7 +125,7 @@
     },
     {
         "from": "/2019/06/26/state-of-the-zerotier-address/",
-        "to": "/blog//tate-of-the-zerotier-address/"
+        "to": "/blog/state-of-the-zerotier-address/"
     },
     {
         "from": "/2017/05/05/the-horror-in-the-standard-library/",
