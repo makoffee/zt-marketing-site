@@ -18,7 +18,7 @@ function AboutProfile(props) {
         <GatsbyImage
           alt={props.image.alt}
           image={getImage(props.image.gatsbyImageData)}
-          style={{filter: "grayscale(1)"}}
+          style={{filter: "grayscale(1)", borderRadius: "100%"}}
         />
       )}
       <Space size={3} />
