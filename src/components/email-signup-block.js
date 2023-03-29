@@ -32,7 +32,7 @@ export default function EmailSignupBlock(props) {
                         <input type="hidden" name="m" value="0" />
                         <input type="hidden" name="act" value="sub" />
                         <input type="hidden" name="v" value="2" />
-                        <input type="hidden" name="or" value="27b3a913d054ff5c3b2f3fd64d5fc5d5" data-name="or"/>
+                        <input type="hidden" name="or" value="faa3bf83e2f56b7b1510212918db57d2" data-name="or"/>
                         <Flex variant="verticalCenter" style={{justifyContent:"right"}}>
                             <Flex style={{flex:"1 1 auto", justifyContent:"flex-end"}}>
                                 <input type="email" id="email" name="email" placeholder="Email Address" required style={{marginBottom:"0"}}/>
@@ -56,3 +56,5 @@ export const query = graphql`
     text
   }
 `
+
+
