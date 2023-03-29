@@ -68,7 +68,7 @@ globalStyle("code", {
   fontSize: theme.fontSizes[0],
   borderRadius: "12px",
   overflowWrap: "anywhere",
-  whiteSpace: "pre"
+  whiteSpace: "pre-wrap"
 })
 
 
