@@ -1,6 +1,11 @@
 import * as React from "react"
 import { graphql } from "gatsby"
-import { Container, Box, Heading, Text, Section } from "./ui"
+import { 
+  Container, 
+  Box, 
+  Subhead,
+  Text, 
+  Section } from "./ui"
 import Feature from "./feature"
 import { theme } from "../theme.css"
 
@@ -10,9 +15,9 @@ export default function FeatureList(props) {
     <Container width="normal">
         <Box padding={3} radius="large" background="muted">
         <Box center paddingY={4}>
-          <Heading style={{color: theme.colors.primary}}>
+          <Subhead as="h2" style={{color: theme.colors.primary}}>
             {props.heading}
-          </Heading>
+          </Subhead>
           {props.text && <Text>{props.text}</Text>}
         </Box>
         {props.content.map((feature, i) => (

@@ -7,8 +7,8 @@ import {
   ButtonList,
   Container,
   Heading,
+  Subhead,
   Section,
-  Text,
   BannerImage,
 } from "./ui"
 
@@ -32,7 +32,7 @@ export default function Hero(props) {
             <Heading as="h1">
               {props.h1}
             </Heading>
-            <Text as="h3">{props.text}</Text>
+            <Subhead as="h2">{props.text}</Subhead>
             <ButtonList links={props.links} varient="primary"/>
           </Box>
       </Container>

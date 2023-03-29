@@ -21,7 +21,7 @@ module.exports = {
         // uncomment for uncomment for local image storage
         // downloadLocal: true,
         images: {
-          quality: 100,
+          quality: 80,
         }
       },
 
@@ -37,7 +37,7 @@ module.exports = {
           },
           production: {
             // update this before launch
-            policy: [{userAgent: '*', disallow: '/'}]
+            policy: [{userAgent: '*', allow: '/'}]
           }
         }
       }
@@ -60,7 +60,7 @@ module.exports = {
         short_name: "ZeroTier",
         start_url: "/",
         // These can be imported once ESM support lands
-        background_color: "#ff1A1A1",
+        background_color: "#ff1A1A",
         theme_color: "#fdb25d",
         icon: "src/favicon.png",
         theme_color_in_head: false,
