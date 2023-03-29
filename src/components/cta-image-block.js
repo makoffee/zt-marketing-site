@@ -19,7 +19,7 @@ export default function CtaImageBlock(props) {
     <Container width="normal">
       <Section padding={4} radius="large" background="active">
         <Flex responsive variant="verticalCenter">
-          <Box width="half" paddingY={4}>
+          <Box width="twothirds" paddingY={5}>
             {props.icon && (
               <Icon alt={props.icon.alt} image={props.icon.gatsbyImageData} />
             )}
@@ -30,10 +30,10 @@ export default function CtaImageBlock(props) {
             <Space size={4}/>
             <ButtonList links={props.links} reversed />
           </Box>
-          <Box width="half">
+          <Box width="third" center>
             {props.image && (
 
-                <GatsbyImage
+                <GatsbyImage style={{maxWidth:"60vw"}}
                   alt={props.image.alt}
                   image={getImage(props.image.gatsbyImageData)}
                 />
