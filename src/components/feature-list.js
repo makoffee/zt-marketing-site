@@ -3,7 +3,7 @@ import { graphql } from "gatsby"
 import { 
   Container, 
   Box, 
-  Subhead,
+  Heading,
   Text, 
   Section } from "./ui"
 import Feature from "./feature"
@@ -15,9 +15,9 @@ export default function FeatureList(props) {
     <Container width="normal">
         <Box padding={3} radius="large" background="muted">
         <Box center paddingY={4}>
-          <Subhead as="h2" style={{color: theme.colors.primary}}>
+          <Heading as="h2" style={{color: theme.colors.primary}}>
             {props.heading}
-          </Subhead>
+          </Heading>
           {props.text && <Text>{props.text}</Text>}
         </Box>
         {props.content.map((feature, i) => (
