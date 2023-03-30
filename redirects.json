@@ -158,5 +158,9 @@
     {
         "from": "/download.shtml",
         "to": "/download"
+    },
+    {
+        "from": "/download.html",
+        "to": "/download"
     }    
   ]
