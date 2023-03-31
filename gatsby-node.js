@@ -165,7 +165,6 @@ exports.createSchemaCustomization = async ({ actions }) => {
     interface HomepageFeatureList implements Node & HomepageBlock {
       id: ID!
       blocktype: String
-      text: String
       content: [HomepageFeature]
     }
     interface HomepageCta implements Node & HomepageBlock {
@@ -481,7 +480,6 @@ exports.createSchemaCustomization = async ({ actions }) => {
     type ContentfulHomepageFeatureList implements Node & HomepageBlock & HomepageFeatureList
       @dontInfer {
       blocktype: String @blocktype
-      text: String
       content: [HomepageFeature] @link(from: "content___NODE")
     }
     type ContentfulHomepageCta implements Node & HomepageBlock & HomepageCta
