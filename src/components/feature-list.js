@@ -6,7 +6,6 @@ import {
   Text, 
   Section } from "./ui"
 import Feature from "./feature"
-import { theme } from "../theme.css"
 
 export default function FeatureList(props) {
   return (
