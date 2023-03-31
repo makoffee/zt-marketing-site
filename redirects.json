@@ -162,5 +162,13 @@
     {
         "from": "/download.html",
         "to": "/download"
-    }    
+    },
+    {
+        "from": "/manual.html",
+        "to": "https://docs.zerotier.com/"
+    },
+    {
+        "from": "/manual.shtml",
+        "to": "https://docs.zerotier.com/"
+    }
   ]
