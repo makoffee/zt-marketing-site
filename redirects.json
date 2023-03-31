@@ -170,5 +170,13 @@
     {
         "from": "/manual.shtml",
         "to": "https://docs.zerotier.com/"
+    },
+    {
+        "from": "/xmlrpc.php",
+        "to": "/"
+    },
+    {
+        "from": "/wp-login.php",
+        "to": "/"
     }
   ]
