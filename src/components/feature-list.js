@@ -28,7 +28,6 @@ export default function FeatureList(props) {
 export const query = graphql`
   fragment HomepageFeatureListContent on HomepageFeatureList {
     id
-    heading
     text
     content {
       id
