@@ -35,7 +35,7 @@ export default function Feature(props) {
             />
             </Box>
             <Space size={4}/>
-            <ButtonList links={props.links} varient="white"/>
+            <ButtonList links={props.links} variant="white"/>
           </Box>
         </Flex>
   )

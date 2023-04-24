@@ -13,7 +13,7 @@ export default function EmailSignupBlock(props) {
       <Section>
         <Container>
             <Box padding={4} background="black" radius="large">
-            <Flex responsive gap={3} varient="end">
+            <Flex responsive gap={3} variant="end">
                 <Flex variant="columnStart" gap={0} style={{flex:"1 1 auto"}}>
                     <Text bold variant="lead" style={{marginBottom:"0"}}>{props.heading}</Text>
                     <Text variant="small">{props.text}</Text>

@@ -165,13 +165,13 @@ export function Button({ variant = [], ...props }) {
   return <Base as={Link} cx={[styles.buttons[variant]]} {...props} />
 }
 
-export function ButtonList({ links = [], varient = [], reversed = false, ...props }) {
+export function ButtonList({ links = [], variant = [], reversed = false, ...props }) {
   const getVariant = (i) => {
     if (reversed) {
       return i === 0 ? "reversed" : "linkReversed"
     }
-    if (varient !== null) { 
-      return i === 0 ? varient : "link"
+    if (variant !== null) { 
+      return i === 0 ? variant : "link"
     }
     return i === 0 ? "primary" : "link"
   }

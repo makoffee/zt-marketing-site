@@ -232,7 +232,7 @@ exports.createSchemaCustomization = async ({ actions }) => {
       text: String
       html: String!
       cta: HomepageLink
-      varient: String
+      variant: String
       image: HomepageImage
     }
     interface HomepageBenefitList implements Node & HomepageBlock {
@@ -390,8 +390,8 @@ exports.createSchemaCustomization = async ({ actions }) => {
       blocktype: String
       heading: String
       text: String
-      colorVarient: String
-      buttonVarient: String
+      backgroundVariant: String
+      buttonVariant: String
       image: HomepageImage
       icon: HomepageImage
       links: [HomepageLink]
@@ -552,7 +552,7 @@ exports.createSchemaCustomization = async ({ actions }) => {
       heading: String
       text: String
       html: String! @richText
-      varient: String
+      variant: String
       cta: HomepageLink @link(from: "cta___NODE")
       image: HomepageImage @link(from: "image___NODE")
     }
@@ -598,8 +598,8 @@ exports.createSchemaCustomization = async ({ actions }) => {
       blocktype: String @blocktype
       heading: String
       text: String
-      colorVarient: String
-      buttonVarient: String
+      backgroundVariant: String
+      buttonVariant: String
       image: HomepageImage @link(from: "image___NODE")
       icon: HomepageImage @link(from: "icon___NODE")
       links: [HomepageLink] @link(from: "links___NODE")

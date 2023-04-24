@@ -49,7 +49,7 @@ export default function RichTextBlock(props) {
               <div style={{fontSize: theme.fontSizes[2], lineHeight: theme.lineHeights.text}}>
                 {renderRichText(props.body)}
               </div>
-              {props.links && <ButtonList links={props.links} varient="whiteReversed"/>}
+              {props.links && <ButtonList links={props.links} variant="whiteReversed"/>}
             </Box>
         </Container>
         </Section>

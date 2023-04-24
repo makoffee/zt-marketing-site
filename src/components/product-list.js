@@ -33,7 +33,7 @@ function Product(props) {
             }}
             />
       <Space size={2}/>
-      <ButtonList links={props.links} varient={props.variant}/>
+      <ButtonList links={props.links} variant={props.variant}/>
      
     </Box>
   )

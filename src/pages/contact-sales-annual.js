@@ -15,7 +15,7 @@ export default function Contact() {
           </Text>
           <Space size={4} />
         </Box>
-        <Flex responsive varient="responsiveMedium" gap={4} variant="columnStart">
+        <Flex responsive gap={4} variant="columnStart">
         <Box paddingY={4} width="half">
           <Subhead>An annual plan for internal teams or small businesses.</Subhead>
           <Text bold>Business Plan Features:</Text>

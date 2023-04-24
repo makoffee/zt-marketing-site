@@ -15,7 +15,7 @@ export default function Contact() {
           </Text>
           <Space size={4} />
         </Box>
-        <Flex responsive varient="responsiveMedium" gap={4} variant="columnStart">
+        <Flex responsive gap={4} variant="columnStart">
         <Box paddingY={4} width="half">
           <Text>For sales, proof-of-concept requests, or software licensing questions, fill out the form to the right.</Text>
           <Text>For product support, please visit the ZeroTier community board.</Text>

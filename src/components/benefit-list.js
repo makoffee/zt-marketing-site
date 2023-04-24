@@ -32,7 +32,7 @@ function Benefit(props) {
               __html: props.html,
             }}
           />
-          <Box center>{props.cta && <Button to={props.cta.href} variant={props.varient}>{props.cta.text}</Button>}</Box>
+          <Box center>{props.cta && <Button to={props.cta.href} variant={props.variant}>{props.cta.text}</Button>}</Box>
           
     </Box>
   )
@@ -67,7 +67,7 @@ export const query = graphql`
       id
       heading
       html
-      varient
+      variant
       cta {
         id
         href

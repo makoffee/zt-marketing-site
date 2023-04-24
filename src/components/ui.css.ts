@@ -617,7 +617,7 @@ const button = style({
   borderRadius: theme.radii.button,
 })
  
-export type ButtonVariants = "primary" | "reversed" | "link" | "linkReversed" | "white" | "whiteReversed" | "dark" | "gradient"
+export type ButtonVariants = "primary" | "reversed" | "link" | "linkReversed" | "white" | "active" |"whiteReversed" | "dark" | "gradient"
 
 export const buttons: Record<ButtonVariants, string> = styleVariants({
   primary: [

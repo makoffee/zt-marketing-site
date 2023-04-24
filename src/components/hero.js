@@ -50,7 +50,7 @@ export default function Hero(props) {
             </SuperHeading>
             <Text variant="lead">{props.text}</Text>
             <Space size={4}/>
-            <ButtonList links={props.links} varient="primary"/>
+            <ButtonList links={props.links} variant="primary"/>
           </Box>
             {props.image && (
               <Box width="half">

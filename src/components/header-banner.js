@@ -33,7 +33,7 @@ export default function Hero(props) {
               {props.h1}
             </Heading>
             <Subhead as="h2">{props.text}</Subhead>
-            <ButtonList links={props.links} varient="primary"/>
+            <ButtonList links={props.links} variant="primary"/>
           </Box>
       </Container>
       </div>
