@@ -791,7 +791,7 @@ export const borders: Record<Borders, string> = styleVariants({
   },
 })
 
-export type Backgrounds = "primary" | "muted" | "active" | "white" | "black"
+export type Backgrounds = "primary" | "muted" | "active" | "white" | "black" | "purple" | "cobalt" | "oceanBlue" | "maxYellow" | "eucalyptus" | "orange" | "blueBerry" | "electricBlue" | "violet" | "customBlue" | "topaz" | "paleOrange" | "cornSilk" | "rajah"
 
 export const backgrounds: Record<Backgrounds, string> = styleVariants({
   primary: {
@@ -813,6 +813,62 @@ export const backgrounds: Record<Backgrounds, string> = styleVariants({
   black: {
     color: theme.colors.text,
     backgroundColor: theme.colors.black,
+  },
+  purple: {
+    color: theme.colors.text,
+    backgroundColor: theme.colors.purple,
+  },
+  cobalt: {
+    color: theme.colors.text,
+    backgroundColor: theme.colors.cobalt,
+  },
+  oceanBlue: {
+    color: theme.colors.text,
+    backgroundColor: theme.colors.oceanBlue,
+  },
+  maxYellow: {
+    color: theme.colors.background,
+    backgroundColor: theme.colors.maxYellow,
+  },
+  eucalyptus: {
+    color: theme.colors.background,
+    backgroundColor: theme.colors.eucalyptus,
+  },
+  orange: {
+    color: theme.colors.text,
+    backgroundColor: theme.colors.orange,
+  },
+  blueBerry: {
+    color: theme.colors.background,
+    backgroundColor: theme.colors.blueBerry,
+  },
+  electricBlue: {
+    color: theme.colors.background,
+    backgroundColor: theme.colors.electricBlue,
+  },
+  violet: {
+    color: theme.colors.text,
+    backgroundColor: theme.colors.violet,
+  },
+  customBlue: {
+    color: theme.colors.text,
+    backgroundColor: theme.colors.customBlue,
+  },
+  topaz: {
+    color: theme.colors.background,
+    backgroundColor: theme.colors.topaz,
+  },
+  paleOrange: {
+    color: theme.colors.background,
+    backgroundColor: theme.colors.paleOrange,
+  },
+  cornSilk: {
+    color: theme.colors.background,
+    backgroundColor: theme.colors.cornSilk,
+  },
+  rajah: {
+    color: theme.colors.background,
+    backgroundColor: theme.colors.rajah,
   },
 })
 
