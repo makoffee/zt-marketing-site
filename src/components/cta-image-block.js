@@ -17,7 +17,7 @@ export default function CtaImageBlock(props) {
   return (
 
     <Container width="normal">
-      <Section padding={4} radius="large" background="active">
+      <Section padding={4} radius="large" background={props.colorVarient}>
         <Flex responsive variant="verticalCenter">
           <Box width="twothirds" paddingY={5}>
             {props.icon && (
@@ -28,7 +28,7 @@ export default function CtaImageBlock(props) {
             </Heading>
             {props.text && <Text variant="lead">{props.text}</Text>}
             <Space size={4}/>
-            <ButtonList links={props.links} reversed />
+            <ButtonList links={props.links} varient={props.buttonVarient} />
           </Box>
           <Box width="third" center>
             {props.image && (
@@ -51,6 +51,8 @@ export const query = graphql`
     id
     heading
     text
+    colorVarient
+    buttonVarient
     image {
       id
       alt

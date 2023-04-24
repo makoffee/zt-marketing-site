@@ -390,6 +390,8 @@ exports.createSchemaCustomization = async ({ actions }) => {
       blocktype: String
       heading: String
       text: String
+      colorVarient: String
+      buttonVarient: String
       image: HomepageImage
       icon: HomepageImage
       links: [HomepageLink]
@@ -596,6 +598,8 @@ exports.createSchemaCustomization = async ({ actions }) => {
       blocktype: String @blocktype
       heading: String
       text: String
+      colorVarient: String
+      buttonVarient: String
       image: HomepageImage @link(from: "image___NODE")
       icon: HomepageImage @link(from: "icon___NODE")
       links: [HomepageLink] @link(from: "links___NODE")
