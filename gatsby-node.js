@@ -392,6 +392,7 @@ exports.createSchemaCustomization = async ({ actions }) => {
       text: String
       backgroundVariant: String
       buttonVariant: String
+      order: String
       image: HomepageImage
       icon: HomepageImage
       links: [HomepageLink]
@@ -600,6 +601,7 @@ exports.createSchemaCustomization = async ({ actions }) => {
       text: String
       backgroundVariant: String
       buttonVariant: String
+      order: String
       image: HomepageImage @link(from: "image___NODE")
       icon: HomepageImage @link(from: "icon___NODE")
       links: [HomepageLink] @link(from: "links___NODE")

@@ -14,12 +14,14 @@ import {
 } from "./ui"
 
 export default function CtaImageBlock(props) {
+
   return (
 
     <Container width="normal">
-      <Section padding={4} radius="large" background={props.backgroundVariant}>
+      <Section>
+        <Box padding={4} radius="large" background={props.backgroundVariant}>
         <Flex responsive variant="verticalCenter">
-          <Box width="twothirds" paddingY={5}>
+          <Box width="twothirds" paddingY={5} order={props.order}>
             {props.icon && (
               <Icon alt={props.icon.alt} image={props.icon.gatsbyImageData} />
             )}
@@ -41,6 +43,7 @@ export default function CtaImageBlock(props) {
             )}
           </Box>
         </Flex>
+        </Box>
       </Section>
     </Container>
   )
@@ -53,6 +56,7 @@ export const query = graphql`
     text
     backgroundVariant
     buttonVariant
+    order
     image {
       id
       alt
