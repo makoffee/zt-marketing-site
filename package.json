@@ -40,7 +40,7 @@
     "gatsby-plugin-manifest": "^5.5.0",
     "gatsby-plugin-robots-txt": "^1.8.0",
     "gatsby-plugin-sharp": "^5.5.0",
-    "gatsby-plugin-sitemap": "^6.4.0",
+    "gatsby-plugin-sitemap": "^6.9.0",
     "gatsby-plugin-vanilla-extract": "^4.0.1",
     "gatsby-remark-prismjs": "^7.7.0",
     "gatsby-source-contentful": "8.7.0",

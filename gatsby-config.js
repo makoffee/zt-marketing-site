@@ -88,6 +88,9 @@ module.exports = {
         ],
       },
     },
+    {
+      resolve: "gatsby-plugin-sitemap",
+    },
     // uncomment for local image storage
     //{
     //  resolve: `gatsby-source-filesystem`,
