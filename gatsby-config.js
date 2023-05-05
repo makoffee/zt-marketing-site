@@ -90,6 +90,12 @@ module.exports = {
     },
     {
       resolve: "gatsby-plugin-sitemap",
+      options : {
+        excludes: [
+                `/thank-you`,
+                `/newsletter-confirmation`,
+            ],
+      }
     },
     // uncomment for local image storage
     //{
