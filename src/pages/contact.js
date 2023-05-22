@@ -10,9 +10,6 @@ export default function Contact() {
         <Box paddingY={5}>
           <Heading as="h1" center>Contact the ZeroTier Sales Team
           </Heading>
-          <Text center>
-          For product support, please visit the ZeroTier community board.
-          </Text>
           <Space size={4} />
         </Box>
         <Flex responsive gap={4} variant="columnStart">
