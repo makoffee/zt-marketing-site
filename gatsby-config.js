@@ -96,6 +96,13 @@ module.exports = {
                 `/newsletter-confirmation`,
             ],
       }
+      
+    },
+    {
+      resolve: `gatsby-plugin-canonical-urls`,
+      options: {
+        siteUrl: `https://www.zerotier.com`,
+      },
     },
     // uncomment for local image storage
     //{
